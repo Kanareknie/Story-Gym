@@ -1,7 +1,96 @@
 /*  CSS Variables */
-
 /* Fonts in root */
 :root {
     --primary-font: 'Anton', sans-serif, font-weight: 400, font-style: normal;
-    --secondary-font: 'Open Sans', sans-serif, font-optical-sizing: auto, font-style: normal, font-variation-settings: "wdth" 100;                    
+    --secondary-font: 'Open Sans', sans-serif, font-optical-sizing: auto, font-style: normal, font-variation-settings: "wdth" 100;
+}
+
+/* ------------------------- Index page - main setting ---------------------------- */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* ------------------------- Index page - header setting ---------------------------- */
+
+header {
+    padding: 1rem 0;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar-button {
+    display: none;
+    border: 0;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Media query - small screen max-width 900px */
+
+@media (max-width: 900px) {
+    #sidebar-button {
+        display: block;
+    }
+
+    .top-nav {
+        display: none;
+        position: absolute;
+        right: 1rem;
+        top: 72px;
+        background: #111;
+        color: #fff;
+        padding: 0.75rem;
+        border-radius: 12px;
+        min-width: 180px;
+        flex-direction: column;
+    }
+
+    .top-nav.is-open {
+        display: flex;
+    }
+
+    .top-nav-link {
+        display: block;
+        padding: 0.6rem 0.75rem;
+        border-radius: 10px;
+    }
+
+    /* Hide 2 hero pictures with no text */
+    .hero-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        min-height: auto;
+    }
+
+    .img-left,
+    .img-right {
+        display: none;
+    }
+
+    .hero-card {
+        position: static;
+        width: 100%;
+    }
 }
