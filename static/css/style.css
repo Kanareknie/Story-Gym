@@ -23,6 +23,13 @@ main {
     flex: 1;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2px 2px;
+}
+
 /* ------------------------- Index page - header setting ---------------------------- */
 
 header {
