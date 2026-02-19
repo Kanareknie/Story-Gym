@@ -47,26 +47,61 @@
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
-        <!-- Navigation bar -->
-        <section>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#exercises">Exercises</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
-        <!-- Main section -->
-        <main></main>
+        <main>
+             <!-- Button to open sidebar only for small screens -->
+                <button
+                    id="sidebar-button"
+                    type="button"
+                    aria-controls="daily-sidebar"
+                    aria-expanded="false"
+                    aria-label="Daily Insight"
+                >
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    <span class="sidebar-button-label"></span>
+                </button>
+                <!-- Home link  -->
+                <nav class="top-nav" aria-label="Main navigation">
+                    <a
+                        class="top-nav-link"
+                        href="index.html"
+                        aria-label="Home"
+                        data-label="Home"
+                    >
+                        <span class="top-nav-text">Home</span>
+                    </a>
+                    <a
+                        class="top-nav-link"
+                        href=""
+                        aria-label=""
+                        data-label=""
+                    >
+                        <span class="top-nav-text">Login</span>
+                    </a>
+                    <a
+                        class="top-nav-link"
+                        href=""
+                        aria-label=""
+                        data-label=""
+                    >
+                        <span class="top-nav-text">Register</span>
+                    </a>
+                    <a
+                        class="top-nav-link"
+                        href=""
+                        aria-label=""
+                        data-label=""
+                    >
+                        <span class="top-nav-text">Stories</span>
+                    </a>
+                    <a
+                        class="top-nav-link"
+                        href=""
+                        aria-label=""
+                        data-label=""
+                    >
+                        <span class="top-nav-text">Randomizer</span>
+                    </a>
+                </nav>
+        </main>
     </body>
 </html>
