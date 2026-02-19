@@ -1,0 +1,7 @@
+/*  CSS Variables */
+
+/* Fonts in root */
+:root {
+    --primary-font: 'Anton', sans-serif, font-weight: 400, font-style: normal;
+    --secondary-font: 'Open Sans', sans-serif, font-optical-sizing: auto, font-style: normal, font-variation-settings: "wdth" 100;                    
+}
