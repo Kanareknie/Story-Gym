@@ -69,33 +69,21 @@
                 >
                     <span class="top-nav-text">Home</span>
                 </a>
-                <a
-                    class="top-nav-link"
-                   
-                >
+                <a class="top-nav-link">
                     <span class="top-nav-text">Login</span>
                 </a>
-                <a
-                    class="top-nav-link"
-                   
-                >
+                <a class="top-nav-link">
                     <span class="top-nav-text">Register</span>
                 </a>
-                <a
-                    class="top-nav-link"
-                    
-                >
+                <a class="top-nav-link">
                     <span class="top-nav-text">Stories</span>
                 </a>
-                <a
-                    class="top-nav-link"
-                   
-                >
+                <a class="top-nav-link">
                     <span class="top-nav-text">Randomizer</span>
                 </a>
             </nav>
         </header>
-        <!-- SECTION 1: HERO (text + collage images overlapping) -->
+        <!-- SECTION 1: HERO  -->
         <main>
             <section class="hero">
                 <div class="container hero-inner">
@@ -105,22 +93,29 @@
                             If you love writing, ideas, and imagination, this place will feel just right. With playful prompts and a community of storytellers, StoryGym turns writing into an enjoyable creative exercise. Take a moment, generate a prompt, and see where your story takes you.
                         </p>
                     </div>
+                    <!-- Container to position absolute the pictures -->
                     <div class="hero-visual">
-                        <!-- Only picture -->
-                        <img class="img-left" src="/static/images/hero1.png" alt="lady sitting and reading a book">
+                        <!-- Image: absolute -->
+                        <img class="hero-float hero-float-left" src="/static/images/hero1.png" alt="lady sitting and reading a book">
+                        <!-- CARD (normal flow) -->
                         <div class="hero-card">
-                            <!-- Card on the image as a background -->
-                            <div class="card-content">
-                                <h3>GET INSPIRED!</h3>
+                            <!-- Columns - normal flow -->
+                            <div class="hero-card-col hero-card-col-left">
+                                <h3 class="hero-card-kicker">GET INSPIRED!</h3>
                                 <p>
                                     Word generator will randomly pick the words for you, making your challange more... challanging! Trust your talent and share your story with everyone.
                                 </p>
-                                <button>Start here</button>
                             </div>
-                            <img src="/static/images/hero2.png" alt="man with a book">
+                            <div class="hero-card-media">
+                                <img class="hero-card-figure" src="/static/images/hero2.png" alt="man with a book">
+                            </div>
+                            <div class="hero-card-col hero-card-col-right">
+                                <h3 class="hero-card-title">Ready for your new story?</h3>
+                                <button class="hero-card-btn" type="button">Start here</button>
+                            </div>
                         </div>
-                        <!-- Only picture -->
-                        <img class="img-right" src="/static/images/hero3.png" alt="girl with a notebook">
+                        <!-- Image: absolute -->
+                        <img class="hero-float hero-float-right" src="/static/images/hero3.png" alt="girl with a notebook">
                     </div>
                 </div>
             </section>
