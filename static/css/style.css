@@ -119,9 +119,15 @@ img {
 }
 
 .container {
-  width: min(1100px, 100%);
+   width: 100%;
+  max-width: 1200px;
   margin-inline: auto;
-  padding-inline: 20px;
+  padding-inline: 60px;
+ 
+}
+
+.quote-section{
+  padding: 0;
 }
 
 /* Whole page margin */
@@ -191,14 +197,16 @@ header {
   padding-block: 32px;
 }
 
+
 .hero-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 40px;
-  width: min(1100px, 100%);
-  margin-inline: auto; 
 }
+
+.hero .container,
+.features-section .container {  margin-inline: auto; }
 
 /* Left text column */
 .hero-text {
@@ -341,7 +349,6 @@ header {
   margin-inline: auto;
 
   background: rgba(0, 0, 0, 0.55);
-  padding: 24px;          /* “small margin” inside panel */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -384,8 +391,6 @@ header {
 }
 
 .quote-section .container {
-  width: 75%;
-  margin: 0 auto;
   height: 750px;
   background: url("/static/images/hero-wall.jpg") center / cover no-repeat;
   position: relative;
@@ -393,8 +398,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 60px;
-  padding-right: 60px;
 }
 
 .quote-section .container > * {
@@ -420,7 +423,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 60px; 
 }
 
 /* Text on the picture */
@@ -467,10 +469,9 @@ header {
 
 .join-section .container {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr; /* image left bigger */
-  min-height: 280px;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
   overflow: hidden;
-  padding: 0; /* important: remove padding so image is flush */
 }
 
 /* left side = image */
@@ -485,16 +486,16 @@ header {
 
 /* right side = black content panel */
 .join-card {
-  padding: 24px;
   background: rgba(0,0,0,0.8);
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-bottom: 15px;
+  width: 100%;
 }
-
-
-
 
 /* ------------------------ Footer - desktop  --------------------------- */
 
