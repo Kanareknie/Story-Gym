@@ -1,36 +1,52 @@
-/*  CSS Variables */
-/* Fonts in root */
+
+/* --- Root --- */
+
 :root {
-    --primary-font: 'Anton', sans-serif, font-weight: 400, font-style: normal;
-    --secondary-font: 'Open Sans', sans-serif, font-optical-sizing: auto, font-style: normal, font-variation-settings: "wdth" 100;
+
+  --font-display: "Anton", sans-serif;
+  --font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+}
+
+/* --- Fonts --- */
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 /* ------------------------- Index page - main setting ---------------------------- */
 
+
 html,
 body {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-/* griadient background */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  /* griadient background */
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(   120deg,
-    #1c1b1b 0%,
-    #2b2423 35%,
-    #8f6e64 75%,
-    #c79a8e 100%);
-  background-attachment: fixed; /* optional but nice */
+  background: linear-gradient(120deg,
+      #1c1b1b 0%,
+      #2b2423 35%,
+      #8f6e64 75%,
+      #c79a8e 100%);
+  background-attachment: fixed;
+  /* optional but nice */
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
 img {
@@ -39,6 +55,7 @@ img {
   display: block;
   margin: 2px 2px;
 }
+
 .container {
   width: min(1100px, 100%);
   margin-inline: auto;
@@ -50,55 +67,55 @@ img {
 /* ------------------------- Index page - header setting ---------------------------- */
 
 header {
-    padding: 1rem 0;
-    position: relative;
+  padding: 1rem 0;
+  position: relative;
 }
 
 .top-nav {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
 #sidebar-button {
-    display: none;
-    border: 0;
-    background: transparent;
-    font-size: 1.5rem;
-    cursor: pointer;
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Media query - small screen max-width 900px */
 
 @media (max-width: 900px) {
-    #sidebar-button {
-        display: block;
-    }
+  #sidebar-button {
+    display: block;
+  }
 
-    .top-nav {
-        display: none;
-        position: absolute;
-        right: 1rem;
-        top: 72px;
-        background: #111;
-        color: #fff;
-        padding: 0.75rem;
-        min-width: 180px;
-        flex-direction: column;
-    }
+  .top-nav {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 72px;
+    background: #111;
+    color: #fff;
+    padding: 0.75rem;
+    min-width: 180px;
+    flex-direction: column;
+  }
 
-    .top-nav.is-open {
-        display: flex;
-    }
+  .top-nav.is-open {
+    display: flex;
+  }
 
-    .top-nav-link {
-        display: block;
-        padding: 0.6rem 0.75rem;
-  
-    }
+  .top-nav-link {
+    display: block;
+    padding: 0.6rem 0.75rem;
+
+  }
 }
-  
+
 
 /* ------------------------ Hero layout - desktop --------------------------- */
 
@@ -128,8 +145,10 @@ header {
 /* Right visual column */
 .hero-visual {
   flex: 1 1 520px;
-  position: relative; /* important for absolute images */
-  min-height: 360px;   /* gives room for the floats */
+  position: relative;
+  /* important for absolute images */
+  min-height: 360px;
+  /* gives room for the floats */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,7 +181,7 @@ header {
   z-index: 2;
   background: url(../images/hero2.png) no-repeat center/cover;
   padding: clamp(16px, 2.2vw, 28px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -222,7 +241,8 @@ header {
   }
 
   .hero-float {
-    display: none; /* easiest: hide side images on mobile */
+    display: none;
+    /* easiest: hide side images on mobile */
   }
 
   .hero-card {
@@ -231,7 +251,8 @@ header {
   }
 
   .hero-card-media {
-    order: -1; /* image on top */
+    order: -1;
+    /* image on top */
     justify-content: flex-start;
   }
 }
@@ -241,7 +262,7 @@ header {
 
 .features-section .container {
   /* optional background “panel” look */
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
 
   padding-block: clamp(18px, 3vw, 28px);
 }
@@ -263,7 +284,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .card img {
@@ -313,7 +334,8 @@ header {
   padding-block: clamp(60px, 8vw, 120px);
   color: #fff;
 
-  background-image: url("/static/images/hero-wall.jpg"); /* your image */
+  background-image: url("/static/images/hero-wall.jpg");
+  /* your image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -353,7 +375,8 @@ header {
   padding-block: clamp(60px, 8vw, 120px);
   color: #fff;
 
-  background-image: url("/static/images/hero-community.jpg"); /* your image */
+  background-image: url("/static/images/hero-community.jpg");
+  /* your image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -379,36 +402,36 @@ header {
 /* ------------------------ Footer - desktop  --------------------------- */
 
 footer {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .social-links {
-    display: flex;
-    gap: 5rem;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    margin: 2px;
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 2px;
 }
 
 
 
 footer ul li a {
-    text-decoration: none;
-    font-size: 1.5rem;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 
 .footer-info {
-    text-align: center;
-    font-size: 0.7rem;
-    padding: 3px;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 3px;
 }
 
 .footer-info2 {
-    font-size: 0.7rem;
-    padding: 3px;
+  font-size: 0.7rem;
+  padding: 3px;
 }
