@@ -441,8 +441,8 @@ header {
 /* Card */
 
 .quote-card {
-  margin: 0 auto 0 auto;  /* centers horizontally */
-  width: 260px;
+  margin: 0 auto 0 auto; 
+  width: 160px;
 
   padding: 20px;
   background: rgba(0, 0, 0, 0.70);
@@ -451,6 +451,11 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.quote-card h3 {
+  padding: 3px;
+  font-size: 2rem;
 }
 
 
