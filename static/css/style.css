@@ -385,11 +385,73 @@ header {
 
 .quote-section .container {
   width: 70%;
+  margin: 0 auto;
   height: 600px;
   background: url("/static/images/hero-wall.jpg") center / cover no-repeat;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
+.quote-section .container > * {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  
+}
+
+.quote-section h2 {
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 20px;
+  max-width: 900px;
+}
+
+.quote-section p {
+  font-size: 1.1rem;
+  margin: 0 0 20px;
+}
+
+.quote-section .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 60px; 
+}
+
+/* Text on the picture */
+
+.container-text {
+  align-self: flex-end;   
+  text-align: right;     
+  max-width: 700px;
+   
+}
+
+.container-text h2 {
+  font-size: clamp(4.2rem, 6vw, 8rem);  /* 🔥 bigger */
+  line-height: 1.02;
+  margin-right: 20px;
+}
+
+/* Card */
+
+.quote-card {
+  margin: 0 auto 0 auto;  /* centers horizontally */
+  width: 260px;
+
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.70);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* ------------------------ SECTION 4: Join (split layout) --------------------------- */

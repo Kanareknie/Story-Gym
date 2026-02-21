@@ -48,168 +48,171 @@
     </head>
     <body>
         <div class="page-wrapper">
-        <header>
-            <!-- Button to open sidebar only for small screens -->
-            <button
-                id="sidebar-button"
-                type="button"
-                aria-controls="daily-sidebar"
-                aria-expanded="false"
-                aria-label="Daily Insight"
-            >
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-                <span class="sidebar-button-label"></span>
-            </button>
-            <!-- Home link  -->
-            <nav class="top-nav" aria-label="Main navigation">
-                <a
-                    class="top-nav-link"
-                    href="index.html"
-                    aria-label="Home"
-                    data-label="Home"
+            <header>
+                <!-- Button to open sidebar only for small screens -->
+                <button
+                    id="sidebar-button"
+                    type="button"
+                    aria-controls="daily-sidebar"
+                    aria-expanded="false"
+                    aria-label="Daily Insight"
                 >
-                    <span class="top-nav-text">Home</span>
-                </a>
-                <a class="top-nav-link">
-                    <span class="top-nav-text">Login</span>
-                </a>
-                <a class="top-nav-link">
-                    <span class="top-nav-text">Register</span>
-                </a>
-                <a class="top-nav-link">
-                    <span class="top-nav-text">Stories</span>
-                </a>
-                <a class="top-nav-link">
-                    <span class="top-nav-text">Randomizer</span>
-                </a>
-            </nav>
-        </header>
-        <!-- SECTION 1: HERO  -->
-        <main>
-            <section class="hero">
-                <div class="container hero-inner">
-                    <div class="hero-text">
-                        <h1>Story Gym</h1>
-                        <p>
-                            If you love writing, ideas, and imagination, this place will feel just right. With playful prompts and a community of storytellers, StoryGym turns writing into an enjoyable creative exercise. Take a moment, generate a prompt, and see where your story takes you.
-                        </p>
-                    </div>
-                    <!-- Container to position absolute the pictures -->
-                    <div class="hero-visual">
-                        <!-- Image: absolute -->
-                        <img class="hero-float hero-float-left" src="/static/images/hero1.png" alt="lady sitting and reading a book">
-                        <!-- CARD (normal flow) -->
-                        <div class="hero-card">
-                            <!-- Columns - normal flow -->
-                            <div class="hero-card-col hero-card-col-left">
-                                <h3 class="hero-card-kicker">GET INSPIRED!</h3>
-                                <p>
-                                    Word generator will randomly pick the words for you, making your challange more... challanging! Trust your talent and share your story with everyone.
-                                </p>
-                            </div>
-                            <div class="hero-card-col hero-card-col-right">
-                                <h3 class="hero-card-title">Ready for your new story?</h3>
-                                <button class="hero-card-btn" type="button">Start here</button>
-                            </div>
-                        </div>
-                        <!-- Image: absolute -->
-                        <img class="hero-float hero-float-right" src="/static/images/hero3.png" alt="girl with a notebook">
-                    </div>
-                </div>
-            </section>
-            <!-- SECTION 2: BLACK BOX WITH 3 CARDS -->
-            <section class="features-section">
-                <div class="container">
-                    <div class="cards">
-                        <article class="card">
-                            <img src="/static/images/hero-card-1.jpg" alt="What’s new">
-                            <h3>What’s new?</h3>
-                            <p>
-                                Discover the latest stories written by the StoryGym community, fresh prompts added to inspire you, and new creative challenges waiting to be explored. There’s always something new happening here — take a look and see what others have been creating.
-                            </p>
-                            <a class="btn" href="#">Read more</a>
-                        </article>
-                        <article class="card">
-                            <img src="/static/images/hero-card-2.jpg" alt="Good story hints">
-                            <h3>Good story hints that lead to unexpected tales</h3>
-                            <a class="btn" href="#">Read more</a>
-                        </article>
-                        <article class="card">
-                            <img src="/static/images/hero-card-3.jpg" alt="Where to start">
-                            <h3>Where to start?</h3>
-                            <p>
-                                Sometimes the hardest part of writing is knowing where to begin. StoryGym removes that barrier by giving you unexpected starting points and playful challenges. You don’t need a perfect idea — just a willingness to explore. With every prompt, you discover new ways to tell a story you didn’t know you had in you.
-                            </p>
-                            <a class="btn" href="#">Read more</a>
-                        </article>
-                    </div>
-                </div>
-            </section>
-            <!-- SECTION 3: IMAGE WITH TEXT ON TOP (background image) -->
-            <section class="quote-section">
-                <div class="container">
-                    <h2>“Start writing, no matter what.”</h2>
-                    <p>— Louis L’Amour</p>
-                    <div class="quote-card">
-                        <h3>Write now!</h3>
-                        <p>Stop overthinking. Start writing. Your imagination is ready.</p>
-                        <a class="btn" href="#">Start here</a>
-                    </div>
-                </div>
-            </section>
-            <!-- SECTION 4: JOIN US (background image + text) -->
-            <section class="join-section">
-                <div class="container">
-                    <div class="join-card">
-                        <h2>Join us today and share your voice</h2>
-                        <p>
-                            A handful of random words can lead to endless storytelling possibilities. Browse the stories already written and discover just how creative those possibilities can be.
-                        </p>
-                        <a class="btn" href="stories.html">Explore stories</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!-- Footer-nav -->
-        <footer>
-            <div id="footer-container">
-                <nav aria-label="Social media links">
-                    <ul class="social-links">
-                        <li>
-                            <a
-                                href="https://www.facebook.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Visit us on Facebook"
-                            >
-                                <i class="fa-brands fa-square-facebook" style="color: rgb(255, 133, 0)"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://www.instagram.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Visit us on Instagram"
-                            >
-                                <i class="fa-brands fa-square-instagram" style="color: rgb(255, 133, 0)"></i>
-                            </a>
-                        </li>
-                        <!-- Page 404 - invalid link -->
-                        <li>
-                            <a href="https://kanareknie.github.io/form.html" aria-label="Demo of not valid website to open 404 page">
-                                <i class="fa-brands fa-square-x-twitter" style="color: rgb(255, 133, 0)"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- License details -->
-                    <div class="footer-info">
-                        <div class="footer-info2">All rights reserved. This website is a student project created for educational purposes only.</div>
-                        <div class="footer-info2">@2026 Katarzyna Gawronska</div>
-                    </div>
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    <span class="sidebar-button-label"></span>
+                </button>
+                <!-- Home link  -->
+                <nav class="top-nav" aria-label="Main navigation">
+                    <a
+                        class="top-nav-link"
+                        href="index.html"
+                        aria-label="Home"
+                        data-label="Home"
+                    >
+                        <span class="top-nav-text">Home</span>
+                    </a>
+                    <a class="top-nav-link">
+                        <span class="top-nav-text">Login</span>
+                    </a>
+                    <a class="top-nav-link">
+                        <span class="top-nav-text">Register</span>
+                    </a>
+                    <a class="top-nav-link">
+                        <span class="top-nav-text">Stories</span>
+                    </a>
+                    <a class="top-nav-link">
+                        <span class="top-nav-text">Randomizer</span>
+                    </a>
                 </nav>
-            </div>
-        </footer>
+            </header>
+            <!-- SECTION 1: HERO  -->
+            <main>
+                <section class="hero">
+                    <div class="container hero-inner">
+                        <div class="hero-text">
+                            <h1>Story Gym</h1>
+                            <p>
+                                If you love writing, ideas, and imagination, this place will feel just right. With playful prompts and a community of storytellers, StoryGym turns writing into an enjoyable creative exercise. Take a moment, generate a prompt, and see where your story takes you.
+                            </p>
+                        </div>
+                        <!-- Container to position absolute the pictures -->
+                        <div class="hero-visual">
+                            <!-- Image: absolute -->
+                            <img class="hero-float hero-float-left" src="/static/images/hero1.png" alt="lady sitting and reading a book">
+                            <!-- CARD (normal flow) -->
+                            <div class="hero-card">
+                                <!-- Columns - normal flow -->
+                                <div class="hero-card-col hero-card-col-left">
+                                    <h3 class="hero-card-kicker">GET INSPIRED!</h3>
+                                    <p>
+                                        Word generator will randomly pick the words for you, making your challange more... challanging! Trust your talent and share your story with everyone.
+                                    </p>
+                                </div>
+                                <div class="hero-card-col hero-card-col-right">
+                                    <h3 class="hero-card-title">Ready for your new story?</h3>
+                                    <button class="hero-card-btn" type="button">Start here</button>
+                                </div>
+                            </div>
+                            <!-- Image: absolute -->
+                            <img class="hero-float hero-float-right" src="/static/images/hero3.png" alt="girl with a notebook">
+                        </div>
+                    </div>
+                </section>
+                <!-- SECTION 2: BLACK BOX WITH 3 CARDS -->
+                <section class="features-section">
+                    <div class="container">
+                        <div class="cards">
+                            <article class="card">
+                                <img src="/static/images/hero-card-1.jpg" alt="What’s new">
+                                <h3>What’s new?</h3>
+                                <p>
+                                    Discover the latest stories written by the StoryGym community, fresh prompts added to inspire you, and new creative challenges waiting to be explored. There’s always something new happening here — take a look and see what others have been creating.
+                                </p>
+                                <a class="btn" href="#">Read more</a>
+                            </article>
+                            <article class="card">
+                                <img src="/static/images/hero-card-2.jpg" alt="Good story hints">
+                                <h3>Good story hints that lead to unexpected tales</h3>
+                                <a class="btn" href="#">Read more</a>
+                            </article>
+                            <article class="card">
+                                <img src="/static/images/hero-card-3.jpg" alt="Where to start">
+                                <h3>Where to start?</h3>
+                                <p>
+                                    Sometimes the hardest part of writing is knowing where to begin. StoryGym removes that barrier by giving you unexpected starting points and playful challenges. You don’t need a perfect idea — just a willingness to explore. With every prompt, you discover new ways to tell a story you didn’t know you had in you.
+                                </p>
+                                <a class="btn" href="#">Read more</a>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <!-- SECTION 3: IMAGE WITH TEXT ON TOP (background image) -->
+                <section class="quote-section">
+                    <div class="container">
+                        <!-- Text wrapper -->
+                        <div class="container-text">
+                            <h2>“Start writing, no matter what.”</h2>
+                            <p>— Louis L’Amour</p>
+                        </div>
+                        <div class="quote-card">
+                            <h3>Write now!</h3>
+                            <p>Stop overthinking. Start writing. Your imagination is ready.</p>
+                            <a class="btn" href="#">Start here</a>
+                        </div>
+                    </div>
+                </section>
+                <!-- SECTION 4: JOIN US (background image + text) -->
+                <section class="join-section">
+                    <div class="container">
+                        <div class="join-card">
+                            <h2>Join us today and share your voice</h2>
+                            <p>
+                                A handful of random words can lead to endless storytelling possibilities. Browse the stories already written and discover just how creative those possibilities can be.
+                            </p>
+                            <a class="btn" href="stories.html">Explore stories</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <!-- Footer-nav -->
+            <footer>
+                <div id="footer-container">
+                    <nav aria-label="Social media links">
+                        <ul class="social-links">
+                            <li>
+                                <a
+                                    href="https://www.facebook.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit us on Facebook"
+                                >
+                                    <i class="fa-brands fa-square-facebook" style="color: rgb(255, 133, 0)"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.instagram.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit us on Instagram"
+                                >
+                                    <i class="fa-brands fa-square-instagram" style="color: rgb(255, 133, 0)"></i>
+                                </a>
+                            </li>
+                            <!-- Page 404 - invalid link -->
+                            <li>
+                                <a href="https://kanareknie.github.io/form.html" aria-label="Demo of not valid website to open 404 page">
+                                    <i class="fa-brands fa-square-x-twitter" style="color: rgb(255, 133, 0)"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- License details -->
+                        <div class="footer-info">
+                            <div class="footer-info2">All rights reserved. This website is a student project created for educational purposes only.</div>
+                            <div class="footer-info2">@2026 Katarzyna Gawronska</div>
+                        </div>
+                    </nav>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
