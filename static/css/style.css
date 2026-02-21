@@ -21,6 +21,7 @@ h1, h2, h3 {
 
 /* --- Buttons --- */
 /* ONE button style for links + buttons */
+
 .btn,
 .hero-card-btn {
   display: inline-flex;
@@ -28,10 +29,10 @@ h1, h2, h3 {
   justify-content: center;
 
   /* consistent size */
-  height: 35px;               /* not chunky */
-  padding: 0 26px;            /* only horizontal padding */
-  min-width: 100px;           /* consistent minimum length */
-  max-width: 260px;           /* prevents mega-wide */
+  height: 35px;               
+  padding: 0 26px;            
+  min-width: 100px;           
+  max-width: 260px;           
   width: fit-content;
 
   font-family: "Open Sans", sans-serif;
@@ -44,13 +45,9 @@ h1, h2, h3 {
 
   /* OUTLINE */
   border: 2px solid rgba(250, 156, 15, 0.345);
-
   border-radius: 999px;
   cursor: pointer;
-
   background: linear-gradient(180deg, #cf745d 0%, #b45a43 45%, #8f3e2e 100%);
-
-  /* soft depth like your reference */
   box-shadow:
     inset 0 2px 3px rgba(255,255,255,0.18),
     0 10px 18px rgba(0,0,0,0.35);
@@ -67,7 +64,7 @@ h1, h2, h3 {
     0 14px 24px rgba(0,0,0,0.45);
 }
 
-/* Clicked (no transparent flash) */
+/* on click */
 .btn:active,
 .hero-card-btn:active {
   background: #ff8500;
@@ -82,6 +79,7 @@ h1, h2, h3 {
 .hero-card-btn {
   -webkit-tap-highlight-color: transparent;
 }
+
 
 /* ------------------------- Index page - main setting ---------------------------- */
 
@@ -126,7 +124,13 @@ img {
   padding-inline: 20px;
 }
 
+/* Whole page margin */
 
+.page-wrapper {
+  max-width: 1800px;   
+  margin: 10px auto;   
+  padding: 0 0;     
+}
 
 /* ------------------------- Index page - header setting ---------------------------- */
 
@@ -183,11 +187,17 @@ header {
 
 /* ------------------------ Hero layout - desktop --------------------------- */
 
+.hero {
+  padding-block: 32px;
+}
+
 .hero-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(18px, 3vw, 40px);
+  justify-content: center;
+  gap: 40px;
+  width: min(1100px, 100%);
+  margin-inline: auto; 
 }
 
 /* Left text column */
@@ -195,6 +205,7 @@ header {
   flex: 1 1 420px;
   max-width: 520px;
   color: #fff;
+  align-self: center;
 }
 
 .hero-text h1 {
@@ -315,50 +326,45 @@ header {
 
 /* ------------------------ Features section - desktop --------------------------- */
 
-.features-section .container {
-  /* optional background “panel” look */
-  background: rgba(0, 0, 0, 0.45);
-
-  padding-block: clamp(18px, 3vw, 28px);
+.features-section {
+  padding-block: 32px;
 }
 
-/* Cards row */
-.cards {
+.features-section .container {
+  background: transparent;
+  padding-block: 0;
+}
+
+/* black panel behind cards */
+.features-section .cards {
+  width: 100%;
+  margin-inline: auto;
+
+  background: rgba(0, 0, 0, 0.55);
+  padding: 24px;          /* “small margin” inside panel */
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(14px, 2vw, 22px);
+  gap: 18px;              /* keep gaps for now (we’ll do divider lines next) */
 }
 
-/* Individual card */
-.card {
-  background: #0f0f0f;
+/* cards sit on the panel (no own background) */
+.features-section .card {
+  background: transparent;
   color: #fff;
 
-  overflow: hidden;
   padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
-.card img {
+.features-section .card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   margin: 0;
 }
-
-.card h3 {
-  margin: 6px 0 0;
-}
-
-.card p {
-  margin: 0;
-  line-height: 1.5;
-  opacity: 0.9;
-}
-
 
 /* ------------------------ Features section - small screen --------------------------- */
 
