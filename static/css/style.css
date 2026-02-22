@@ -372,30 +372,37 @@ header {
 
 .features-section .container {
   background: transparent;
-  padding-block: 0;
+ 
 }
 
 /* black panel behind cards */
 .features-section .cards {
   width: 100%;
-  margin-inline: auto;
-
-  background: rgba(0, 0, 0, 0.55);
-
+  height: 100%;
+  background: #000000;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;              /* keep gaps for now (we’ll do divider lines next) */
 }
 
 /* cards sit on the panel (no own background) */
 .features-section .card {
-  background: transparent;
+  background: #000;
   color: #fff;
 
-  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.7);
+  padding: 40px;                         
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+
+  text-align: center;
+  margin: 30px;
+}
+
+.features-section .container {
+  padding-inline: 100px;
 }
 
 .features-section .card img {
@@ -403,6 +410,28 @@ header {
   height: 220px;
   object-fit: cover;
   margin: 0;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  text-align: center;
+}
+
+.card p {
+  margin: 0;
+  max-width: none;    
+  width: 100%;
+  line-height: 1.45;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+
+/* Push button to bottom */
+.features-section .card .btn{
+  margin-top: auto;
+  align-self: center;      
 }
 
 /* ------------------------ Features section - small screen --------------------------- */
