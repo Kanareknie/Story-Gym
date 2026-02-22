@@ -153,6 +153,15 @@ img {
   width: 100%;            
   box-sizing: border-box;
 }
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.7);
+  margin: 30px auto;
+  width: 80%;
+}
+
 /* ------------------------- Index page - header setting ---------------------------- */
 
 header {
@@ -367,7 +376,7 @@ header {
 /* ------------------------ Features section - desktop --------------------------- */
 
 .features-section {
-  padding-block: 32px;
+  padding-block: 0;
 }
 
 .features-section .container {
