@@ -526,9 +526,22 @@ header {
   justify-content: center;
   text-align: center;
   align-items: center;
-  padding-bottom: 15px;
+  padding: 30px;
   width: 100%;
 }
+
+.join-card h2 {
+  font-size: clamp(2.4rem, 3vw, 3.5rem);
+  line-height: 1.05;
+  margin: 0 0 20px;
+}
+
+.join-card p {
+  font-size: 0.9rem;
+  margin: 0 0 20px;
+}
+
+
 
 /* ------------------------ Footer - desktop  --------------------------- */
 
