@@ -81,6 +81,7 @@ h1, h2, h3 {
 }
 
 
+
 /* ------------------------- Index page - main setting ---------------------------- */
 
 
@@ -138,6 +139,20 @@ img {
   padding: 0 0;     
 }
 
+/* White frame of boxes */
+.hero-cta {
+  border: 1px solid rgba(255,255,255,0.7);
+  padding: clamp(14px, 1.5vw, 20px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+
+  width: 100%;            
+  box-sizing: border-box;
+}
 /* ------------------------- Index page - header setting ---------------------------- */
 
 header {
@@ -310,15 +325,6 @@ header {
   line-height: 1.05;
 }
 
-/* White box around the text */
-.hero-cta {
-  border: 1px solid #fff;
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
 
 /* ------------------------ Hero layout - small screen --------------------------- */
 
