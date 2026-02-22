@@ -461,7 +461,7 @@ header {
 
 .container-text {
   align-self: flex-end;   
-  text-align: right;     
+  text-align: center;     
   max-width: 900px;
    
 }
@@ -475,8 +475,9 @@ header {
 /* Card */
 
 .quote-card {
-  margin: 0 auto 0 auto; 
-  width: 400px;
+    width: min(420px, 40%);
+  margin: 0;
+  align-self: flex-end;
 
   padding: 20px;
   background: rgba(0, 0, 0, 0.70);
