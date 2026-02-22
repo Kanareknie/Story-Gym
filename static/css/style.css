@@ -104,7 +104,7 @@ body {
       #8f6e64 75%,
       #c79a8e 100%);
   background-attachment: fixed;
-  /* optional but nice */
+  
 }
 
 main {
@@ -193,22 +193,170 @@ header {
 
 /* ------------------------ Hero layout - desktop --------------------------- */
 
-.hero {
-  padding-block: 32px;
-}
-
-
-.hero-inner {
+/* Main wrapper */
+.hero-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 40px;
 }
 
+/* Main margin */
+.hero {
+  margin-top: 80px;
+}
 
+/* Left side  */
+.hero-left {
+  display: flex;   
+  max-width: 420px;
+  color: #ffffff;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-left h1 {
+  margin: 0 0 12px;
+  font-size: clamp(5rem, 4vw, 5.5rem);
+}
+.hero-left p {
+  margin: 0;
+  line-height: 1.6;
+  max-width: 38ch;
+  text-align: center;
+ 
+}
+
+.hero-left img {
+  display: block;
+  margin: 20px auto 24px; 
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero-bold-p {
+  margin-top: 40px;
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+  font-weight: 600;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Right side with background */
+.hero-right {
+  flex: 1;
+  min-height: 600px;
+  background: url("/static/images/hero2.png") center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  inset: 0;
+  padding: 24px; 
+  outline: 2px solid lime;
+}
+
+
+/* LEFT overlay box */
+.hero-card-col-left {
+   width: clamp(220px, 22vw, 280px);
+  max-width: 30%;
+  align-self: flex-start;
+  color: #000;
+ 
+}
+
+.hero-card-col-left h3 {
+  margin: 20px 0 15px;
+  font-size: clamp(2rem, 2vw, 2.4rem);
+  line-height: 1.5;
+  text-align: center;
+  color: #ffffff;
+  font-style: italic;
+  font-size: clamp(2.4rem, 2vw, 2.6rem);
+}
+
+.hero-card-col-left p {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.45;
+  max-width: 22ch;
+  text-align: center; 
+  font-style: italic;
+}
+
+/* RIGHT overlay box (bottom-right) */
+.hero-card-col-right {
+  width: min(380px, 40%);
+  align-self: flex-end;
+  background: rgba(0, 0, 0, 0.70);
+  padding: 18px;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-card-col-right h3 {
+  margin: 20px 0 15px;
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
+  line-height: 1.05;
+}
+
+/* White box around the text */
+.hero-cta {
+  border: 1px solid #fff;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
 
 /* ------------------------ Hero layout - small screen --------------------------- */
-.
+
+@media (max-width: 900px) {
+  .hero {
+    margin-top: 40px;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-left {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .hero-right {
+    min-height: 420px;
+  }
+
+  .hero-card {
+    position: static;
+    inset: auto;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .hero-card-col-left,
+  .hero-card-col-right {
+    width: 100%;
+    align-self: stretch;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
 
 /* ------------------------ Features section - desktop --------------------------- */
 
