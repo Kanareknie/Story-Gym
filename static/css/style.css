@@ -387,7 +387,7 @@ header {
 
 /* ------------------------ Features section - desktop --------------------------- */
 
-.features-section {
+.features-section .sg-container {
   padding-block: 0;
 }
 
