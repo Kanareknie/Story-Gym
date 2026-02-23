@@ -187,16 +187,16 @@ header {
 
 .top-nav {
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 #sidebar-button {
   display: none;
   border: 0;
   background: transparent;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -603,14 +603,14 @@ footer {
   align-items: center;
   justify-content: center;
   list-style: none;
-  margin: 2px;
+  margin: 10px;
 }
 
 
 
 footer ul li a {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .footer-info {
