@@ -539,23 +539,15 @@ header {
 }
 
 .join-section .container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   gap: 0;
   overflow: hidden;
+  background: url(/static/images/hero-community.jpg) center / cover no-repeat;
 }
 
-/* left side = image */
-.join-section .container::before {
-  content: "";
-  display: block;
-  background-image: url("/static/images/hero-community.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
-/* right side = black content panel */
 .join-card {
   background: rgba(0,0,0,0.8);
   color: #fff;
@@ -565,11 +557,11 @@ header {
   text-align: center;
   align-items: center;
   padding: 30px;
-  width: 100%;
+  width: 50%;
 }
 
 .join-card h2 {
-  font-size: clamp(2.4rem, 3vw, 3.5rem);
+  font-size: clamp(2rem, 2vw, 3rem);
   line-height: 1.05;
   margin: 0 0 20px;
 }
