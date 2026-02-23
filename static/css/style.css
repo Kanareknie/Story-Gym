@@ -22,7 +22,7 @@ h1, h2, h3 {
 /* --- Buttons --- */
 /* ONE button style for links + buttons */
 
-.btn,
+.sg-btn,
 .hero-card-btn {
   display: inline-flex;
   align-items: center;
@@ -55,7 +55,7 @@ h1, h2, h3 {
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.btn:hover,
+.sg-btn:hover,
 .hero-card-btn:hover {
   transform: translateY(-1px);
   border-color: rgba(255,255,255,0.85);
@@ -65,7 +65,7 @@ h1, h2, h3 {
 }
 
 /* on click */
-.btn:active,
+.sg-btn:active,
 .hero-card-btn:active {
   background: #ff8500;
   color: #000;
@@ -75,7 +75,7 @@ h1, h2, h3 {
 }
 
 /* Remove mobile tap flash */
-.btn,
+.sg-btn,
 .hero-card-btn {
   -webkit-tap-highlight-color: transparent;
 }
@@ -135,7 +135,7 @@ img {
   margin: 2px 2px;
 }
 
-.container {
+.sg-container {
    width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -395,13 +395,13 @@ header {
   padding-block: 0;
 }
 
-.features-section .container {
+.features-section .sg-container {
   background: transparent;
  
 }
 
 /* black panel behind cards */
-.features-section .cards {
+.features-section .sg-cards {
   width: 100%;
   height: 100%;
   background: #000000;
@@ -410,7 +410,7 @@ header {
 }
 
 /* cards sit on the panel (no own background) */
-.features-section .card {
+.features-section .sg-card {
   background: #000;
   color: #fff;
 
@@ -426,24 +426,24 @@ header {
   margin: 30px;
 }
 
-.features-section .container {
+.features-section .sg-container {
   padding-inline: 100px;
 }
 
-.features-section .card img {
+.features-section .sg-card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   margin: 0;
 }
 
-.card h3 {
+.sg-card h3 {
   margin: 0;
   font-size: clamp(1.6rem, 2vw, 2.4rem);
   text-align: center;
 }
 
-.card p {
+.sg-card p {
   margin: 0;
   max-width: none;    
   width: 100%;
@@ -454,7 +454,7 @@ header {
 
 
 /* Push button to bottom */
-.features-section .card .btn{
+.features-section .sg-card .sg-btn{
   margin-top: auto;
   align-self: center;      
 }
@@ -462,11 +462,11 @@ header {
 /* ------------------------ Features section - small screen --------------------------- */
 
 @media (max-width: 900px) {
-  .cards {
+  .sg-cards {
     grid-template-columns: 1fr;
   }
 
-  .card img {
+  .sg-card img {
     height: 180px;
   }
 }
@@ -476,7 +476,7 @@ header {
   padding: 0; 
 }
 
-.quote-section .container {
+.quote-section .sg-container {
   height: 750px;
   background: url("/static/images/hero-wall.jpg") center / cover no-repeat;
   display: flex;
@@ -496,7 +496,7 @@ header {
   margin: 0 0 20px;
 }
 
-.quote-section .container {
+.quote-section .sg-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -504,14 +504,14 @@ header {
 
 /* Text on the picture */
 
-.container-text {
+.sg-container-text {
   align-self: flex-end;   
   text-align: center;     
   max-width: 900px;
    
 }
 
-.container-text h2 {
+.sg-container-text h2 {
   font-size: clamp(5rem, 6vw, 7rem);
   line-height: 1.02;
   margin-right: 20px;
@@ -552,7 +552,7 @@ header {
   padding-block: 32px;
 }
 
-.join-section .container {
+.join-section .sg-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
