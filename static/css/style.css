@@ -600,7 +600,7 @@ footer {
   align-items: center;
   justify-content: center;
   list-style: none;
-  margin: 10px;
+  margin-bottom: 20px;
 }
 
 
@@ -610,13 +610,9 @@ footer ul li a {
   font-size: 2rem;
 }
 
-.footer-info {
+.footer-info .footer-info2 {
   text-align: center;
   font-size: 0.7rem;
   padding: 3px;
-}
-
-.footer-info2 {
-  font-size: 0.7rem;
-  padding: 3px;
+  font-weight: 800;
 }
