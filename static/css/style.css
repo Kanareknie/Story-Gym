@@ -174,59 +174,6 @@ img {
   width: 80%;
 }
 
-/* ------------------------- Index page - header setting ---------------------------- */
-
-header {
-  padding: 1rem 0;
-  position: relative;
-}
-
-.top-nav {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-#sidebar-button {
-  display: none;
-  border: 0;
-  background: transparent;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-/* Media query - small screen max-width 900px */
-
-@media (max-width: 900px) {
-  #sidebar-button {
-    display: block;
-  }
-
-  .top-nav {
-    display: none;
-    position: absolute;
-    right: 1rem;
-    top: 72px;
-    background: #111;
-    color: #fff;
-    padding: 0.75rem;
-    min-width: 180px;
-    flex-direction: column;
-  }
-
-  .top-nav.is-open {
-    display: flex;
-  }
-
-  .top-nav-link {
-    display: block;
-    padding: 0.6rem 0.75rem;
-
-  }
-}
-
-
 /* ------------------------ Hero layout - desktop --------------------------- */
 
 /* Main wrapper */
