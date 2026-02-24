@@ -293,7 +293,6 @@ header {
   position: absolute;
   inset: 0;
   padding: 24px; 
-  outline: 2px solid lime;
 }
 
 
@@ -330,7 +329,7 @@ header {
   width: min(380px, 40%);
   align-self: flex-end;
   background: rgba(0, 0, 0, 0.70);
-  padding: 18px;
+  padding: 10px;
   color: #fff;
 
   display: flex;
