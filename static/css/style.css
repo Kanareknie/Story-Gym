@@ -456,12 +456,22 @@ img {
 /* ------------------------ Features section - small screen --------------------------- */
 
 @media (max-width: 900px) {
-  .sg-cards {
+    .features-section .sg-cards {
     grid-template-columns: 1fr;
+    justify-items: center;   /* center the cards */
+    padding: 20px;
   }
 
-  .sg-card img {
-    height: 180px;
+  .features-section .sg-card {
+    width: 100%;
+    max-width: 500px;        /* 👈 control card width */
+  }
+
+}
+/* Switch to column - media query */
+@media (max-width: 800px) {
+  .features-section .sg-cards {
+    grid-template-columns: 1fr;
   }
 }
 /* ------------------------ SECTION 3: Quote (target layout) --------------------------- */
