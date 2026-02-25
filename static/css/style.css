@@ -303,6 +303,49 @@ img {
 
 /* ------------------------ Hero layout - small screen --------------------------- */
 
+/* HER0: right side only with guy on the picture */
+@media (max-width: 1150px) {
+  /* keep hero-wrapper as 2 columns — do NOT change .hero-wrapper here */
+
+  .hero-right {
+    min-height: 520px;
+  }
+
+  /* switch ONLY the orange overlay layout */
+  .hero-card {
+    position: static;
+    inset: auto;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .hero-card-col-left,
+  .hero-card-col-right {
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+  }
+
+  .hero-card-col-right {
+    width: 100%;
+  }
+
+ .hero-card-col-left .hero-card-kicker {
+    text-align: left;
+  }
+
+  .hero-card-col-left p {
+  font-size: clamp(0.6rem, 1vw, 0.9rem);
+  line-height: 1.4;
+}
+
+}
+
+
+
+/* Media max width 900px */
+
 @media (max-width: 900px) {
   .hero {
     margin-top: 40px;
