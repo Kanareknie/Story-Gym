@@ -264,7 +264,7 @@ img {
 
 .hero-card-col-left p {
   margin: 0;
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
   line-height: 1.45;
   max-width: 22ch;
   text-align: center; 
@@ -273,7 +273,7 @@ img {
 
 /* RIGHT overlay box (bottom-right) */
 .hero-card-col-right {
-  width: min(380px, 40%);
+  width: clamp(260px, 22vw, 320px);
   align-self: flex-end;
   background: rgba(0, 0, 0, 0.70);
   padding: 10px;
