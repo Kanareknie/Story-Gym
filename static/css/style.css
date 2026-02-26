@@ -97,6 +97,51 @@ h1, h2, h3 {
 
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
+/* -------------------------------Navbar ------------------------------------------ */
+
+
+.sg-navbar .navbar-nav {
+  gap: 15px;                 /* bigger space between links */
+}
+
+.sg-navbar .nav-link {
+  font-size: 1.05rem;        /* slightly bigger text */
+  font-weight: 500;
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 6px 0;            /* removes too much vertical padding */
+}
+
+/* Hover effect */
+.sg-navbar .nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Underline animation (hover) */
+.sg-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;          
+  background: rgba(255,255,255,0.85);
+  transition: width 0.25s ease;
+}
+
+.sg-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active page styling */
+.sg-navbar .nav-link.active {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.sg-navbar .nav-link.active::after {
+  width: 100%;
+}
 
 
 /* ------------------------- Index page - main setting ---------------------------- */
