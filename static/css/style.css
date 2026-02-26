@@ -151,6 +151,17 @@ img {
   padding: 0 0;     
 }
 
+/* ---- Tablet (iPad Mini/Air) — GLOBAL spacing ---- */
+@media (max-width: 1024px) and (min-width: 700px) {
+  .sg-container {
+    padding-inline: 100px; 
+  }
+
+  .page-wrapper {
+    margin: 0 auto; 
+  }
+}
+
 /* White frame of boxes */
 .hero-cta {
   border: 1px solid rgba(255,255,255,0.7);
