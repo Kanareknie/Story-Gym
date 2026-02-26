@@ -303,6 +303,39 @@ img {
 
 /* ------------------------ Hero layout - small screen --------------------------- */
 
+/* Media query for Ipads  */
+
+@media (max-width: 1150px) {
+
+   .hero-left h1 {
+    font-size: clamp(3.9rem, 6vw, 4.2rem);
+    text-align: center;
+  }
+
+  .hero-left p {
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+    line-height: 1.6;
+  }
+
+  .hero-card-col-left p {
+    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+    line-height: 1.5;
+  }
+
+    .hero-bold-p {
+    font-size: 1.05rem;
+  }
+
+  .hero-card-col-left h3 {
+    font-size: clamp(2rem, 3.2vw, 2.4rem);
+  }
+
+  .hero-card-col-right p {
+    font-size: clamp(1rem, 1.1vw, 1.5rem);
+    line-height: 1.5;
+  }
+}
+
 /* HER0: right side only with guy on the picture */
 @media (max-width: 1150px) {
   /* keep hero-wrapper as 2 columns — do NOT change .hero-wrapper here */
@@ -398,38 +431,7 @@ img {
   }
 }
 
-/* Media query for Ipads  */
 
-@media (max-width: 1150px) {
-
-   .hero-left h1 {
-    font-size: clamp(3.9rem, 6vw, 4.2rem);
-    text-align: center;
-  }
-
-  .hero-left p {
-    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
-    line-height: 1.6;
-  }
-
-  .hero-card-col-left p {
-    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-    line-height: 1.5;
-  }
-
-    .hero-bold-p {
-    font-size: 1.05rem;
-  }
-
-  .hero-card-col-left h3 {
-    font-size: clamp(2rem, 3.2vw, 2.4rem);
-  }
-
-  .hero-card-col-right p {
-    font-size: clamp(1rem, 1.1vw, 1.5rem);
-    line-height: 1.5;
-  }
-}
 
 /* ------------------------ Features section - desktop --------------------------- */
 
@@ -504,6 +506,23 @@ img {
 
 /* ------------------------ Features section - small screen --------------------------- */
 
+/* Media query for Ipads  */
+
+@media (max-width: 1150px) {
+
+ 
+.features-section h3 {
+  font-size: clamp(1.5rem, 6vw, 2.7rem);
+}
+
+.features-section p {
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
+}
+
+}
+
+/* Media queries for max-width: 900px  */
+
 @media (max-width: 900px) {
     .features-section .sg-cards {
     grid-template-columns: 1fr;
@@ -538,20 +557,6 @@ img {
 }
 
 
-/* Media query for Ipads  */
-
-@media (max-width: 1150px) {
-
- 
-.features-section h3 {
-  font-size: clamp(1.5rem, 6vw, 2.7rem);
-}
-
-.features-section p {
-  font-size: clamp(1.2rem, 1.5vw, 2rem);
-}
-
-}
 
 
 /* ------------------------ SECTION 3: Quote (target layout) --------------------------- */
@@ -699,7 +704,8 @@ footer ul li a {
 
 .footer-info .footer-info2 {
   text-align: center;
-  font-size: 0.7rem;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  line-height: 1.4;
   padding: 3px;
   font-weight: 800;
 }
