@@ -382,6 +382,21 @@ img {
   }
 }
 
+/* Extra small scrren */
+
+@media (max-width: 450px) {
+  
+  .hero-left h1 {
+    font-size: clamp(3rem, 5vw, 4rem);
+    text-align: center;
+  }
+
+  .hero-left p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.4;
+  }
+}
+
 /* ------------------------ Features section - desktop --------------------------- */
 
 .features-section .sg-container {
