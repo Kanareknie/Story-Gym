@@ -382,7 +382,8 @@ img {
   }
 }
 
-/* Extra small scrren */
+
+/* Media query for extra small screen */
 
 @media (max-width: 450px) {
   
@@ -393,7 +394,40 @@ img {
 
   .hero-left p {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
-    line-height: 1.4;
+    line-height: 1.5;
+  }
+}
+
+/* Media query for Ipads  */
+
+@media (max-width: 1150px) {
+
+   .hero-left h1 {
+    font-size: clamp(3.9rem, 6vw, 4.2rem);
+    text-align: center;
+  }
+
+  .hero-left p {
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+    line-height: 1.6;
+  }
+
+  .hero-card-col-left p {
+    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+    line-height: 1.5;
+  }
+
+    .hero-bold-p {
+    font-size: 1.05rem;
+  }
+
+  .hero-card-col-left h3 {
+    font-size: clamp(2rem, 3.2vw, 2.4rem);
+  }
+
+  .hero-card-col-right p {
+    font-size: clamp(1rem, 1.1vw, 1.5rem);
+    line-height: 1.5;
   }
 }
 
@@ -494,6 +528,8 @@ img {
   font-size: 0.9rem;
 }
 
+}
+
 /* Switch to column - media query */
 @media (max-width: 800px) {
   .features-section .sg-cards {
@@ -502,7 +538,22 @@ img {
 }
 
 
+/* Media query for Ipads  */
+
+@media (max-width: 1150px) {
+
+ 
+.features-section h3 {
+  font-size: clamp(1.5rem, 6vw, 2.7rem);
 }
+
+.features-section p {
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
+}
+
+}
+
+
 /* ------------------------ SECTION 3: Quote (target layout) --------------------------- */
 
 .quote-section {
