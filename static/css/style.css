@@ -151,17 +151,6 @@ img {
   padding: 0 0;     
 }
 
-/* ---- Tablet (iPad Mini/Air) — GLOBAL spacing ---- */
-@media (max-width: 1024px) and (min-width: 700px) {
-  .sg-container {
-    padding-inline: 100px; 
-  }
-
-  .page-wrapper {
-    margin: 0 auto; 
-  }
-}
-
 /* White frame of boxes */
 .hero-cta {
   border: 1px solid rgba(255,255,255,0.7);
@@ -184,6 +173,21 @@ img {
   margin: 40px auto;
   width: 80%;
 }
+
+
+/* --------------------------- Join MEDIA QUERY -------------------------- */
+
+/* ---- Tablet (iPad Mini/Air) — GLOBAL spacing ---- */
+@media (max-width: 1024px) and (min-width: 700px) {
+  .sg-container {
+    padding-inline: 100px; 
+  }
+
+  .page-wrapper {
+    margin: 0 auto; 
+  }
+}
+
 
 /* ------------------------ Hero layout - desktop --------------------------- */
 
@@ -725,4 +729,61 @@ footer ul li a {
   line-height: 1.4;
   padding: 3px;
   font-weight: 800;
+}
+
+
+/* ----------------- Join media query for section 3 & 4 ---------------- */
+
+/* ----------------- Tablet/Phone fix: <=710px ------------------------- */
+
+@media (max-width: 710px) {
+
+  /* ---------- SECTION 3 (Quote) ---------- */
+
+  .quote-section .sg-container {
+    height: auto; 
+  }
+
+  .sg-container-text {
+    align-self: center;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .sg-container-text h2 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    margin-right: 0;        
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  .quote-card h3 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .quote-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-inline: 12px;
+  }
+
+  /* ---------- SECTION 4 (Join) ---------- */
+
+  .join-section .sg-container {
+    flex-direction: column;  
+  }
+
+  .join-card {
+    width: 100%;             
+    padding: 24px 16px;
+  }
+
+  .join-card h2 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .join-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
