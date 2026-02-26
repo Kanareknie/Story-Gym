@@ -101,15 +101,20 @@ h1, h2, h3 {
 
 
 .sg-navbar .navbar-nav {
-  gap: 15px;                 /* bigger space between links */
+  gap: 15px;               
 }
 
+.navbar-toggler {
+  margin-bottom: 20px;
+}
+
+
 .sg-navbar .nav-link {
-  font-size: 1.05rem;        /* slightly bigger text */
+  font-size: 1.05rem;       
   font-weight: 500;
   position: relative;
   transition: all 0.2s ease;
-  padding: 6px 0;            /* removes too much vertical padding */
+  padding: 6px 0; 
 }
 
 /* Hover effect */
@@ -142,6 +147,15 @@ h1, h2, h3 {
 .sg-navbar .nav-link.active::after {
   width: 100%;
 }
+
+/* Removing outline of menu icon */
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus-visible {
+  outline: none;
+  box-shadow: none !important;
+}
+
 
 
 /* ------------------------- Index page - main setting ---------------------------- */
