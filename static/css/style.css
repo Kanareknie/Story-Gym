@@ -458,21 +458,35 @@ img {
 @media (max-width: 900px) {
     .features-section .sg-cards {
     grid-template-columns: 1fr;
-    justify-items: center;   /* center the cards */
+    justify-items: center; 
     padding: 20px;
   }
 
   .features-section .sg-card {
     width: 100%;
-    max-width: 500px;        /* 👈 control card width */
+    max-width: 400px;
   }
 
+.features-section .sg-card img {
+  padding:20px;
 }
+
+.features-section h3 {
+  font-size: 1.9rem;
+}
+
+.features-section p {
+  font-size: 0.9rem;
+}
+
 /* Switch to column - media query */
 @media (max-width: 800px) {
   .features-section .sg-cards {
     grid-template-columns: 1fr;
   }
+}
+
+
 }
 /* ------------------------ SECTION 3: Quote (target layout) --------------------------- */
 
