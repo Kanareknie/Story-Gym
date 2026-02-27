@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>404 – Page Not Found</title>
+
+        <!------------- Style for 404 page -------------->
+        <style>
+    body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: linear-gradient(
+    120deg,
+    #1c1b1b 0%,
+    #2b2423 35%,
+    #8f6e64 75%,
+    #c79a8e 100%
+  );
+
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+}
+
+/* Main container */
+.container {
+  max-width: 600px;
+  padding: 40px 20px;
+}
+
+/* Big 404 number */
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(5rem, 10vw, 8rem);
+  margin: 0;
+}
+
+/* Subtitle */
+h2 {
+  margin: 10px 0 20px;
+  font-weight: 500;
+}
+
+/* Paragraphs */
+p {
+  margin: 12px 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Countdown text */
+.countdown {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* Link style */
+a {
+  color: #ff8500;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+        </style>
+    </head>
+    <!-- ---------Body of 404 page ------------>
+    <body>
+        <div class="container">
+            <h1>404</h1>
+            <h2>Page Not Found</h2>
+            <p>
+                The page you are trying to access does not exist or has been moved.
+            </p>
+            <p>
+                You will be automatically redirected to the main page.
+            </p>
+            <p class="countdown">
+                Redirecting in
+                <span id="seconds">5</span>
+                seconds…
+            </p>
+            <p>
+                If the redirect does not work,
+                <a href="index.html">click here to return to the homepage</a>
+                .
+            </p>
+        </div>
+        <!-------------- Script for 404 countdown ------------>
+        <script>
+    let timeLeft = 5;
+    const countdown = document.getElementById("seconds");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdown.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = "index.html";
+      }
+    }, 1000);
+        </script>
+    </body>
+</html>
