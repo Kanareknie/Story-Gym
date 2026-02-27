@@ -807,14 +807,13 @@ footer ul li a {
   .sg-container-text {
     align-self: center;
     max-width: 100%;
-    margin-bottom: 20px;
+    padding-top: 15px;
+    margin: 0;
   }
 
   .sg-container-text h2 {
-    font-size: clamp(2.4rem, 8vw, 3.2rem);
-    margin-right: 0;        
+    font-size: clamp(2.4rem, 8vw, 3.2rem);       
     text-align: center;
-    line-height: 1.05;
   }
 
   .quote-card h3 {
@@ -824,7 +823,11 @@ footer ul li a {
   .quote-card p {
     font-size: 1rem;
     line-height: 1.6;
-    padding-inline: 12px;
+    padding-inline: 10px;
+  }
+
+  .sg-btn.black-btn {
+    padding: 15px;
   }
 
   /* ---------- SECTION 4 (Join) ---------- */
