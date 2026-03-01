@@ -669,17 +669,17 @@ Pages style CSS
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
     padding: 20px 0;
 }
 
 .randomize-response-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     gap: 40px;
-    padding: 40px 20px;
+    padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.7);
+    max-width: 500px;
     text-align: center;
 }
 
@@ -690,6 +690,21 @@ Pages style CSS
     text-align: center;
     max-width: 500px;
     width: 100%;
+}
+
+.randomize-result-card h2 {
+    font-size: clamp(2rem, 2.8vw, 3.2rem);
+    line-height: 1.05;
+    margin: 0 0 20px;
+}
+
+.randomize-result-card p {
+    font-size: 1.2rem;
+    max-width: none;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+
 }
 
 .randomize-card-button {
