@@ -672,25 +672,29 @@ Pages style CSS
 .randomize-response-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     gap: 40px;
-    padding: 10px 10px;
+    padding: 40px;
     background-color: rgba(0, 0, 0, 0.7);
     max-width: 600px;
     text-align: center;
+   
 }
 
 .randomize-cards-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: cspace-between;
     padding: 20px 0;
     margin-top: auto;
+    gap: 10px;
+    width: 100%;
+
+    
 }
 .randomize-result-card {
    
     color: #ffffff;
-    padding: 30px;
     text-align: center;
     max-width: 600px;
     width: 100%;
@@ -699,7 +703,7 @@ Pages style CSS
 .randomize-result-card h2 {
     font-size: clamp(2rem, 2.8vw, 3.2rem);
     line-height: 1.05;
-    margin: 0 0 20px;
+    margin-bottom: 20px;
 }
 
 .randomize-result-card p {
@@ -712,14 +716,19 @@ Pages style CSS
 }
 
 .randomize-card-button {
-    color: #fff;
+    flex: 1;
+    min-width: 0;
+    color: #ffffff;
     padding: 15px;
     text-align: center;
-    width: 100%;
-    max-width: 300px;
 }
 
 .randomize-card-button p {
     margin-bottom: 15px;
     font-size: small;
+}
+
+/* Buttons to stay on the line */
+.randomize-card-button .sg-btn{
+  white-space: nowrap;
 }
