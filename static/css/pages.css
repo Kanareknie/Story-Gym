@@ -85,7 +85,7 @@ Pages style CSS
 
 }
 
-.hero-card-col-left h2 h3 {
+.hero-card-col-left h2, h3 {
   margin: 20px 0 15px;
   font-size: clamp(2rem, 2vw, 2.4rem);
   line-height: 1.5;
@@ -119,7 +119,7 @@ Pages style CSS
   text-align: center;
 }
 
-.hero-card-col-right h2 h3 {
+.hero-card-col-right h2, h3 {
   margin: 20px 0 15px;
   font-size: clamp(1.6rem, 2vw, 2.4rem);
   line-height: 1.05;
@@ -159,7 +159,7 @@ Pages style CSS
     font-size: 1.05rem;
   }
 
-  .hero-card-col-left h2 h3 {
+  .hero-card-col-left h2, h3 {
     font-size: clamp(2rem, 3.2vw, 2.4rem);
   }
 
