@@ -10,126 +10,126 @@ Pages style CSS
 
 /* Main wrapper */
 .hero-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 /* Main margin */
 .hero {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 /* Left side  */
 .hero-left {
-  display: flex;
-  max-width: 420px;
-  color: #ffffff;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    max-width: 420px;
+    color: #ffffff;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-left h1 {
-  margin: 0 0 12px;
-  font-size: clamp(5rem, 4vw, 5.5rem);
+    margin: 0 0 12px;
+    font-size: clamp(5rem, 4vw, 5.5rem);
 }
 
 .hero-left p {
-  margin: 0;
-  line-height: 1.6;
-  max-width: 38ch;
-  text-align: center;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 38ch;
+    text-align: center;
 
 }
 
 .hero-left img {
-  display: block;
-  margin: 20px auto 24px;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+    display: block;
+    margin: 20px auto 24px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .hero-bold-p {
-  margin-top: 40px;
-  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
-  font-weight: 600;
-  text-align: center;
-  padding: 0 10px;
+    margin-top: 40px;
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+    font-weight: 600;
+    text-align: center;
+    padding: 0 10px;
 }
 
 /* Right side with background */
 .hero-right {
-  flex: 1;
-  min-height: 600px;
-  background: url("/static/images/hero2.png") center / cover no-repeat;
-  position: relative;
-  overflow: hidden;
+    flex: 1;
+    min-height: 600px;
+    background: url("/static/images/hero2.png") center / cover no-repeat;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-card {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  inset: 0;
-  padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    inset: 0;
+    padding: 24px;
 }
 
 
 /* LEFT overlay box */
 .hero-card-col-left {
-  width: clamp(220px, 22vw, 280px);
-  max-width: 30%;
-  align-self: flex-start;
-  color: #000;
+    width: clamp(220px, 22vw, 280px);
+    max-width: 30%;
+    align-self: flex-start;
+    color: #000;
 
 }
 
 .hero-card-kicker {
-  margin: 20px 0 15px;
-  font-size: clamp(2rem, 2vw, 2.4rem);
-  line-height: 1.5;
-  text-align: center;
-  color: #ffffff;
-  font-style: italic;
+    margin: 20px 0 15px;
+    font-size: clamp(2rem, 2vw, 2.4rem);
+    line-height: 1.5;
+    text-align: center;
+    color: #ffffff;
+    font-style: italic;
 }
 
 .hero-card-col-left p {
-  margin: 0;
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-  line-height: 1.45;
-  max-width: 22ch;
-  text-align: center;
-  font-style: italic;
+    margin: 0;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    line-height: 1.45;
+    max-width: 22ch;
+    text-align: center;
+    font-style: italic;
 }
 
 /* RIGHT overlay box (bottom-right) */
 .hero-card-col-right {
-  width: clamp(260px, 22vw, 320px);
-  align-self: flex-end;
-  background: rgba(0, 0, 0, 0.70);
-  padding: 10px;
-  color: #fff;
+    width: clamp(260px, 22vw, 320px);
+    align-self: flex-end;
+    background: rgba(0, 0, 0, 0.70);
+    padding: 10px;
+    color: #fff;
 
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
 }
 
 .hero-card-title {
-  margin: 20px 0 15px;
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
-  line-height: 1.05;
+    margin: 20px 0 15px;
+    font-size: clamp(1.6rem, 2vw, 2.4rem);
+    line-height: 1.05;
 }
 
 .hero-card-col-right p {
-  margin: 0;
-  font-size: clamp(0.8rem, 0.8vw, 1rem);
-  line-height: 1.45;
-  max-width: none;
-  width: 100%;
+    margin: 0;
+    font-size: clamp(0.8rem, 0.8vw, 1rem);
+    line-height: 1.45;
+    max-width: none;
+    width: 100%;
 }
 
 
@@ -139,121 +139,122 @@ Pages style CSS
 
 @media (max-width: 1150px) {
 
-  .hero-left h1 {
-    font-size: clamp(3.9rem, 6vw, 4.2rem);
-    text-align: center;
-  }
+    .hero-left h1 {
+        font-size: clamp(3.9rem, 6vw, 4.2rem);
+        text-align: center;
+    }
 
-  .hero-left p {
-    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
-    line-height: 1.6;
-  }
+    .hero-left p {
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+        line-height: 1.6;
+    }
 
-  .hero-card-col-left p {
-    font-size: clamp(0.7rem, 1vw, 1rem);
-    line-height: 1.5;
-  }
+    .hero-card-col-left p {
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        line-height: 1.5;
+    }
 
-  .hero-bold-p {
-    font-size: 1.05rem;
-  }
+    .hero-bold-p {
+        font-size: 1.05rem;
+    }
 
-  .hero-card-kicker {
-    font-size: clamp(2rem, 3.2vw, 2.4rem);
-  }
+    .hero-card-kicker {
+        font-size: clamp(2rem, 3.2vw, 2.4rem);
+    }
 
-  .hero-card-col-right p {
-    font-size: clamp(1rem, 1.1vw, 1.5rem);
-    line-height: 1.5;
-  }
+    .hero-card-col-right p {
+        font-size: clamp(1rem, 1.1vw, 1.5rem);
+        line-height: 1.5;
+    }
 
-  .hero-right {
-    min-height: 520px;
-  }
+    .hero-right {
+        min-height: 520px;
+    }
 
-  /* switch ONLY the orange overlay layout */
-  .hero-card {
-    position: static;
-    inset: auto;
-    flex-direction: column;
-    gap: 14px;
-    padding: 16px;
-  }
+    /* switch ONLY the orange overlay layout */
+    .hero-card {
+        position: static;
+        inset: auto;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px;
+    }
 
-  .hero-card-col-left,
-  .hero-card-col-right {
-    width: 100%;
-    max-width: none;
-    align-self: stretch;
-  }
+    .hero-card-col-left,
+    .hero-card-col-right {
+        width: 100%;
+        max-width: none;
+        align-self: stretch;
+    }
 
-  .hero-card-col-right {
-    width: 100%;
-  }
+    .hero-card-col-right {
+        width: 100%;
+    }
 
-  .hero-card-col-left .hero-card-kicker {
-    text-align: left;
-  }
+    .hero-card-col-left .hero-card-kicker {
+        text-align: left;
+    }
 }
 
 /* ---------------- Media query for large screen- max-width: 1000px ---------------- */
 
 /* Remove extra padding */
 @media (max-width: 1000px) {
-  .hero .sg-container {
-    padding-inline: 10px;
-  }
+    .hero .sg-container {
+        padding-inline: 10px;
+    }
 }
 
 /* --------------- Media query for medium screens - max-width: 900px --------------- */
 
 
 @media (max-width: 900px) {
-    
+
     .hero .sg-container {
-    padding-inline: 100px;
-  }
-  .hero {
-    margin-top: 40px;
-  }
+        padding-inline: 100px;
+    }
 
-  .hero-wrapper {
-    flex-direction: column;
-    align-items: stretch;
-  }
+    .hero {
+        margin-top: 40px;
+    }
 
-  .hero-left {
-    flex: none;
-    max-width: 100%;
-  }
+    .hero-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-  .hero-right {
-    min-height: 420px;
-  }
+    .hero-left {
+        flex: none;
+        max-width: 100%;
+    }
 
-  .hero-card {
-    position: static;
-    inset: auto;
-    flex-direction: column;
-    gap: 14px;
-    padding: 16px;
-  }
+    .hero-right {
+        min-height: 420px;
+    }
 
-  .hero-card-col-left,
-  .hero-card-col-right {
-    width: 100%;
-    align-self: stretch;
-    text-align: left;
-    align-items: flex-start;
-  }
+    .hero-card {
+        position: static;
+        inset: auto;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .hero-card-col-left,
+    .hero-card-col-right {
+        width: 100%;
+        align-self: stretch;
+        text-align: left;
+        align-items: flex-start;
+    }
 }
 
 /* ---------------- Media query for medium screen- max-width: 650px ---------------- */
 
 @media (max-width: 650px) {
-  .hero .sg-container {
-    padding-inline: 10px;
-  }
+    .hero .sg-container {
+        padding-inline: 10px;
+    }
 }
 
 /* ------------ Media query for extra small screen - max-width: 450px -------------- */
@@ -261,25 +262,25 @@ Pages style CSS
 
 @media (max-width: 450px) {
 
-  .hero-left h1 {
-    font-size: clamp(3rem, 5vw, 4rem);
-    text-align: center;
-  }
+    .hero-left h1 {
+        font-size: clamp(3rem, 5vw, 4rem);
+        text-align: center;
+    }
 
-  .hero-left p {
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    line-height: 1.5;
-  }
+    .hero-left p {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        line-height: 1.5;
+    }
 
-  .hero-card-col-right p {
-    font-size: clamp(1rem, 1.1vw, 1.5rem);
-    line-height: 1.5;
-  }
+    .hero-card-col-right p {
+        font-size: clamp(1rem, 1.1vw, 1.5rem);
+        line-height: 1.5;
+    }
 
-  .hero-card-col-left p {
-    font-size: clamp(0.60rem, 1vw, 0.8rem);
-    line-height: 1.5;
-  }
+    .hero-card-col-left p {
+        font-size: clamp(0.60rem, 1vw, 0.8rem);
+        line-height: 1.5;
+    }
 
 }
 
@@ -287,66 +288,66 @@ Pages style CSS
 
 
 .features-section .sg-container {
-  padding-block: 0;
-  background: transparent;
-  padding-inline: 0;
+    padding-block: 0;
+    background: transparent;
+    padding-inline: 0;
 }
 
 /* black panel behind cards */
 .features-section .sg-cards {
-  width: 100%;
-  height: 100%;
-  background: #000000;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 20px 60px;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 60px;
 }
 
 /* cards sit on the panel (no own background) */
 .features-section .sg-card {
-  background: #000;
-  color: #fff;
+    background: #000;
+    color: #fff;
 
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  padding: 24px;
-  box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 24px;
+    box-sizing: border-box;
 
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-  text-align: center;
-  margin: 10px;
+    text-align: center;
+    margin: 10px;
 }
 
 
 .features-section .sg-card img {
-  aspect-ratio: 1 / 1;
-  height: auto;
-  max-height: 180px;
-  object-fit: cover;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
 }
 
 .sg-card h3 {
-  margin: 0;
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
-  text-align: center;
+    margin: 0;
+    font-size: clamp(1.6rem, 2vw, 2.4rem);
+    text-align: center;
 }
 
 .sg-card p {
-  margin: 0;
-  max-width: none;
-  width: 100%;
-  line-height: 1.45;
-  font-size: 0.8rem;
-  text-align: center;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+    line-height: 1.45;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 
 /* Push button to bottom */
 .features-section .sg-card .sg-btn {
-  margin-top: auto;
-  align-self: center;
+    margin-top: auto;
+    align-self: center;
 }
 
 /* ==================== Features section - MEDIA QUERY ===================== */
@@ -356,120 +357,183 @@ Pages style CSS
 
 @media (max-width: 1150px) {
 
-  .features-section h3 {
-    font-size: clamp(1.5rem, 6vw, 2.7rem);
-  }
+    .features-section h3 {
+        font-size: clamp(1.5rem, 6vw, 2.7rem);
+    }
 
-  .features-section p {
-    font-size: clamp(1.2rem, 1.5vw, 2rem);
-  }
+    .features-section p {
+        font-size: clamp(1.2rem, 1.5vw, 2rem);
+    }
 
 }
 
 /* --------------- Media query for medium screens - max-width: 900px --------------- */
 
 @media (max-width: 900px) {
-  .features-section .sg-cards {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    padding: 20px;
-  }
+    .features-section .sg-cards {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
 
-  .features-section .sg-card {
+    .features-section .sg-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto, 1fr;
+        gap: 20px;
+        align-items: center;
+        max-width: 700px;
+        margin: 10px auto;
+    }
+
+     /* place items explicitly */
+  .features-section .sg-card h3 { grid-column: 1; grid-row: 1; }
+  .features-section .sg-card img { grid-column: 1; grid-row: 2; }
+
+    .features-section .sg-card p { grid-column: 2; grid-row: 1 / span 2; }
+
+
+    .features-section .sg-card img {
+         max-height: none;     
     width: 100%;
-    max-width: 400px;
-  }
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    padding: 0;
+    justify-self: center;
+    }
 
-  .features-section .sg-card img {
-    padding: 20px;
-  }
+    .features-section .sg-card .sg-btn {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: end;
+        justify-self: center;
+        margin-top: 20px;
+    }
 
-  .features-section h3 {
-    font-size: 1.9rem;
-  }
+     .features-section h3 {
+        font-size: 1.9rem;
+    }
 
-  .features-section p {
-    font-size: 0.9rem;
-  }
+    .features-section p {
+        font-size: 1rem;
+    }
 
 }
 
-/* --------------- Media query for medium screens - max-width: 800px --------------- */
+/* --------------- Media query for medium screens - max-width: 700px --------------- */
 
 /* Switch to column - media query */
 
-@media (max-width: 800px) {
-  .features-section .sg-cards {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 700px) {
+
+    .features-section .sg-card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 400px;
+        margin: 10px auto;
+    }
+
+    .features-section .sg-card h3,
+    .features-section .sg-card img,
+    .features-section .sg-card p,
+    .features-section .sg-card .sg-btn {
+        grid-column: auto;
+    }
+
+    .features-section .sg-card .sg-btn {
+        align-self: center;
+        justify-self: auto;
+    }
+
+    .features-section .sg-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+
+    .features-section .sg-card img {
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding: 20px;
+    }
+
+    .features-section h3 {
+        font-size: 1.9rem;
+    }
+
+    .features-section p {
+        font-size: 0.9rem;
+    }
 }
 
 
 /* ======================= SECTION 3: Quote (target layout) ======================= */
 
 .quote-section {
-  padding: 0;
+    padding: 0;
 }
 
 .quote-section .sg-container {
-  height: 750px;
-  background: url("/static/images/hero-wall.jpg") center / cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    height: 750px;
+    background: url("/static/images/hero-wall.jpg") center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .quote-section h2 {
-  font-size: clamp(2.8rem, 5vw, 4rem);
-  line-height: 1.05;
-  margin: 0 0 20px;
-  max-width: 900px;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    line-height: 1.05;
+    margin: 0 0 20px;
+    max-width: 900px;
 }
 
 .quote-section p {
-  font-size: 1.1rem;
-  margin: 0 0 20px;
+    font-size: 1.1rem;
+    margin: 0 0 20px;
 }
 
 /* Text on the picture */
 
 .sg-container-text {
-  align-self: flex-end;
-  text-align: center;
-  max-width: 900px;
-  margin-bottom: 50px;
+    align-self: flex-end;
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 50px;
 
 }
 
 .sg-container-text h2 {
-  font-size: clamp(5rem, 6vw, 7rem);
-  line-height: 1.02;
-  margin-right: 20px;
-  color: #fff;
+    font-size: clamp(5rem, 6vw, 7rem);
+    line-height: 1.02;
+    margin-right: 20px;
+    color: #fff;
 
 }
 
 /* Card */
 
 .quote-card {
-  color: #000000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .quote-card h3 {
-  font-size: 2.8rem;
-  font-style: italic;
+    font-size: 2.8rem;
+    font-style: italic;
 }
 
 .quote-card p {
-  font-size: 1.2rem;
-  max-width: none;
-  width: 100%;
-  text-align: center;
-  font-weight: 700;
+    font-size: 1.2rem;
+    max-width: none;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
 
 }
 
@@ -477,95 +541,95 @@ Pages style CSS
 
 @media (max-width: 710px) {
 
-  .quote-section .sg-container {
-    height: auto;
-  }
+    .quote-section .sg-container {
+        height: auto;
+    }
 
-  .sg-container-text {
-    align-self: center;
-    max-width: 100%;
-    padding-top: 15px;
-    margin: 0;
-  }
+    .sg-container-text {
+        align-self: center;
+        max-width: 100%;
+        padding-top: 15px;
+        margin: 0;
+    }
 
-  .sg-container-text h2 {
-    font-size: clamp(2.4rem, 8vw, 3.2rem);
-    text-align: center;
-  }
+    .sg-container-text h2 {
+        font-size: clamp(2.4rem, 8vw, 3.2rem);
+        text-align: center;
+    }
 
-  .quote-card h3 {
-    font-size: clamp(1.4rem, 5vw, 2rem);
-  }
+    .quote-card h3 {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
 
-  .quote-card p {
-    font-size: 1rem;
-    line-height: 1.6;
-    padding-inline: 10px;
-  }
+    .quote-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding-inline: 10px;
+    }
 
-  .sg-btn.black-btn {
-    padding: 15px;
-  }
+    .sg-btn.black-btn {
+        padding: 15px;
+    }
 }
 
 /* ======================= SECTION 4: Join (split layout) ======================= */
 
 .join-section {
-  padding-block: 32px;
+    padding-block: 32px;
 }
 
 .join-section .sg-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 0;
-  overflow: hidden;
-  background: url(/static/images/hero-community.jpg) center / cover no-repeat;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+    background: url(/static/images/hero-community.jpg) center / cover no-repeat;
 }
 
 
 .join-card {
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  padding: 30px;
-  width: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 30px;
+    width: 50%;
 }
 
 .join-card h2 {
-  font-size: clamp(2rem, 2vw, 3rem);
-  line-height: 1.05;
-  margin: 0 0 20px;
+    font-size: clamp(2rem, 2vw, 3rem);
+    line-height: 1.05;
+    margin: 0 0 20px;
 }
 
 .join-card p {
-  font-size: 0.9rem;
-  margin: 0 0 20px;
+    font-size: 0.9rem;
+    margin: 0 0 20px;
 }
 
 /* --------------- Media query for medium screens - max-width: 800px --------------- */
 
 @media (max-width: 710px) {
 
-  .join-section .sg-container {
-    flex-direction: column;
-  }
+    .join-section .sg-container {
+        flex-direction: column;
+    }
 
-  .join-card {
-    width: 100%;
-    padding: 24px 16px;
-  }
+    .join-card {
+        width: 100%;
+        padding: 24px 16px;
+    }
 
-  .join-card h2 {
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
-  }
+    .join-card h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
 
-  .join-card p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
+    .join-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 }
