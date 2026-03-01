@@ -92,7 +92,6 @@ Pages style CSS
   text-align: center;
   color: #ffffff;
   font-style: italic;
-  font-size: clamp(2.4rem, 2vw, 2.6rem);
 }
 
 .hero-card-col-left p {
@@ -162,7 +161,7 @@ Pages style CSS
   .hero-card-kicker {
     font-size: clamp(2rem, 3.2vw, 2.4rem);
   }
-  
+
   .hero-card-col-right p {
     font-size: clamp(1rem, 1.1vw, 1.5rem);
     line-height: 1.5;
