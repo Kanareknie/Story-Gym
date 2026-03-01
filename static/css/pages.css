@@ -755,6 +755,13 @@ Pages style CSS
 
 @media (max-width: 600px){
 
+/* Section 1 */
+  .randomize-first-section{
+    padding: 60px 0; 
+  }
+
+
+/* Section 2 */
   .randomize-cards-container{
     flex-direction: column;   
     gap: 20px;                
