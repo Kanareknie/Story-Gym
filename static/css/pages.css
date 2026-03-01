@@ -636,14 +636,21 @@ Pages style CSS
 
 /* ============================== Randomizer page  ================================= */
 
+.sg-container.randomize-first-section {
+    margin-top: 40px;
+    padding: 60px;
+    background: url("/static/images/randomizer-start.jpg") center / cover no-repeat;
+}
 
 .randomize-first-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    padding: 40px 0;
+    padding: 40px 20px;
     color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 .randomize-result-card {
