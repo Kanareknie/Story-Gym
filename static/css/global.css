@@ -177,8 +177,6 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   /* griadient background */
-  margin: 0;
-  min-height: 100vh;
   background: linear-gradient(120deg,
       #1c1b1b 0%,
       #2b2423 35%,
