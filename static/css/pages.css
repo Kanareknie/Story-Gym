@@ -268,6 +268,7 @@ Pages style CSS
 .features-section .sg-container {
   padding-block: 0;
   background: transparent;
+  padding-inline: 0;
 }
 
 /* black panel behind cards */
@@ -297,9 +298,6 @@ Pages style CSS
   margin: 10px;
 }
 
-.features-section .sg-container {
-  padding-inline: 0;
-}
 
 .features-section .sg-card img {
   aspect-ratio: 1 / 1;
