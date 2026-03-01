@@ -196,6 +196,14 @@ Pages style CSS
   }
 }
 
+/* ---------------- Media query for large screen- max-width: 1000px ---------------- */
+
+/* Remove extra padding */
+@media (max-width: 1000px) {
+  .hero .sg-container {
+    padding-inline: 10px;  /* or 5px if you really want tight */
+  }
+}
 /* --------------- Media query for medium screens - max-width: 900px --------------- */
 
 
