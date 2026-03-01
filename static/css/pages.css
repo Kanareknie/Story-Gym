@@ -636,6 +636,8 @@ Pages style CSS
 
 /* ============================== Randomizer page  ================================= */
 
+/* ------------------------- First section of randomizer ---------------------------- */
+
 .sg-container.randomize-first-section {
     margin-top: 40px;
     padding: 60px;
@@ -653,14 +655,15 @@ Pages style CSS
     text-align: center;
 }
 
-.randomize-result-card {
-    background: #000000;
-    color: #fff;
-    padding: 30px;
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
+/* ------------------------- Second section of randomizer ---------------------------- */
+
+.sg-container.randomize-second-section {
+    margin-top: 40px;
+    padding: 60px;
+    background: url("/static/images/randomizer-1.jpg") center / cover no-repeat;
 }
+
+/* ------------  Card style ----------- */
 
 .randomize-cards-container {
     display: flex;
@@ -670,10 +673,28 @@ Pages style CSS
     padding: 20px 0;
 }
 
+.randomize-response-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.randomize-result-card {
+   
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
 .randomize-card-button {
-    background: #1a1a1a;
     color: #fff;
-    padding: 24px;
+    padding: 15px;
     text-align: center;
     width: 100%;
     max-width: 300px;
@@ -681,4 +702,5 @@ Pages style CSS
 
 .randomize-card-button p {
     margin-bottom: 15px;
+    font-size: small;
 }
