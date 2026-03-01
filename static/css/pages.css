@@ -782,3 +782,70 @@ Pages style CSS
     }
 
 }
+
+
+/* ===================================== Login page ================================== */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding: 60px;
+    background: url("/static/images/login-bg.jpg") center / cover no-repeat;
+}
+
+.login-cards {
+    display: flex;
+    gap: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+  
+}
+
+.login-card-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #ffffff;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card-col-right {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    color:#ffffff;
+}
+
+.login-card-col-right h2 {
+    margin: 0 0 20px;
+    font-size: clamp(1.8rem, 2vw, 2.4rem);
+    line-height: 1.4;
+    text-align: center;
+}
+
+.login-card-col-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-card-col-right .sg-btn {
+    align-self: center;
+    padding: 15px 30px;
+}
+
+.login-card-col-right .forgot-password {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.login-card-col-right .forgot-password a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
