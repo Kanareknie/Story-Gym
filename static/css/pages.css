@@ -633,3 +633,45 @@ Pages style CSS
         line-height: 1.6;
     }
 }
+
+/* ============================== Randomizer page  ================================= */
+
+
+.randomize-first-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+    color: #ffffff;
+}
+
+.randomize-result-card {
+    background: #000000;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.randomize-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.randomize-card-button {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 24px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.randomize-card-button p {
+    margin-bottom: 15px;
+}
