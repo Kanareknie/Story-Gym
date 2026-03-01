@@ -658,6 +658,8 @@ Pages style CSS
 /* ------------------------- Second section of randomizer ---------------------------- */
 
 .sg-container.randomize-second-section {
+    display: flex;
+    justify-content: flex-end;
     margin-top: 40px;
     padding: 60px;
     background: url("/static/images/randomizer-1.jpg") center / cover no-repeat;
@@ -665,30 +667,32 @@ Pages style CSS
 
 /* ------------  Card style ----------- */
 
-.randomize-cards-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 20px 0;
-}
+
 
 .randomize-response-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 40px;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: rgba(0, 0, 0, 0.7);
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
 }
 
+.randomize-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
 .randomize-result-card {
    
     color: #ffffff;
     padding: 30px;
     text-align: center;
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
 }
 
