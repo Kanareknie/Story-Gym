@@ -270,10 +270,6 @@ Pages style CSS
   background: transparent;
 }
 
-.features-section h2 {
-  display: none;
-}
-
 /* black panel behind cards */
 .features-section .sg-cards {
   width: 100%;
