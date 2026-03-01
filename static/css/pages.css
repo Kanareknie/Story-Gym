@@ -638,7 +638,7 @@ Pages style CSS
 
 /* ------------------------- First section of randomizer ---------------------------- */
 
-.sg-container.randomize-first-section {
+.randomize-first-section {
     margin-top: 40px;
     padding: 60px;
     background: url("/static/images/randomizer-start.jpg") center / cover no-repeat;
@@ -647,12 +647,15 @@ Pages style CSS
 .randomize-first-page {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 40px;
-    padding: 40px 20px;
+    padding: 40px 40px;
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
+    width: min(800px, 100%);
+    margin: 0 auto;
 }
 
 .randomize-first-page h1 {
