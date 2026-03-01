@@ -410,12 +410,6 @@ Pages style CSS
   margin: 0 0 20px;
 }
 
-.quote-section .sg-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 /* Text on the picture */
 
 .sg-container-text {
