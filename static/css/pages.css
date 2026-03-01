@@ -749,3 +749,19 @@ Pages style CSS
 .randomize-card-button .sg-btn{
   white-space: nowrap;
 }
+
+
+/* --------------- Media query for medium screens - max-width: 600px --------------- */
+
+@media (max-width: 600px){
+
+  .randomize-cards-container{
+    flex-direction: column;   
+    gap: 20px;                
+  }
+
+  .randomize-card-button{
+    width: 100%;             
+  }
+
+}
