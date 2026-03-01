@@ -96,53 +96,91 @@
             </header>
             <!-------------------------- Main section of content --------------------------->
             <main>
-                
-            </main>
-            <!-- Footer-nav -->
-            <footer>
-                <!-- Section divider -->
-                <hr class="section-divider">
-                <div id="footer-container">
-                    <nav aria-label="Social media links">
-                        <ul class="social-links">
-                            <li>
-                                <a
-                                    href="https://www.facebook.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit us on Facebook"
-                                >
-                                    <i class="fa-brands fa-square-facebook" style="color: rgb(255, 133, 0)"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://www.instagram.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit us on Instagram"
-                                >
-                                    <i class="fa-brands fa-square-instagram" style="color: rgb(255, 133, 0)"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.twitter.com" aria-label="Visit us on Twitter">
-                                    <i class="fa-brands fa-square-x-twitter" style="color: rgb(255, 133, 0)"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- License details -->
-                        <div class="footer-info">
-                            <div class="footer-info2">All rights reserved. This website is a student project created for educational purposes only.</div>
-                            <div class="footer-info2">@2026 Katarzyna Gawronska</div>
+                <section class="login-container">
+                    <div class="sg-container">
+                        <div class="login-card-col-left">
+                            <div class="sg-card"></div>
+                            <h1>Welcome back!</h1>
+                            <p>Please login to your account</p>
+                            <div class="sg-card"></div>
+                            <h2>New user?</h2>
+                            <p>Register below to get started</p>
+                            <button class="sg-btn">Create account</button>
                         </div>
-                    </nav>
-                </div>
-            </footer>
-        </div>
-        <!-- Bootstrap link JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <!-- JavaScript link -->
-        <script src="static/js/main.js"></script>
-    </body>
-</html>
+                        <div class="login-card-col-right">
+                            <h2>Please enter your details</h2>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Username</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="username"
+                                        placeholder="Enter your username"
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="password"
+                                        placeholder="Enter your password"
+                                    >
+                                </div>
+                                <p class="forgot-password">
+                                    <a href="#">Forgot password?</a>
+                                </p>
+                                <button type="submit" class="sg-btn">Login</button>
+                            </form>
+                        </div>
+                    </section>
+                </main>
+                <!-- Footer-nav -->
+                <footer>
+                    <!-- Section divider -->
+                    <hr class="section-divider">
+                    <div id="footer-container">
+                        <nav aria-label="Social media links">
+                            <ul class="social-links">
+                                <li>
+                                    <a
+                                        href="https://www.facebook.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Visit us on Facebook"
+                                    >
+                                        <i class="fa-brands fa-square-facebook" style="color: rgb(255, 133, 0)"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.instagram.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Visit us on Instagram"
+                                    >
+                                        <i class="fa-brands fa-square-instagram" style="color: rgb(255, 133, 0)"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.twitter.com" aria-label="Visit us on Twitter">
+                                        <i class="fa-brands fa-square-x-twitter" style="color: rgb(255, 133, 0)"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- License details -->
+                            <div class="footer-info">
+                                <div class="footer-info2">All rights reserved. This website is a student project created for educational purposes only.</div>
+                                <div class="footer-info2">@2026 Katarzyna Gawronska</div>
+                            </div>
+                        </nav>
+                    </div>
+                </footer>
+            </div>
+            <!-- Bootstrap link JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+            <!-- JavaScript link -->
+            <script src="static/js/main.js"></script>
+        </body>
+    </html>
