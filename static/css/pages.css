@@ -377,28 +377,37 @@ Pages style CSS
 
     .features-section .sg-card {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-columns: auto, 1fr;
+        grid-template-columns: auto 1fr;
         gap: 20px;
         align-items: center;
         max-width: 700px;
         margin: 10px auto;
     }
 
-     /* place items explicitly */
-  .features-section .sg-card h3 { grid-column: 1; grid-row: 1; }
-  .features-section .sg-card img { grid-column: 1; grid-row: 2; }
+    /* place items explicitly */
+    .features-section .sg-card h3 {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-    .features-section .sg-card p { grid-column: 2; grid-row: 1 / span 2; }
+    .features-section .sg-card img {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .features-section .sg-card p {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
 
 
     .features-section .sg-card img {
-         max-height: none;     
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    padding: 0;
-    justify-self: center;
+        max-height: none;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        padding: 0;
+        justify-self: center;
     }
 
     .features-section .sg-card .sg-btn {
@@ -409,7 +418,7 @@ Pages style CSS
         margin-top: 20px;
     }
 
-     .features-section h3 {
+    .features-section h3 {
         font-size: 1.9rem;
     }
 
@@ -695,22 +704,23 @@ Pages style CSS
     background-color: rgba(0, 0, 0, 0.7);
     max-width: 600px;
     text-align: center;
-   
+
 }
 
 .randomize-cards-container {
     display: flex;
     flex-direction: row;
-    justify-content: cspace-between;
+    justify-content: space-between;
     padding: 20px 0;
     margin-top: auto;
     gap: 10px;
     width: 100%;
 
-    
+
 }
+
 .randomize-result-card {
-   
+
     color: #ffffff;
     text-align: center;
     max-width: 600px;
@@ -746,29 +756,29 @@ Pages style CSS
 }
 
 /* Buttons to stay on the line */
-.randomize-card-button .sg-btn{
-  white-space: nowrap;
+.randomize-card-button .sg-btn {
+    white-space: nowrap;
 }
 
 
 /* --------------- Media query for medium screens - max-width: 600px --------------- */
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
 
-/* Section 1 */
-  .randomize-first-section{
-    padding: 60px 0; 
-  }
+    /* Section 1 */
+    .randomize-first-section {
+        padding: 60px 0;
+    }
 
 
-/* Section 2 */
-  .randomize-cards-container{
-    flex-direction: column;   
-    gap: 20px;                
-  }
+    /* Section 2 */
+    .randomize-cards-container {
+        flex-direction: column;
+        gap: 20px;
+    }
 
-  .randomize-card-button{
-    width: 100%;             
-  }
+    .randomize-card-button {
+        width: 100%;
+    }
 
 }
