@@ -201,13 +201,18 @@ Pages style CSS
 /* Remove extra padding */
 @media (max-width: 1000px) {
   .hero .sg-container {
-    padding-inline: 10px;  /* or 5px if you really want tight */
+    padding-inline: 10px;
   }
 }
+
 /* --------------- Media query for medium screens - max-width: 900px --------------- */
 
 
 @media (max-width: 900px) {
+    
+    .hero .sg-container {
+    padding-inline: 100px;
+  }
   .hero {
     margin-top: 40px;
   }
@@ -240,6 +245,14 @@ Pages style CSS
     align-self: stretch;
     text-align: left;
     align-items: flex-start;
+  }
+}
+
+/* ---------------- Media query for medium screen- max-width: 650px ---------------- */
+
+@media (max-width: 650px) {
+  .hero .sg-container {
+    padding-inline: 10px;
   }
 }
 
