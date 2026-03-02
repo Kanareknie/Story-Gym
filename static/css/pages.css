@@ -785,6 +785,7 @@ Pages style CSS
 
 
 /* ===================================== Login page ================================== */
+
 /* full width wrapper */
 .page-wrapper {
     max-width: none;
@@ -821,12 +822,10 @@ Pages style CSS
 
 .login-col--signup {
     justify-content: flex-start;
-    /* stop vertical centering */
     align-items: center;
-    /* keep it centered horizontally */
     text-align: center;
     padding-top: 60px;
-    /* controls how high/low it sits */
+
 }
 
 /* Header typography */
@@ -849,6 +848,7 @@ Pages style CSS
     line-height: 1.5;
     max-width: 42ch;
 }
+
 
 .login-form {
     display: flex;
@@ -926,7 +926,6 @@ Pages style CSS
     }
 
     .login-form {
-        align-items: center;
         padding: 20px;
     }
 
@@ -948,6 +947,12 @@ Pages style CSS
         padding-top: 18px;
     }
 
+    .login-container p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .login-header,
     .login-col--signup {
         text-align: center;
@@ -956,6 +961,7 @@ Pages style CSS
 
     .login-subtitle {
         max-width: 50ch;
+        text-align: center;
     }
 
     .login-btn,
