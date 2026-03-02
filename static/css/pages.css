@@ -819,6 +819,13 @@ Pages style CSS
   justify-content: center;
 }
 
+.login-col--signup{
+  justify-content: flex-start;      /* stop vertical centering */
+  align-items: center;              /* keep it centered horizontally */
+  text-align: center;
+  padding-top: 60px;                /* controls how high/low it sits */
+}
+
 /* Header typography */
 .login-header {
   margin-bottom: 18px;
@@ -877,10 +884,14 @@ Pages style CSS
 }
 
 /* Buttons */
-.login-btn,
-.signup-btn {
+.login-btn {
   align-self: flex-start;
   padding: 12px 28px;
+}
+
+.signup-btn {
+  align-self: center;
+  margin-top: 8px;
 }
 
 /* Signup column look */
