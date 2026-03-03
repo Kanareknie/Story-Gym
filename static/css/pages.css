@@ -1022,7 +1022,7 @@ Pages style CSS
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: clamp(40px, 3vw, 60px);
+    margin-bottom: 30px;
     color:#ffffff;
     
 }
