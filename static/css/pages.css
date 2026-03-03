@@ -854,6 +854,7 @@ Pages style CSS
     display: flex;
     flex-direction: column;
     gap: 14px;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .login-form .form-control {
