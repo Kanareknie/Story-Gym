@@ -101,15 +101,33 @@
                     <div class="sg-panel">
                         <div class="story-header">
                             <h2>Your words:</h2>
-                            <input type="text" id="story-title" placeholder="Enter your story title here" aria-label="Story title input">
+                            <input
+                                type="text"
+                                id="story-title"
+                                placeholder="Enter your story title here"
+                                aria-label="Story title input"
+                            >
                         </div>
                         <div class="story-content">
-                             <input type="text" id="story-input" placeholder="Start writing your story here..." aria-label="Story content input">
+                            <div class="story-text-wrap">
+                                <textarea
+                                    id="story-text"
+                                    class="story-textarea"
+                                    placeholder="Write here (2,000 characters limit)"
+                                    aria-label="Story content input"
+                                    maxlength="2000"
+                                    rows="10"
+                                ></textarea>
+                                <div class="story-counter" aria-live="polite">
+                                    <span id="story-count">0</span>
+                                    /2000
+                                </div>
+                            </div>
                         </div>
                         <div class="story-footer">
-                                <button id="save-story" class="sg-btn" aria-label="Save your story">Save for later</button>
-                                <button id="clear-story" class="sg-btn" aria-label="Clear your story">Nope, clear all</button>
-                                <button id="send" class="sg-btn" aria-label="Submit your story">Send to the world</button>
+                            <button id="save-story" class="sg-btn" aria-label="Save your story">Save for later</button>
+                            <button id="clear-story" class="sg-btn" aria-label="Clear your story">Nope, clear all</button>
+                            <button id="send" class="sg-btn" aria-label="Submit your story">Send to the world</button>
                         </div>
                     </div>
                 </section>
