@@ -1159,6 +1159,31 @@ Pages style CSS
 }
 
 
+/* Inputs */
+.story-container input[type="text"],
+.story-container textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    padding: 10px 12px;
+    /* Padding and margin uncluding with total width */
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Placeholders */
+.story-container input[type="text"]::placeholder,
+.story-container textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Focus states */
+.story-container input[type="text"]:focus,
+.story-container textarea:focus {
+    border-color: rgba(255, 255, 255, 0.95);
+}
+
 /* Buttons row */
 .story-footer {
     display: flex;
