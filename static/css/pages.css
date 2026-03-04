@@ -1116,3 +1116,56 @@ Pages style CSS
 }
 
 
+/* Header row */
+.story-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #ffffff;
+    margin-bottom: 14px;
+}
+
+.story-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+
+/* Text area */
+.story-content {
+    margin-bottom: 14px;
+}
+
+.story-text-wrap {
+    position: relative;
+}
+
+.story-textarea {
+    min-height: clamp(260px, 45vh, 520px);
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.story-counter {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(0, 0, 0, 0.35);
+    padding: 2px 8px;
+    border-radius: 999px;
+    user-select: none;
+}
+
+
+/* Buttons row */
+.story-footer {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
