@@ -1116,6 +1116,7 @@ Pages style CSS
     letter-spacing: 0.2px;
     text-align: center;
     color: #ffffff;
+    padding-block: clamp(12px, 2vw, 24px);
 }
 
 
