@@ -1145,7 +1145,7 @@ Pages style CSS
 }
 
 .story-textarea {
-    min-height: clamp(260px, 45vh, 520px);
+    min-height: clamp(240px, 42vh, 520px);
     resize: vertical;
     line-height: 1.6;
 }
@@ -1191,7 +1191,7 @@ Pages style CSS
 /* Buttons row */
 .story-footer {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
 }
