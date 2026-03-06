@@ -1091,7 +1091,12 @@ Pages style CSS
     place-items: center;
     background: url("/static/images/story-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
-    padding: clamp(16px, 3vw, 40px) 0;
+    padding: clamp(14px, 2vw, 24px) 0;
+}
+
+/* Remove global side padding */
+.story-container.sg-container {
+    padding-inline: 0;
 }
 
 /* Main panel */
