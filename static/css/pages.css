@@ -1399,14 +1399,14 @@ Pages style CSS
     min-height: calc(100vh - 80px);
     display: grid;
     place-items: center;
-    padding: clamp(16px, 4vw, 60px);
+    padding: clamp(20px, 4vw, 80px);
     background: url("/static/images/repository-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
 }
 
 /* Main panel */
 .stories-panel {
-    width: min(980px, 100%);
+    width: min(1400px, calc(100% - 40px));
     display: grid;
     grid-template-columns: 1.35fr 1fr;
     gap: clamp(16px, 3vw, 40px);
