@@ -2237,7 +2237,8 @@ Pages style CSS
     .repo-btn,
     .article-btn {
         width: 100%;
-        max-width: none;
+        max-width: 220px;
+        justify-self: center;
     }
 
     .account-card {
