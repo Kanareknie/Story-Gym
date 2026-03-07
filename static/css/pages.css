@@ -1463,7 +1463,75 @@ Pages style CSS
     line-height: 1.1;
 }
 
-/* Repository List */
+/* ---------- Latest story preview ---------- */
+
+.story-preview-panel {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.70);
+    padding: clamp(16px, 2vw, 24px);
+    box-sizing: border-box;
+    width: 100%;
+    color: #ffffff;
+}
+
+.story-preview-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.story-preview-header h2 {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+}
+
+.story-preview-box {
+    margin: 0;
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    padding: 10px 12px;
+    box-sizing: border-box;
+}
+
+.story-preview-content {
+    margin-bottom: 14px;
+}
+
+.story-preview-text {
+    min-height: clamp(240px, 42vh, 520px);
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0, 0, 0, 0.25);
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.story-preview-text p {
+    margin: 0;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.story-preview-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.story-preview-author {
+    margin: 0;
+}
+
+.story-preview-author span {
+    font-weight: 700;
+}
+
+/*-------- Repository List ---------*/
 
 .stories-list {
     list-style: none;
