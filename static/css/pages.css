@@ -2133,3 +2133,139 @@ Pages style CSS
     font-family: var(--font-display);
 }
 
+/* --------------- Media query for large screen - max-width: 1024px --------------- */
+
+@media (max-width: 1024px) {
+    .account-container {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .account-panel {
+        width: min(100%, calc(100% - 20px));
+        padding: 20px;
+    }
+
+    .account-col--latest {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .account-col--signup {
+        padding-left: 0;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+}
+
+
+/* --------------- Media query for tablets - max-width: 820px --------------- */ 
+
+@media (max-width: 820px) {
+    .account-container {
+        padding: 12px;
+        margin-top: 10px;
+    }
+
+    .account-panel {
+        width: 100%;
+        padding: 14px;
+    }
+
+    .account-title {
+        text-align: center;
+        font-size: clamp(1.9rem, 5vw, 2.8rem);
+    }
+
+    .account-subtitle {
+        font-size: clamp(1.25rem, 4vw, 1.8rem);
+    }
+
+    .account-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        justify-items: center;
+    }
+
+    .article-btn {
+        justify-self: center;
+    }
+}
+
+/* --------------- Media query for phones - max-width: 600px --------------- */ 
+
+@media (max-width: 600px) {
+    .account-container {
+        margin-top: 0;
+        padding: 6px 0;
+    }
+
+    .account-panel {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .account-title {
+        font-size: clamp(1.55rem, 7vw, 2.1rem);
+        text-align: center;
+    }
+
+    .repository-title,
+    .account-subtitle {
+        text-align: center;
+    }
+
+    .account-col--repository {
+        padding: 12px;
+    }
+
+    .account-list-head,
+    .account-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        text-align: center;
+    }
+
+    .account-list-head span:last-child {
+        display: none;
+    }
+
+    .account-row .story-date {
+        white-space: normal;
+    }
+
+    .repo-btn,
+    .article-btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .account-card {
+        padding: 12px;
+    }
+
+    .account-card p {
+        font-size: 0.95rem;
+    }
+}
+
+/* --------------- Media query for small phones - max-width: 420px --------------- */ 
+
+@media (max-width: 420px) {
+    .account-title {
+        font-size: 1.4rem;
+    }
+
+    .account-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .account-panel {
+        padding: 8px;
+    }
+
+    .account-col--repository,
+    .account-card {
+        padding: 10px;
+    }
+}
