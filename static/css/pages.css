@@ -1402,6 +1402,9 @@ Pages style CSS
     padding: clamp(20px, 4vw, 80px);
     background: url("/static/images/repository-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
+    
+    max-width: 1600px;
+    margin-inline: auto;
 }
 
 /* Main panel */
