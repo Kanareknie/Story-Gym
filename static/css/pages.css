@@ -1615,3 +1615,350 @@ Pages style CSS
         max-width: 340px;
     }
 }
+
+
+/* ===================================== Story preview page ================================== */
+
+/* ---------- Story preview section ---------- */
+
+.story-preview-page {
+    display: grid;
+    place-items: center;
+    background: url("/static/images/one-story-bg.jpg") center / cover no-repeat;
+    margin-top: 40px;
+    padding: clamp(14px, 2vw, 24px) 0;
+}
+
+/* Remove default side padding from global container */
+.story-preview-page.sg-container {
+    padding-inline: 0;
+}
+
+/* Main dark panel */
+.story-preview-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.70);
+    width: min(1100px, calc(100% - 20px));
+    padding: clamp(16px, 2vw, 24px);
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+/* Title reuse */
+.story-preview-panel .sg-title {
+    margin: 0 0 14px;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #ffffff;
+    padding-block: clamp(12px, 2vw, 24px);
+}
+
+.story-preview-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.story-preview-meta p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.story-preview-content {
+    margin-bottom: 8px;
+}
+
+.story-label {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* read-only story area */
+.story-preview-box {
+    min-height: clamp(260px, 45vh, 560px);
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(0, 0, 0, 0.25);
+    padding: clamp(14px, 2vw, 22px);
+    box-sizing: border-box;
+}
+
+.story-preview-box p {
+    margin: 0;
+    line-height: 1.8;
+    color: #ffffff;
+    text-align: left;
+}
+
+.story-preview-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+
+/* ---------- Comments section ---------- */
+
+.story-comments-section {
+    padding: 36px 0 20px;
+}
+
+/* remove side padding from global container */
+.story-comments-section.sg-container {
+    padding-inline: 0;
+}
+
+.story-preview-page {
+    display: grid;
+    place-items: center;
+    margin-top: 40px;
+    padding: clamp(14px, 2vw, 24px) 0;
+}
+
+.story-comments-panel {
+    width: min(1100px, calc(100% - 20px));
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.88);
+    padding: clamp(16px, 2vw, 28px);
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+/* two columns */
+.comments-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 3vw, 40px);
+}
+
+.comment-form-col,
+.comment-list-col {
+    min-width: 0;
+}
+
+.comment-form-col h2,
+.comment-list-col h2 {
+    margin: 0 0 20px;
+    font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Form */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.comment-form textarea,
+.comment-form input,
+.comment-search input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.comment-form textarea {
+    min-height: 180px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.comment-form textarea::placeholder,
+.comment-form input::placeholder,
+.comment-search input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.comment-form textarea:focus,
+.comment-form input:focus,
+.comment-search input:focus {
+    border-color: rgba(255, 255, 255, 0.95);
+}
+
+/* line under textarea */
+.comment-form-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.comment-author {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Temporary rating stars */
+.rating-stars {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: #f4c542;
+    white-space: nowrap;
+}
+
+/* Send button */
+.comment-form .sg-btn {
+    align-self: center;
+    margin-top: 8px;
+}
+
+/* Search row */
+.comment-search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Comments list box */
+.comment-list-box {
+    min-height: 260px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.comment-list-box p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Optional single comment item for later */
+.comment-item {
+    padding: 0 0 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.comment-item-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.comment-item-body {
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* --------------- Media query for tablets - max-width: 900px --------------- */
+
+@media (max-width: 900px) {
+    .comments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-preview-meta {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .comment-form-col h2,
+    .comment-list-col h2 {
+        text-align: center;
+    }
+}
+
+/* --------------- Media query for phones - max-width: 600px --------------- */
+
+@media (max-width: 600px) {
+    .story-preview-page {
+        margin-top: 0;
+        padding: 6px 0;
+    }
+
+    .story-preview-panel,
+    .story-comments-panel {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .story-preview-panel .sg-title {
+        font-size: clamp(1.55rem, 6.5vw, 2.1rem);
+        line-height: 1.05;
+        margin-bottom: 6px;
+        padding-inline: 8px;
+    }
+
+    .story-preview-meta {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .story-preview-box {
+        min-height: 50vh;
+    }
+
+    .comment-form-bottom,
+    .comment-search {
+        grid-template-columns: 1fr;
+    }
+
+    .rating-stars {
+        justify-self: start;
+    }
+
+    .comment-form .sg-btn,
+    .comment-search .repo-btn {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* --------------- Media query for phones - max-width: 500px --------------- */
+
+@media (max-width: 500px) {
+    .story-preview-panel .sg-title,
+    .comment-form-col h2,
+    .comment-list-col h2 {
+        font-size: clamp(1.35rem, 7vw, 1.8rem);
+    }
+
+    .story-preview-box {
+        min-height: 55vh;
+        padding: 12px;
+    }
+
+    .comment-form textarea,
+    .comment-form input,
+    .comment-search input {
+        padding: 9px 10px;
+        font-size: 0.95rem;
+    }
+
+    .story-preview-meta p,
+    .comment-author {
+        font-size: 0.9rem;
+    }
+}
