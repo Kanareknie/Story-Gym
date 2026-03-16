@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Head meta basic information -->
@@ -51,8 +52,8 @@
             crossorigin="anonymous"
         >
         <!-- CSS Style links -->
-        <link rel="stylesheet" href="../../static/css/global.css">
-        <link rel="stylesheet" href="../../static/css/pages.css">
+        <link rel="stylesheet" href="{% static 'css/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages.css' %}">
     </head>
     <body>
         <div class="page-wrapper">
@@ -106,7 +107,7 @@
                             With playful prompts and a community of storytellers, StoryGym turns writing
                             into an enjoyable creative exercise.
                             </p>
-                            <img src="/static/images/hero1.png" alt="Women sitting on the armchair and reading a book">
+                            <img src="{% static 'images/hero1.png' %}" alt="Women sitting on the armchair and reading a book">
                             <p class="hero-bold-p">
                                 Trust your talent and share your story with everyone!
                             </p>
@@ -146,7 +147,7 @@
                         <div class="sg-cards">
                             <article class="sg-card">
                                 <h3>What’s new?</h3>
-                                <img src="/static/images/hero-card-1.jpg" alt="What’s new">
+                                <img src="{% static 'images/hero-card-1.jpg' %}" alt="What’s new">
                                 <p>
                                     Discover the latest stories written by the StoryGym community, fresh prompts added to inspire you, and new creative challenges waiting to be explored. There’s always something new happening here — take a look and see what others have been creating.
                                 </p>
@@ -154,13 +155,13 @@
                             </article>
                             <article class="sg-card">
                                 <h3>Good story hints that lead to unexpected tales</h3>
-                                <img src="/static/images/hero-card-2.jpg" alt="Good story hints">
+                                <img src="{% static 'images/hero-card-2.jpg' %}" alt="Good story hints">
                                 <p>Train your creativity with hints that twist in surprising directions.</p>
                                 <a class="sg-btn" href="#">Read more</a>
                             </article>
                             <article class="sg-card">
                                 <h3>Where to start?</h3>
-                                <img src="/static/images/hero-card-3.jpg" alt="Where to start">
+                                <img src="{% static 'images/hero-card-3.jpg' %}" alt="Where to start">
                                 <p>
                                     Sometimes the hardest part of writing is knowing where to begin. StoryGym removes that barrier by giving you unexpected starting points and playful challenges. You don’t need a perfect idea — just a willingness to explore.
                                 </p>
@@ -243,6 +244,6 @@
         <!-- Bootstrap link JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <!-- JavaScript link -->
-        <script src="static/js/main.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
     </body>
 </html>
