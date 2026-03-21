@@ -25,13 +25,21 @@ class RandomizerResult(models.Model):
     def __str__(self):
         return f"Randomizer result for {self.user.username} at {self.created_on}"
     
+# Status choices for Story model
+STATUS = (
+    (0, "Draft"),
+    (1, "Published")
+)
+
 class Story(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='stories')
     randomizer = models.OneToOneField(RandomizerResult, on_delete=models.CASCADE, related_name='story')
     title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
     
     # Order stories by creation date, newest first
     class Meta:
