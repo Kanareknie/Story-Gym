@@ -89,7 +89,7 @@
                 <p>Please fill in the form below to create your account.</p>
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
-                  <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username" autocomplete="username" />
+                  <input type="text" name="username" class="form-control" id="username" value="{{ form.username.value|default:'' }}" placeholder="Enter your username" autocomplete="username" />
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
@@ -101,21 +101,17 @@
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email Address</label>
-                  <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email address" autocomplete="email" />
+                  <input type="email" name="email" class="form-control" id="email" value="{{ form.email.value|default:'' }}" placeholder="Enter your email address" autocomplete="email" />
                 </div>
                 <div class="mb-3">
                   <label for="date-of-birth" class="form-label">Date of Birth</label>
-                  <input type="date" name="dob" class="form-control" id="date-of-birth" autocomplete="bday" />
+                  <input type="date" name="dob" class="form-control" id="date-of-birth" value="{{ form.dob.value|default:'' }}" autocomplete="bday" />
                 </div>
                 <div class="mb-3">
+                  {% comment %} Security questions defined in forms.py {% endcomment %}
                   <label for="security-question" class="form-label">Security Question</label>
-                  <select name="security_question" class="form-select" id="security-question">
-                    <option value="">Select a security question</option>
-                    <option value="pet">What was the name of your first pet?</option>
-                    <option value="school">What was the name of your first school?</option>
-                    <option value="mother">What is your mother's maiden name?</option>
-                  </select>
-                  <input type="text" name="security_answer" class="form-control mt-2" id="security-answer" placeholder="Enter your answer" autocomplete="off" />
+                  {{ form.security_question }}
+                  <input type="text" name="security_answer" class="form-control mt-2" id="security-answer" value="{{ form.security_answer.value|default:'' }}" placeholder="Enter your answer" autocomplete="off" />
                 </div>
                 <button type="submit" class="sg-btn register-btn">Create account</button>
               </form>
