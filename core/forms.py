@@ -8,7 +8,7 @@ class SignUpForm(UserCreationForm):
     # User table - add email
     email = forms.EmailField(required=True)
     # Profile table - add dob, security question and answer - only to reset the password purpuse
-    dob = forms.DateField(required=True, Widget=forms.DataInput(attrs={'type': 'date'}))
+    dob = forms.DateField(required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     security_question = forms.ChoiceField(
         required=True,
         choices=[
