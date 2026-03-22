@@ -104,17 +104,17 @@
                 </div>
                 <div class="mb-3">
                   <label for="date-of-birth" class="form-label">Date of Birth</label>
-                  <input type="date" class="form-control" id="date-of-birth" placeholder="Enter your date of birth" autocomplete="bday" />
+                  <input type="date" name="dob" class="form-control" id="date-of-birth" placeholder="Enter your date of birth" autocomplete="bday" />
                 </div>
                 <div class="mb-3">
                   <label for="security-question" class="form-label">Security Question</label>
-                  <select class="form-select" id="security-question">
+                  <select name="security_question" class="form-select" id="security-question">
                     <option value="">Select a security question</option>
                     <option value="pet">What was the name of your first pet?</option>
                     <option value="school">What was the name of your first school?</option>
                     <option value="mother">What is your mother's maiden name?</option>
                   </select>
-                  <input type="text" class="form-control mt-2" id="security-answer" placeholder="Enter your answer" autocomplete="off" />
+                  <input type="text" name="security_answer" class="form-control mt-2" id="security-answer" placeholder="Enter your answer" autocomplete="off" />
                 </div>
                 <button type="submit" class="sg-btn register-btn">Create account</button>
               </form>
