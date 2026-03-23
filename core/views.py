@@ -31,3 +31,7 @@ class CustomLoginView(LoginView):
 # Custom logout view (can be extended if needed)
 class CustomLogoutView(LogoutView):
     pass
+
+# Randomizer page view
+def randomizer(request):
+    return render(request, 'randomizer/randomizer.html')
