@@ -67,5 +67,5 @@ def randomizer_view(request):
 # My Story page view
 
 def my_story_view(request):
-    return render(request, 'stories/my_stopry.html')
+    return render(request, 'stories/my_story.html')
     
