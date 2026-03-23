@@ -87,35 +87,37 @@
         </section>
         <!-- SECTION 2: Randomizer -->
         {% if words %}
-        <section class="sg-container randomize-second-section">
-          <div class="randomize-response-container">
-            <div class="randomize-result-card">
-              <h2>Your inspirational words are...</h2>
-              <p id="randomizer-output">
-                {{ words.main_character }} • 
-                {{ words.personality }} • 
-                {{ words.physical_description }} • 
-                {{ words.verb }} • 
-                {{ words.place }} • 
-                {{ words.random_noun }}
-              </p>
-            </div>
-            <div class="randomize-cards-container">
-              <div class="randomize-card-button">
-                <p>Wrote your story now!</p>
-                <button class="sg-btn">Write now</button>
+          <section class="sg-container randomize-second-section">
+            <div class="randomize-response-container">
+              <div class="randomize-result-card">
+                <h2>Your inspirational words are...</h2>
+                <p id="randomizer-output">{{ words.main_character }} •
+                  {{ words.personality }} •
+                  {{ words.physical_description }} •
+                  {{ words.verb }} •
+                  {{ words.place }} •
+                  {{ words.random_noun }}</p>
               </div>
-              <div class="randomize-card-button">
-                <p>Feel unclucky? Try again!</p>
-                <form method="post">
+              <div class="randomize-cards-container">
+                <div class="randomize-card-button">
+                  <p>Wrote your story now!</p>
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'my_story' %}" class="sg-btn">Write now</a>
+                  {% else %}
+                    <a href="{% url 'login' %}" class="sg-btn">Write now</a>
+                  {% endif %}
+                </div>
+                <div class="randomize-card-button">
+                  <p>Feel unclucky? Try again!</p>
+                  <form method="post">
                     {% csrf_token %}
                     <button class="sg-btn" type="submit" name="generate_words">Draw again</button>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      {% endif %}
+          </section>
+        {% endif %}
       </main>
       <!-- Footer-nav -->
       <footer>
