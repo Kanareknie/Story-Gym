@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView, LogoutView
 from .forms import SignUpForm, LoginForm
+import json
+import random
+from pathlib import Path
+
 
 
 # Create your views here.
@@ -35,3 +39,30 @@ class CustomLogoutView(LogoutView):
 # Randomizer page view
 def randomizer(request):
     return render(request, 'randomizer/randomizer.html')
+
+# Randomizer - pull data from JSON - getting the random words from each cathegory.
+def randomizer_view(request):
+    # Gets current remporary words if they exist
+    words = request.session.get('random_words')
+    
+    # When user clicks Start or Draw again, Django generates new words
+    if request.method == 'POST':
+        json_path = Path(__file__).resolve().parent.parent / 'docs' / 'randomizer.json'
+
+        with open(json_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+
+        # Picks the random values in Python, on the server side
+        words = {
+            'main_character': random.choice(data['main_character']),
+            'personality': random.choice(data['personality']),
+            'physical_description': random.choice(data['physical_description']),
+            'verb': random.choice(data['verb']),
+            'place': random.choice(data['place']),
+            'random_noun': random.choice(data['random_noun']),
+        }
+
+        # Stores words temporarily
+        request.session['random_words'] = words
+
+    return render(request, 'core/randomizer/randomizer.html', {'words': words})
