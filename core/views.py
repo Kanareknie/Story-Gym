@@ -36,10 +36,6 @@ class CustomLoginView(LoginView):
 class CustomLogoutView(LogoutView):
     pass
 
-# Randomizer page view
-def randomizer(request):
-    return render(request, 'randomizer/randomizer.html')
-
 # Randomizer - pull data from JSON - getting the random words from each cathegory.
 def randomizer_view(request):
     # Gets current remporary words if they exist
