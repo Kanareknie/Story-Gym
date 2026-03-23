@@ -62,3 +62,10 @@ def randomizer_view(request):
         request.session['random_words'] = words
 
     return render(request, 'randomizer/randomizer.html', {'words': words})
+
+
+# My Story page view
+
+def my_story_view(request):
+    return render(request, 'stories/my_stopry.html')
+    
