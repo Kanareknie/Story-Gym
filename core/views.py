@@ -61,4 +61,4 @@ def randomizer_view(request):
         # Stores words temporarily
         request.session['random_words'] = words
 
-    return render(request, 'core/randomizer/randomizer.html', {'words': words})
+    return render(request, 'randomizer/randomizer.html', {'words': words})
