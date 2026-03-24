@@ -1026,8 +1026,8 @@ Pages style CSS
     flex-direction: column;
     justify-content: center;
     margin-bottom: 30px;
-    color:#ffffff;
-    
+    color: #ffffff;
+
 }
 
 .register-title {
@@ -1221,7 +1221,7 @@ Pages style CSS
 
 /* -------------------- iPad Air / iPad Mini - max-width: 900px -------------------- */
 @media (max-width: 900px) {
-     .story-container {
+    .story-container {
         margin-top: 12px;
         padding-top: 6px;
         padding-bottom: 6px;
@@ -1326,7 +1326,7 @@ Pages style CSS
         min-width: 0;
     }
 
-     .story-container {
+    .story-container {
         margin-top: 0;
         padding-top: 6px;
         padding-bottom: 6px;
@@ -1402,7 +1402,7 @@ Pages style CSS
     padding: clamp(20px, 4vw, 80px);
     background: url("/static/images/repository-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
-    
+
     max-width: 1600px;
     margin-inline: auto;
 }
@@ -1493,7 +1493,7 @@ Pages style CSS
 .story-preview-box {
     margin: 0;
     width: 100%;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(0, 0, 0, 0.25);
     color: #ffffff;
     padding: 10px 12px;
@@ -1506,7 +1506,7 @@ Pages style CSS
 
 .story-preview-text {
     min-height: clamp(240px, 42vh, 520px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(0, 0, 0, 0.25);
     padding: 12px;
     box-sizing: border-box;
@@ -1549,7 +1549,7 @@ Pages style CSS
     align-items: center;
     gap: 12px;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .story-name {
@@ -1889,10 +1889,10 @@ Pages style CSS
     }
 
     .comment-list-col {
-    border-top: 1px solid rgba(255,255,255,0.3);
-    margin-top: 30px;
-    padding-top: 25px;
-}
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        margin-top: 30px;
+        padding-top: 25px;
+    }
 }
 
 /* --------------- Media query for phones - max-width: 600px --------------- */
@@ -1945,6 +1945,7 @@ Pages style CSS
 /* --------------- Media query for phones - max-width: 500px --------------- */
 
 @media (max-width: 500px) {
+
     .story-preview-panel .sg-title,
     .comment-form-col h2,
     .comment-list-col h2 {
@@ -2159,7 +2160,7 @@ Pages style CSS
 }
 
 
-/* --------------- Media query for tablets - max-width: 820px --------------- */ 
+/* --------------- Media query for tablets - max-width: 820px --------------- */
 
 @media (max-width: 820px) {
     .account-container {
@@ -2192,7 +2193,7 @@ Pages style CSS
     }
 }
 
-/* --------------- Media query for phones - max-width: 600px --------------- */ 
+/* --------------- Media query for phones - max-width: 600px --------------- */
 
 @media (max-width: 600px) {
     .account-container {
@@ -2250,7 +2251,7 @@ Pages style CSS
     }
 }
 
-/* --------------- Media query for small phones - max-width: 420px --------------- */ 
+/* --------------- Media query for small phones - max-width: 420px --------------- */
 
 @media (max-width: 420px) {
     .account-title {
