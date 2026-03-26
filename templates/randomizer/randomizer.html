@@ -72,6 +72,7 @@
       </header>
       <!-- Main section of content -->
       <main>
+        {% if not words %}
         <!-- SECTION 1: Start button to open randomizer -->
         <section class="randomize-first-section">
           <div class="sg-container">
@@ -86,7 +87,7 @@
           </div>
         </section>
         <!-- SECTION 2: Randomizer -->
-        {% if words %}
+        {% else %}
           <section class="sg-container randomize-second-section">
             <div class="randomize-response-container">
               <div class="randomize-result-card">

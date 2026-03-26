@@ -37,6 +37,8 @@ class CustomLogoutView(LogoutView):
     pass
 
 # Randomizer - pull data from JSON - getting the random words from each cathegory.
+# Used https://python.plainenglish.io/how-to-read-json-file-in-python-with-examples-in-2026-9877d0cdca71
+
 def randomizer_view(request):
     # Gets current remporary words if they exist
     words = request.session.get('random_words')
