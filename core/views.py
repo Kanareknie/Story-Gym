@@ -70,4 +70,21 @@ def randomizer_view(request):
 
 def my_story_view(request):
     return render(request, 'stories/my_story.html')
-    
+
+
+# Preview Story page view
+
+def preview_story_view(request):
+    return render(request, 'stories/preview_story.html')
+
+
+# Repository page view
+
+def repo_view(request):
+    return render(request, 'stories/repo.html')
+
+
+# Account page view
+
+def account_view(request):
+    return render(request, 'accounts/account.html')
