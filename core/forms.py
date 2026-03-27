@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.hashers import make_password
 from .models import Profile
 import re
+from datetime import date
 
 
 class SignUpForm(UserCreationForm):
@@ -26,7 +27,6 @@ class SignUpForm(UserCreationForm):
     )
 
     # Username validation
-
     def clean_username(self):
         username = self.cleaned_data["username"]
     # Successfull username is at least 3 characters long
@@ -59,6 +59,26 @@ class SignUpForm(UserCreationForm):
                 raise forms.ValidationError("This email is already registered.")
 
         return email
+
+    # Validation of age
+    # https://docs.python.org/3/library/datetime.html
+    def clean_dob(self):
+        dob = self.cleaned_data["dob"]
+        today = date.today()
+
+        # Calculate age - (today date - provided date in the form)
+        age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+
+        # Too young
+        if age < 18:
+            raise forms.ValidationError("You must be at least 18 years old to register.")
+
+        # Too old (your rule)
+        if age > 99:
+            raise forms.ValidationError("Please enter a valid date of birth.")
+
+        return dob
+
 
     class Meta:
         model = User
