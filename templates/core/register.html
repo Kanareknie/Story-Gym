@@ -16,56 +16,98 @@
           <p class="register-subtitle">Every story begins with a first step. Register now to start your journey.</p>
         </header>
         <!-- Right: Form -->
-         {% comment %} 
-         
-         Error loop 
-         https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.BoundField.errors
 
-         {% endcomment %}
-        {% for field in form %}
-          <div class="form-group">
-            {{ field.label_tag }}
-            {{ field }}
+        {% comment %}Form - Register new user{% endcomment %}
+        <form method="post" class="register-form">
+          {% csrf_token %}
+          <p>Please fill in the form below to create your account.</p>
 
-            {% if field.errors %}
+          {% comment %}Error loop https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.BoundField.errors{% endcomment %}
+          {% if form.non_field_errors %}
+            <div class="form-error">
+              {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="username" value="{{ form.username.value|default:'' }}" placeholder="Enter your username" autocomplete="username" />
+            {% comment %}Error check regarding this particular section{% endcomment %}
+            {% if form.username.errors %}
               <div class="form-error">
-                {% for error in field.errors %}
+                {% for error in form.username.errors %}
                   <p>{{ error }}</p>
                 {% endfor %}
               </div>
             {% endif %}
           </div>
-        {% endfor %}
-
-        {% comment %}  Form - Register new user {% endcomment %}
-        <form method="post" class="register-form">
-          {% csrf_token %}
-          <p>Please fill in the form below to create your account.</p>
-          <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" id="username" value="{{ form.username.value|default:'' }}" placeholder="Enter your username" autocomplete="username" />
-          </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password1" class="form-control" id="password" placeholder="Enter your password" autocomplete="new-password" />
+            <input type="password" name="password1" class="form-control" id="password1" placeholder="Enter your password" autocomplete="new-password" />
+            {% if form.password1.errors %}
+              <div class="form-error">
+                {% for error in form.password1.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
           <div class="mb-3">
             <label for="confirm-password" class="form-label">Confirm Password</label>
-            <input type="password" name="password2" class="form-control" id="confirm-password" placeholder="Re-enter your password" autocomplete="new-password" />
+            <input type="password" name="password2" class="form-control" id="password2" placeholder="Re-enter your password" autocomplete="new-password" />
+            {% if form.password2.errors %}
+              <div class="form-error">
+                {% for error in form.password2.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
             <input type="email" name="email" class="form-control" id="email" value="{{ form.email.value|default:'' }}" placeholder="Enter your email address" autocomplete="email" />
+            {% comment %}Error check regarding this particular section{% endcomment %}
+            {% if form.email.errors %}
+              <div class="form-error">
+                {% for error in form.email.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
           <div class="mb-3">
             <label for="date-of-birth" class="form-label">Date of Birth</label>
             <input type="date" name="dob" class="form-control" id="date-of-birth" value="{{ form.dob.value|default:'' }}" autocomplete="bday" />
+            {% comment %}Error check regarding this particular section{% endcomment %}
+            {% if form.dob.errors %}
+              <div class="form-error">
+                {% for error in form.dob.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
           <div class="mb-3">
-            {% comment %}Security questions defined in forms.py{% endcomment %}
-            <label for="security-question" class="form-label">Security Question</label>
+            <label for="security_question" class="form-label">Security Question</label>
             {{ form.security_question }}
+            {% comment %}Error check regarding this particular section{% endcomment %}
+            {% if form.security_question.errors %}
+              <div class="form-error">
+                {% for error in form.security_question.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
             <input type="text" name="security_answer" class="form-control mt-2" id="security-answer" value="{{ form.security_answer.value|default:'' }}" placeholder="Enter your answer" autocomplete="off" />
+            {% comment %}Error check regarding this particular section{% endcomment %}
+            {% if form.security_answer.errors %}
+              <div class="form-error">
+                {% for error in form.security_answer.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
           <button type="submit" class="sg-btn register-btn">Create account</button>
         </form>
