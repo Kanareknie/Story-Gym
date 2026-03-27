@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>404 – Page Not Found</title>
 
-        <!------------- Style for 404 page -------------->
+        <!-- Style for 404 page -->
         <style>
     body {
   margin: 0;
@@ -71,7 +73,7 @@ a:hover {
 }
         </style>
     </head>
-    <!-- ---------Body of 404 page ------------>
+    <!--Body of 404 page -->
     <body>
         <div class="container">
             <h1>404</h1>
@@ -89,11 +91,11 @@ a:hover {
             </p>
             <p>
                 If the redirect does not work,
-                <a href="index.html">click here to return to the homepage</a>
+                <a href="{% url 'home' %}">click here to return to the homepage</a>
                 .
             </p>
         </div>
-        <!-------------- Script for 404 countdown ------------>
+        <!-- Script for 404 countdown -->
         <script>
     let timeLeft = 5;
     const countdown = document.getElementById("seconds");
@@ -104,7 +106,7 @@ a:hover {
 
       if (timeLeft <= 0) {
         clearInterval(timer);
-        window.location.href = "index.html";
+        window.location.href = "{% url 'home' %}";
       }
     }, 1000);
         </script>
