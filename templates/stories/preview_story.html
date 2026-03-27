@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+  Preview Story | Story Gym
+{% endblock %}
+
+{% block content %}
+  <!-- Story preview -->
+  <section class="story-preview-page sg-container">
+    <div class="story-preview-panel">
+      <h1 class="sg-title">Story Title</h1>
+      <div class="story-preview-meta">
+        <p>
+          <strong>Generated words:</strong> child, serious, bedroom, roof, dog
+        </p>
+        <p>
+          <strong>Author:</strong> Katarzyna
+        </p>
+      </div>
+      <div class="story-preview-content">
+        <h2 class="story-label">Story:</h2>
+        <div class="story-preview-box">
+          <p>Here goes the preview of the story. This can be a few paragraphs of text shown inside a bordered box.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Comments -->
+  <section class="story-comments-section sg-container">
+    <div class="story-comments-panel">
+      <div class="comments-grid">
+        <div class="comment-form-col">
+          <h2>Leave your comment</h2>
+          <form class="comment-form">
+            <label for="comment-text" class="visually-hidden">Write your comment</label>
+            <textarea id="comment-text" placeholder="Write here (300 words limit)"></textarea>
+            <div class="comment-form-bottom">
+              <input type="text" placeholder="Your signature:" />
+              <div class="rating-stars">★★★★★</div>
+            </div>
+            <button type="submit" class="sg-btn">Send</button>
+          </form>
+        </div>
+        <div class="comment-list-col">
+          <h2>Lodge of Mockers</h2>
+          <div class="comment-search">
+            <input type="text" placeholder="Search comments" />
+            <button class="sg-btn repo-btn" type="button">More</button>
+          </div>
+          <div class="comment-list-box">
+            <p>No comments yet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
