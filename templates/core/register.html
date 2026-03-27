@@ -16,9 +16,28 @@
           <p class="register-subtitle">Every story begins with a first step. Register now to start your journey.</p>
         </header>
         <!-- Right: Form -->
-        {% if form.errors %}
-          <div class="error">{{ form.errors }}</div>
-        {% endif %}
+         {% comment %} 
+         
+         Error loop 
+         https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.BoundField.errors
+
+         {% endcomment %}
+        {% for field in form %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+
+            {% if field.errors %}
+              <div class="form-error">
+                {% for error in field.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        {% comment %}  Form - Register new user {% endcomment %}
         <form method="post" class="register-form">
           {% csrf_token %}
           <p>Please fill in the form below to create your account.</p>

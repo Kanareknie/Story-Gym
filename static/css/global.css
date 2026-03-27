@@ -160,7 +160,18 @@ h3 {
   box-shadow: none !important;
 }
 
+/* Error display on the register page */
 
+.form-error {
+    margin-top: 6px;
+}
+
+.form-error p {
+    margin: 0;
+    color: #e63946; /* nice red */
+    font-size: 14px;
+    font-weight: 500;
+}
 
 /* --------------------------- Page - main setting --------------------- */
 
