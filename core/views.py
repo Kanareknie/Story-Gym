@@ -6,6 +6,7 @@ from .forms import SignUpForm, LoginForm
 import json
 import random
 from pathlib import Path
+from django.contrib import messages
 
 
 
@@ -21,6 +22,7 @@ def register_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
+            messages.success(request, "Account created successfully. Welcome to Story Gym.")
             login(request, user)
             return redirect('home')
     else:
