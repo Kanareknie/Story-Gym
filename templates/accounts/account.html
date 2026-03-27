@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+  Account | Story Gym
+{% endblock %}
+
+{% block content %}
+<!-- Accounts container -->
+  <section class="account-container">
+    <div class="account-panel">
+      <div class="account-col account-col--latest">
+        <header class="account-header">
+          <h1 class="account-title">Welcome (username)</h1>
+        </header>
+        <!-- LEFT: Stories -->
+        <aside class="account-col account-col--repository">
+          <h2 class="repository-title">Your Repository</h2>
+          <ul class="stories-list">
+            <li class="account-row">
+              <span class="story-name">The sun goes down</span>
+              <span class="story-date">10.01.2026</span>
+              <a href="#" class="sg-btn repo-btn">More</a>
+            </li>
+            <li class="account-row">
+              <span class="story-name">The sun goes down</span>
+              <span class="story-date">10.01.2026</span>
+              <a href="#" class="sg-btn repo-btn">More</a>
+            </li>
+            <li class="account-row">
+              <span class="story-name">The sun goes down</span>
+              <span class="story-date">10.01.2026</span>
+              <a href="#" class="sg-btn repo-btn">More</a>
+            </li>
+            <li class="account-row">
+              <span class="story-name">The sun goes down</span>
+              <span class="story-date">10.01.2026</span>
+              <a href="#" class="sg-btn repo-btn">More</a>
+            </li>
+          </ul>
+        </aside>
+        <!-- RIGHT: Article cards -->
+        <aside class="account-col account-col--signup">
+          <h2 class="account-subtitle account-note">This is your creative space. Come back anytime, pick a prompt, and continue your writing journey.</h2>
+          <div class="account-card">
+            <p>Your stories live here. Whenever you feel inspired, start a new one and see where your imagination takes you next.</p>
+            <a href="/randomizer" class="sg-btn article-btn">Start here</a>
+          </div>
+          <div class="account-card">
+            <p>Explore writing tips and articles to spark ideas and improve your storytelling skills.</p>
+            <a href="/articles" class="sg-btn article-btn">Check it now!</a>
+          </div>
+          <div class="account-card">
+            <p>Discover how other writers turned prompts into stories and find inspiration in their creativity.</p>
+            <a href="/repository" class="sg-btn article-btn">Get inspired</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+{% endblock %}
