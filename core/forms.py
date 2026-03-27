@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.hashers import make_password
 from .models import Profile
+import re
 
 class SignUpForm(UserCreationForm):
     # User table - add email
@@ -21,6 +22,23 @@ class SignUpForm(UserCreationForm):
         required=True,
         widget=forms.TextInput(attrs={'autocomplete': 'off'})
     )
+    
+    # Username validation
+    
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+    # Successfull username is at least 3 characters long
+        if len(username) < 3:
+            raise forms.ValidationError("Username must be at least 3 characters long.")
+    # Username can contains only letters, numbers and underscored
+        if not re.match(r"^[A-Za-z0-9_]+$", username):
+            raise forms.ValidationError("Username can only contain letters, numbers, and underscores.")
+    # check if user already exists
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("This username is already taken.")
+        return username
+    
+    
     
     class Meta:
         model = User
