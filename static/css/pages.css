@@ -1080,7 +1080,30 @@ Pages style CSS
     margin: 10px 0;
 }
 
+.register-form .form-label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 600;
+    color: #ffffff;
+}
 
+.register-form .form-hint {
+    display: block;
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.register-form .form-control {
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+}
+
+.register-form .mb-3 {
+    margin-bottom: 22px !important;
+}
 /* ===================================== My Story page ================================== */
 
 

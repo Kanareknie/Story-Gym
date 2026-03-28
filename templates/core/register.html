@@ -32,7 +32,9 @@
           {% endif %}
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" id="username" value="{{ form.username.value|default:'' }}" placeholder="Enter your username" autocomplete="username" />
+            {% comment %} Form hint {% endcomment %}
+            <p class="form-hint">3–15 characters. Letters, numbers, and underscore only.</p>
+            <input type="text" name="username" class="form-control" id="username" value="{{ form.username.value|default:'' }}" autocomplete="username" />
             {% comment %}Error check regarding this particular section{% endcomment %}
             {% if form.username.errors %}
               <div class="form-error">
@@ -44,7 +46,9 @@
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password1" class="form-control" id="password1" placeholder="Enter your password" autocomplete="new-password" />
+            {% comment %} Form hint {% endcomment %}
+            <p class="form-hint">At least 8 characters. Use a mix of letters and numbers.</p>
+            <input type="password" name="password1" class="form-control" id="password1" autocomplete="new-password" />
             {% if form.password1.errors %}
               <div class="form-error">
                 {% for error in form.password1.errors %}
@@ -55,7 +59,9 @@
           </div>
           <div class="mb-3">
             <label for="confirm-password" class="form-label">Confirm Password</label>
-            <input type="password" name="password2" class="form-control" id="password2" placeholder="Re-enter your password" autocomplete="new-password" />
+            {% comment %} Form hint {% endcomment %}
+            <p class="form-hint">Must match the password entered above.</p>
+            <input type="password" name="password2" class="form-control" id="password2" autocomplete="new-password" />
             {% if form.password2.errors %}
               <div class="form-error">
                 {% for error in form.password2.errors %}
@@ -66,7 +72,9 @@
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" name="email" class="form-control" id="email" value="{{ form.email.value|default:'' }}" placeholder="Enter your email address" autocomplete="email" />
+            {% comment %} Form hint {% endcomment %}
+            <p class="form-hint">Enter a valid email address. Disposable emails are not allowed.</p>
+            <input type="email" name="email" class="form-control" id="email" value="{{ form.email.value|default:'' }}" autocomplete="email" />
             {% comment %}Error check regarding this particular section{% endcomment %}
             {% if form.email.errors %}
               <div class="form-error">
@@ -78,6 +86,8 @@
           </div>
           <div class="mb-3">
             <label for="date-of-birth" class="form-label">Date of Birth</label>
+            {% comment %} Form hint {% endcomment %}
+            <p class="form-hint">You must be between 18 and 99 years old.</p>
             <input type="date" name="dob" class="form-control" id="date-of-birth" value="{{ form.dob.value|default:'' }}" autocomplete="bday" />
             {% comment %}Error check regarding this particular section{% endcomment %}
             {% if form.dob.errors %}
@@ -90,6 +100,8 @@
           </div>
           <div class="mb-3">
             <label for="security_question" class="form-label">Security Question</label>
+            {% comment %} Form hint {% endcomment %}
+            <p class="form-hint">Used for account recovery.</p>
             {{ form.security_question }}
             {% comment %}Error check regarding this particular section{% endcomment %}
             {% if form.security_question.errors %}
