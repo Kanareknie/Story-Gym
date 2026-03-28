@@ -39,6 +39,15 @@ def register_view(request):
 class CustomLoginView(LoginView):
     template_name = 'core/login.html'
     authentication_form = LoginForm
+    # Override form_valid to check for random words in the session and save them for the user if they exist
+    def form_valid(self, form):
+        response = super().form_valid(form)
+
+        if self.request.session.get('random_words'):
+            save_random_words_for_user(self.request, self.request.user)
+            return redirect('my_story')
+
+        return response
 
 # Custom logout view (can be extended if needed)
 class CustomLogoutView(LogoutView):
