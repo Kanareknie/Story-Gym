@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
- My Story | Story Gym
+  My Story | Story Gym
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,14 @@
     <h1 class="sg-title story-title">Now it is your time to write...</h1>
     <div class="sg-panel">
       <div class="story-header">
-        <h2>Your words:</h2>
+        <h2>
+          Your words: {{ prompt_words.main_character }},
+          {{ prompt_words.personality }},
+          {{ prompt_words.physical_description }},
+          {{ prompt_words.verb }},
+          {{ prompt_words.place }},
+          {{ prompt_words.random_noun }}.
+        </h2>
         <input type="text" id="story-title" placeholder="Enter your story title here" aria-label="Story title input" />
       </div>
       <div class="story-content">
