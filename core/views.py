@@ -103,7 +103,27 @@ def write_now_view(request):
 # My Story page view
 
 def my_story_view(request):
-    return render(request, 'stories/my_story.html')
+    randomizer_result_id = request.session.get('current_randomizer_result_id')
+# If there are no random words or user is not authenticated, redirect to randomizer page with an error message
+    if not randomizer_result_id or not request.user.is_authenticated:
+        messages.error(request, "Please generate a prompt first.")
+        return redirect('randomizer')
+    # Fetch the randomizer result from the database using the stored ID and ensure it belongs to the current user
+    try:
+        randomizer_result = RandomizerResult.objects.get(
+            id=randomizer_result_id,
+            user=request.user
+        )
+    # If the randomizer result does not exist or does not belong to the user, redirect to randomizer page with an error message
+    except RandomizerResult.DoesNotExist:
+        messages.error(request, "Please generate a prompt first.")
+        return redirect('randomizer')
+    # Render the My Story page with the random words from the database
+    return render(
+        request,
+        'stories/my_story.html',
+        {'prompt_words': randomizer_result.words}
+    )
 
 
 # Preview Story page view
