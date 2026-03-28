@@ -27,12 +27,14 @@
       <div class="randomize-response-container">
         <div class="randomize-result-card">
           <h2>Your inspirational words are...</h2>
-          <p id="randomizer-output">{{ words.main_character }} •
-            {{ words.personality }} •
-            {{ words.physical_description }} •
-            {{ words.verb }} •
-            {{ words.place }} •
-            {{ words.random_noun }}</p>
+          <div class="randomizer-word-list" id="randomizer-output">
+            <span class="randomizer-word">{{ words.main_character }}</span>
+            <span class="randomizer-word">{{ words.personality }}</span>
+            <span class="randomizer-word">{{ words.physical_description }}</span>
+            <span class="randomizer-word">{{ words.verb }}</span>
+            <span class="randomizer-word">{{ words.place }}</span>
+            <span class="randomizer-word">{{ words.random_noun }}</span>
+          </div>
         </div>
         <div class="randomize-cards-container">
           <div class="randomize-card-button">

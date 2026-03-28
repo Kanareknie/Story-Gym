@@ -742,6 +742,28 @@ Pages style CSS
 
 }
 
+.randomizer-word-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.randomizer-word {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+
 .randomize-card-button {
     flex: 1;
     min-width: 0;
