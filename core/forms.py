@@ -8,6 +8,7 @@ from datetime import date
 
 
 class SignUpForm(UserCreationForm):
+    username = forms.CharField(max_length=15, required=True)
     # User table - add email
     email = forms.EmailField(required=True)
     # Profile table - add dob, security question and answer - only to reset the password purpuse
