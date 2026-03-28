@@ -7,6 +7,7 @@ import json
 import random
 from pathlib import Path
 from django.contrib import messages
+from .models import RandomizerResult
 
 
 
@@ -38,7 +39,7 @@ class CustomLoginView(LoginView):
 class CustomLogoutView(LogoutView):
     pass
 
-# Randomizer - pull data from JSON - getting the random words from each cathegory.
+# Randomizer - step 1 - pull data from JSON - getting the random words from each cathegory.
 # Used https://python.plainenglish.io/how-to-read-json-file-in-python-with-examples-in-2026-9877d0cdca71
 
 def randomizer_view(request):
@@ -67,6 +68,37 @@ def randomizer_view(request):
 
     return render(request, 'randomizer/randomizer.html', {'words': words})
 
+# Randomizer - step 2 -  decides what happens after clicking Write Now button
+
+def save_random_words_for_user(request, user):
+    words = request.session.get('random_words')
+
+    if not words:
+        return None
+
+    randomizer_result = RandomizerResult.objects.create(
+        user=user,
+        words=words
+    )
+
+    request.session['current_randomizer_result_id'] = randomizer_result.id
+    del request.session['random_words']
+
+    return randomizer_result
+
+#Randomizer - step 3 - Redirects to My Story page if user is authenticated, otherwise to login page
+def write_now_view(request):
+    words = request.session.get('random_words')
+
+    if not words:
+        messages.error(request, "Please generate a prompt first.")
+        return redirect('randomizer')
+
+    if request.user.is_authenticated:
+        save_random_words_for_user(request, request.user)
+        return redirect('my_story')
+
+    return redirect('login')
 
 # My Story page view
 
