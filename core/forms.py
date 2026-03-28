@@ -65,6 +65,10 @@ class SignUpForm(UserCreationForm):
     def clean_dob(self):
         dob = self.cleaned_data["dob"]
         today = date.today()
+        
+           # Future date check FIRST
+        if dob > today:
+            raise forms.ValidationError("Date of birth cannot be in the future.")
 
         # Calculate age - (today date - provided date in the form)
         age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
