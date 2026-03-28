@@ -25,6 +25,11 @@ def register_view(request):
             user = form.save()
             messages.success(request, "Account created successfully. Welcome to Story Gym.")
             login(request, user)
+            # If there are random words in the session, save them for the user and redirect to My Story page
+            if request.session.get('random_words'):
+                save_random_words_for_user(request, user)
+                return redirect('my_story')
+            
             return redirect('home')
     else:
         form = SignUpForm()
