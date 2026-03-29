@@ -239,7 +239,8 @@ def my_story_view(request):
 
 
 # Preview Story page view
-
+# Login protection
+@login_required
 def preview_story_view(request, story_id):
     story = get_object_or_404(Story, id=story_id, user=request.user)
     return render(request, 'stories/preview_story.html', {'story': story})
