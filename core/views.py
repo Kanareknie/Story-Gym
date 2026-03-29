@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
 from .forms import SignUpForm, LoginForm
 import json
@@ -137,11 +138,12 @@ def write_now_view(request):
 
 # My Story page view
 
-
+# Add login requiremnt to My Story page - if user is not authenticated, redirect to login page. After login, if there are random words in the session and user click "Write Now", save them for the user and redirect to My Story page
+@login_required
 def my_story_view(request):
     randomizer_result_id = request.session.get('current_randomizer_result_id')
 # If there are no random words or user is not authenticated, redirect to randomizer page with an error message
-    if not randomizer_result_id or not request.user.is_authenticated:
+    if not randomizer_result_id:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
     # Fetch the randomizer result from the database using the stored ID and ensure it belongs to the current user
@@ -154,11 +156,60 @@ def my_story_view(request):
     except RandomizerResult.DoesNotExist:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
+    if request.method == 'POST':
+        # clear button
+        if 'clear_story' in request.POST:
+            form = StoryForm()
+            return render(
+                request,
+                'stories/my_story.html',
+                {
+                    'form': form,
+                    'prompt_words': randomizer_result.words,
+                }
+            )
+
+        form = StoryForm(request.POST)
+
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+
+            # save for later = draft
+            if 'save_draft' in request.POST:
+                story = Story.objects.create(
+                    user=request.user,
+                    randomizer=randomizer_result,
+                    title=title,
+                    content=content,
+                    status=0,
+                )
+                messages.success(request, "Your story was saved as a draft.")
+                return redirect('preview_story', story_id=story.id)
+
+            # publish
+            if 'publish_story' in request.POST:
+                story = Story.objects.create(
+                    user=request.user,
+                    randomizer=randomizer_result,
+                    title=title,
+                    content=content,
+                    status=1,
+                )
+                messages.success(request, "Your story has been published.")
+                return redirect('preview_story', story_id=story.id)
+
+    else:
+        form = StoryForm()
+
     # Render the My Story page with the random words from the database
     return render(
         request,
         'stories/my_story.html',
-        {'prompt_words': randomizer_result.words}
+        {
+            'form': form,
+            'prompt_words': randomizer_result.words
+        }
     )
 
 
