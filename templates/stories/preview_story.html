@@ -9,19 +9,28 @@
   <!-- Story preview -->
   <section class="story-preview-page sg-container">
     <div class="story-preview-panel">
-      <h1 class="sg-title">Story Title</h1>
+      <h1 class="sg-title">{{ story.title }}</h1>
       <div class="story-preview-meta">
         <p>
-          <strong>Generated words:</strong> child, serious, bedroom, roof, dog
+          <strong>Generated words:</strong><strong>Generated words:</strong>
+          {{ story.randomizer.words.main_character }},
+          {{ story.randomizer.words.personality }},
+          {{ story.randomizer.words.physical_description }},
+          {{ story.randomizer.words.verb }},
+          {{ story.randomizer.words.place }},
+          {{ story.randomizer.words.random_noun }}
         </p>
         <p>
-          <strong>Author:</strong> Katarzyna
+          <strong>Author:</strong> {{ story.user.username }}
+        </p>
+        <p>
+          <strong>Created on:</strong> {{ story.created_on }}
         </p>
       </div>
       <div class="story-preview-content">
         <h2 class="story-label">Story:</h2>
         <div class="story-preview-box">
-          <p>Here goes the preview of the story. This can be a few paragraphs of text shown inside a bordered box.</p>
+           {{ story.content|linebreaks }}
         </div>
       </div>
     </div>
