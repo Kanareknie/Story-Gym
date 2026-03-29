@@ -108,7 +108,7 @@ def save_random_words_for_user(request, user):
 
     request.session['current_randomizer_result_id'] = randomizer_result.id
     # Clear the random words from the session after saving to the database
-    del request.session['random_words']
+    request.session.pop('random_words', None)
     request.session.pop('pending_write_now', None)
 
     return randomizer_result
