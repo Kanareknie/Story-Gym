@@ -7,7 +7,7 @@ import json
 import random
 from pathlib import Path
 from django.contrib import messages
-from .models import RandomizerResult
+from .models import RandomizerResult, Story
 
 
 # Create your views here.
