@@ -116,18 +116,27 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(
         label="Password", strip=False, widget=forms.PasswordInput)
 
+
 # Story form - to create and edit the story
+
 class StoryForm(forms.ModelForm):
     class Meta:
         model = Story
         fields = ['title', 'content']
         widgets = {
-            'title': forms.TextInput(attrs={'placeholder': 'Enter the title of your story',
-                                            'maxlength': 255,
-                                            }),
-            'content': forms.Textarea(attrs={'placeholder': 'Write here (2,000 characters limit)',
-                                             'maxlength': '2000',
-                                             'rows': 12,
-                                             'id': 'story-content',
-                                             }),
+            'title': forms.TextInput(attrs={
+                'id': 'story-title',
+                'class': 'story-title-input',
+                'placeholder': 'Enter your story title here',
+                'maxlength': 255,
+                'aria-label': 'Story title input',
+            }),
+            'content': forms.Textarea(attrs={
+                'id': 'story-text',
+                'class': 'story-textarea',
+                'placeholder': 'Write here (2,000 characters limit)',
+                'maxlength': 2000,
+                'rows': 10,
+                'aria-label': 'Story content input',
+            }),
         }

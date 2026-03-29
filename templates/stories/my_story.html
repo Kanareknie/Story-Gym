@@ -21,11 +21,11 @@
           {{ prompt_words.place }},
           {{ prompt_words.random_noun }}.
         </p>
-        <input type="text" id="story-title" placeholder="Enter your story title here" aria-label="Story title input" />
+        {{ form.title }}
       </div>
       <div class="story-content">
         <div class="story-text-wrap">
-          <textarea id="story-text" class="story-textarea" placeholder="Write here (2,000 characters limit)" aria-label="Story content input" maxlength="2000" rows="10"></textarea>
+          {{ form.content }}
           <div class="story-counter" aria-live="polite">
             <span id="story-count">0</span>
             /2000
@@ -33,9 +33,9 @@
         </div>
       </div>
       <div class="story-footer">
-        <button id="save-story" class="sg-btn" aria-label="Save your story">Save for later</button>
-        <button id="clear-story" class="sg-btn" aria-label="Clear your story">Nope, clear all</button>
-        <button id="send" class="sg-btn" aria-label="Submit your story">Send to the world</button>
+        <button id="save-story" class="sg-btn" type="submit" aria-label="Save your story">Save for later</button>
+        <button id="clear-story" class="sg-btn" type="submit" aria-label="Clear your story">Nope, clear all</button>
+        <button id="send" class="sg-btn" type="submit" aria-label="Submit your story">Send to the world</button>
       </div>
     </div>
   </section>
