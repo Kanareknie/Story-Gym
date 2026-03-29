@@ -25,9 +25,10 @@ def register_view(request):
             user = form.save()
             messages.success(request, "Account created successfully. Welcome to Story Gym.")
             login(request, user)
-            # If there are random words in the session, save them for the user and redirect to My Story page
-            if request.session.get('random_words'):
+            # If there are random words in the session and user click "Write Now", save them for the user and redirect to My Story page
+            if request.session.get('random_words') and request.session.get('pending_write_now'):
                 save_random_words_for_user(request, user)
+                request.session.pop('pending_write_now', None)
                 return redirect('my_story')
             
             return redirect('home')
@@ -43,8 +44,9 @@ class CustomLoginView(LoginView):
     def form_valid(self, form):
         response = super().form_valid(form)
 
-        if self.request.session.get('random_words'):
+        if self.request.session.get('random_words') and self.request.session.get('pending_write_now'):
             save_random_words_for_user(self.request, self.request.user)
+            self.request.session.pop('pending_write_now', None)
             return redirect('my_story')
 
         return response
@@ -96,20 +98,25 @@ def save_random_words_for_user(request, user):
     )
 
     request.session['current_randomizer_result_id'] = randomizer_result.id
+    # Clear the random words from the session after saving to the database
     del request.session['random_words']
+    request.session.pop('random_words', None)  
 
     return randomizer_result
 
-#Randomizer - step 3 - Redirects to My Story page if user is authenticated, otherwise to login page
+# Randomizer - step 3 - Redirects to My Story page if user is authenticated, otherwise to login page
 def write_now_view(request):
     words = request.session.get('random_words')
 
     if not words:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
+    # Sets a flag in the session to indicate that the user has clicked "Write Now" and is pending redirection to My Story page after login  
+    request.session['pending_write_now'] = True
 
     if request.user.is_authenticated:
         save_random_words_for_user(request, request.user)
+        request.session.pop('pending_write_now', None)
         return redirect('my_story')
 
     return redirect('login')
