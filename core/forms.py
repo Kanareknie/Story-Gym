@@ -117,11 +117,11 @@ class LoginForm(AuthenticationForm):
         label="Password", strip=False, widget=forms.PasswordInput)
 
 # Story form - to create and edit the story
-class Story(forms.ModelForm):
+class StoryForm(forms.ModelForm):
     class Meta:
         model = Story
         fields = ['title', 'content']
-        Widgets = {
+        widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Enter the title of your story',
                                             'maxlength': 255,
                                             }),
