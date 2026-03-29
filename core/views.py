@@ -186,7 +186,7 @@ def my_story_view(request):
                     status=0,
                 )
                 messages.success(request, "Your story was saved as a draft.")
-                return redirect('preview_story', story_id=story.id)
+                return redirect('home')
 
             # publish
             if 'publish_story' in request.POST:
