@@ -123,7 +123,7 @@ def write_now_view(request):
     words = request.session.get('random_words')
     # temporary to test
     print("WRITE NOW VIEW CALLED")
-    
+
     if not words:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
@@ -134,13 +134,14 @@ def write_now_view(request):
         save_random_words_for_user(request, request.user)
         request.session.pop('pending_write_now', None)
         return redirect('my_story')
-        
 
     return redirect('login')
 
 # My Story page view
 
 # Add login requiremnt to My Story page - if user is not authenticated, redirect to login page. After login, if there are random words in the session and user click "Write Now", save them for the user and redirect to My Story page
+
+
 @login_required
 def my_story_view(request):
     randomizer_result_id = request.session.get('current_randomizer_result_id')
@@ -159,7 +160,7 @@ def my_story_view(request):
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
     if request.method == 'POST':
-        print =("POST request received in my_story_view")
+        print("POST request received in my_story_view")
         # clear button
         if 'clear_story' in request.POST:
             form = StoryForm()
@@ -189,6 +190,8 @@ def my_story_view(request):
                 )
                 # Use reverse to get the URL of the account page and include it in the success message
                 # https://docs.bearer.com/reference/rules/python_django_mark_safe/
+                account_url = reverse('account')
+
                 messages.success(
                     request,
                     format_html(
@@ -207,8 +210,19 @@ def my_story_view(request):
                     content=content,
                     status=1,
                 )
-                messages.success(request, "Your story has been published.")
-                return redirect('preview_story', story_id=story.id)
+
+                # Use reverse to get the URL of the account page and include it in the success message
+                # https://docs.bearer.com/reference/rules/python_django_mark_safe/
+                story_url = reverse('preview_story', args=[story.id])
+
+                messages.success(
+                    request,
+                    format_html(
+                        'Your story has been published! <a href="{}">View your story →</a>',
+                        story_url
+                    )
+                )
+                return redirect('home')
 
     else:
         form = StoryForm()
