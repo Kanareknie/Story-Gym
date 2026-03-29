@@ -10,7 +10,7 @@ urlpatterns = [
     path('randomizer/', views.randomizer_view, name='randomizer'),
     path('write_now/', views.write_now_view, name='write_now'),
     path('my_story/', views.my_story_view, name='my_story'),
-    path('preview_story/', views.preview_story_view, name='preview_story'),
+    path('preview_story/<int:story_id>/', views.preview_story_view, name='preview_story'),
     path('repo/', views.repo_view, name='repo_story'),
     path('account/', views.account_view, name='account'),
 
