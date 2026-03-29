@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
@@ -157,6 +157,7 @@ def my_story_view(request):
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
     if request.method == 'POST':
+        print =("POST request received in my_story_view")
         # clear button
         if 'clear_story' in request.POST:
             form = StoryForm()
@@ -215,8 +216,9 @@ def my_story_view(request):
 
 # Preview Story page view
 
-def preview_story_view(request):
-    return render(request, 'stories/preview_story.html')
+def preview_story_view(request, story_id):
+    story = get_object_or_404(Story, id=story_id, user=request.user)
+    return render(request, 'stories/preview_story.html', {'story': story})
 
 
 # Repository page view

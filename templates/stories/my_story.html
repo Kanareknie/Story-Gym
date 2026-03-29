@@ -7,37 +7,37 @@
 
 {% block content %}
   <!-- Main section of content - My story page -->
-   <form method="post">
+  <form method="post">
     {% csrf_token %}
-  <section class="sg-container story-container">
-    <h1 class="sg-title story-title">Now it is your time to write...</h1>
-    <div class="sg-panel">
-      <div class="story-header">
-        <p>
-          <strong>Your words:</strong> {{ prompt_words.main_character }},
-          {{ prompt_words.personality }},
-          {{ prompt_words.physical_description }},
-          {{ prompt_words.verb }},
-          {{ prompt_words.place }},
-          {{ prompt_words.random_noun }}.
-        </p>
-        {{ form.title }}
-      </div>
-      <div class="story-content">
-        <div class="story-text-wrap">
-          {{ form.content }}
-          <div class="story-counter" aria-live="polite">
-            <span id="story-count">0</span>
-            /2000
+    <section class="sg-container story-container">
+      <h1 class="sg-title story-title">Now it is your time to write...</h1>
+      <div class="sg-panel">
+        <div class="story-header">
+          <p>
+            <strong>Your words:</strong> {{ prompt_words.main_character }},
+            {{ prompt_words.personality }},
+            {{ prompt_words.physical_description }},
+            {{ prompt_words.verb }},
+            {{ prompt_words.place }},
+            {{ prompt_words.random_noun }}.
+          </p>
+          {{ form.title }}
+        </div>
+        <div class="story-content">
+          <div class="story-text-wrap">
+            {{ form.content }}
+            <div class="story-counter" aria-live="polite">
+              <span id="story-count">0</span>
+              /2000
+            </div>
           </div>
         </div>
+        <div class="story-footer">
+          <button type="submit" name="save_draft" id="save-story" class="sg-btn" aria-label="Save your story">Save for later</button>
+          <button type="submit" name="clear_story" id="clear-story" class="sg-btn" aria-label="Clear your story">Nope, clear all</button>
+          <button type="submit" name="publish_story" id="send" class="sg-btn" aria-label="Submit your story">Send to the world</button>
+        </div>
       </div>
-      <div class="story-footer">
-        <button id="save-story" class="sg-btn" type="submit" aria-label="Save your story">Save for later</button>
-        <button id="clear-story" class="sg-btn" type="submit" aria-label="Clear your story">Nope, clear all</button>
-        <button id="send" class="sg-btn" type="submit" aria-label="Submit your story">Send to the world</button>
-      </div>
-    </div>
-  </section>
-   </form>
+    </section>
+  </form>
 {% endblock %}
