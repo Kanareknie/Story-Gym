@@ -7,6 +7,8 @@
 
 {% block content %}
   <!-- Main section of content - My story page -->
+   <form method="post">
+    {% csrf_token %}
   <section class="sg-container story-container">
     <h1 class="sg-title story-title">Now it is your time to write...</h1>
     <div class="sg-panel">
@@ -37,4 +39,5 @@
       </div>
     </div>
   </section>
+   </form>
 {% endblock %}
