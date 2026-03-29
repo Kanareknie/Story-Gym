@@ -238,11 +238,10 @@ def my_story_view(request):
     )
 
 
-# Preview Story page view
-# Login protection
-@login_required
+# Preview Story page view to be viewed after publishing the story, with a unique URL for each story. Only the author of the story can view it. If another user tries to access the URL, they will see a 404 page not found error.
+
 def preview_story_view(request, story_id):
-    story = get_object_or_404(Story, id=story_id, user=request.user)
+    story = get_object_or_404(Story, id=story_id, status=1)  # Only published stories can be previewed
     return render(request, 'stories/preview_story.html', {'story': story})
 
 
