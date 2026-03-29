@@ -8,6 +8,8 @@ import random
 from pathlib import Path
 from django.contrib import messages
 from .models import RandomizerResult, Story
+from django.utils.html import format_html
+from django.urls import reverse
 
 
 # Create your views here.
@@ -185,7 +187,15 @@ def my_story_view(request):
                     content=content,
                     status=0,
                 )
-                messages.success(request, "Your story was saved as a draft.")
+                # Use reverse to get the URL of the account page and include it in the success message
+                # https://docs.bearer.com/reference/rules/python_django_mark_safe/
+                messages.success(
+                    request,
+                    format_html(
+                        'Your story was saved as a draft. <a href="{}">Go to your account</a>',
+                        account_url
+                    )
+                )
                 return redirect('home')
 
             # publish
