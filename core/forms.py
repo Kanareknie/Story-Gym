@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.hashers import make_password
-from .models import Profile
+from .models import Profile, Story
 import re
 from datetime import date
 
@@ -47,17 +47,18 @@ class SignUpForm(UserCreationForm):
     # https://medium.com/@python-javascript-php-html-css/implementing-email-validation-in-django-projects-e210d4777fac
     def clean_email(self):
         email = self.cleaned_data["email"]
-        
+
         # Block disposable domains
-        blocked_domains = ["tempmail.com", "mailinator.com", "10minutemail.com"]
+        blocked_domains = ["tempmail.com",
+                           "mailinator.com", "10minutemail.com"]
         domain = email.split("@")[-1]
         if domain in blocked_domains:
-                raise forms.ValidationError(
-                    "Disposable email addresses are not allowed.")
-                
+            raise forms.ValidationError(
+                "Disposable email addresses are not allowed.")
+
         # Check for duplication of emails
         if User.objects.filter(email=email).exists():
-                raise forms.ValidationError("This email is already registered.")
+            raise forms.ValidationError("This email is already registered.")
 
         return email
 
@@ -66,24 +67,26 @@ class SignUpForm(UserCreationForm):
     def clean_dob(self):
         dob = self.cleaned_data["dob"]
         today = date.today()
-        
-           # Future date check FIRST
+
+        # Future date check FIRST
         if dob > today:
-            raise forms.ValidationError("Date of birth cannot be in the future.")
+            raise forms.ValidationError(
+                "Date of birth cannot be in the future.")
 
         # Calculate age - (today date - provided date in the form)
-        age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+        age = today.year - dob.year - \
+            ((today.month, today.day) < (dob.month, dob.day))
 
         # Too young
         if age < 18:
-            raise forms.ValidationError("You must be at least 18 years old to register.")
+            raise forms.ValidationError(
+                "You must be at least 18 years old to register.")
 
         # Too old (your rule)
         if age > 99:
             raise forms.ValidationError("Please enter a valid date of birth.")
 
         return dob
-
 
     class Meta:
         model = User
@@ -112,3 +115,19 @@ class LoginForm(AuthenticationForm):
         max_length=150, widget=forms.TextInput(attrs={'autofocus': True}))
     password = forms.CharField(
         label="Password", strip=False, widget=forms.PasswordInput)
+
+# Story form - to create and edit the story
+class Story(forms.ModelForm):
+    class Meta:
+        model = Story
+        fields = ['title', 'content']
+        Widgets = {
+            'title': forms.TextInput(attrs={'placeholder': 'Enter the title of your story',
+                                            'maxlength': 255,
+                                            }),
+            'content': forms.Textarea(attrs={'placeholder': 'Write here (2,000 characters limit)',
+                                             'maxlength': '2000',
+                                             'rows': 12,
+                                             'id': 'story-content',
+                                             }),
+        }
