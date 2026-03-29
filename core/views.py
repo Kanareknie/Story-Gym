@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm, LoginForm, StoryForm
 import json
 import random
 from pathlib import Path
