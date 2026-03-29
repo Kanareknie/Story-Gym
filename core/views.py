@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView, LogoutView
 from .forms import SignUpForm, LoginForm
@@ -10,7 +9,6 @@ from django.contrib import messages
 from .models import RandomizerResult
 
 
-
 # Create your views here.
 
 # Home page view
@@ -18,29 +16,35 @@ def home(request):
     return render(request, 'core/index.html')
 
 # Sign up view
+
+
 def register_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            messages.success(request, "Account created successfully. Welcome to Story Gym.")
+            messages.success(
+                request, "Account created successfully. Welcome to Story Gym.")
             login(request, user)
             # If there are random words in the session and user click "Write Now", save them for the user and redirect to My Story page
             if request.session.get('random_words') and request.session.get('pending_write_now'):
                 save_random_words_for_user(request, user)
                 request.session.pop('pending_write_now', None)
                 return redirect('my_story')
-            
+
             return redirect('home')
     else:
         form = SignUpForm()
     return render(request, 'core/register.html', {'form': form})
 
 # Custom login view using our LoginForm
+
+
 class CustomLoginView(LoginView):
     template_name = 'core/login.html'
     authentication_form = LoginForm
     # Override form_valid to check for random words in the session and save them for the user if they exist
+
     def form_valid(self, form):
         response = super().form_valid(form)
 
@@ -52,19 +56,23 @@ class CustomLoginView(LoginView):
         return response
 
 # Custom logout view (can be extended if needed)
+
+
 class CustomLogoutView(LogoutView):
     pass
 
 # Randomizer - step 1 - pull data from JSON - getting the random words from each cathegory.
 # Used https://python.plainenglish.io/how-to-read-json-file-in-python-with-examples-in-2026-9877d0cdca71
 
+
 def randomizer_view(request):
     # Gets current remporary words if they exist
     words = request.session.get('random_words')
-    
+
     # When user clicks Start or Draw again, Django generates new words
     if request.method == 'POST':
-        json_path = Path(__file__).resolve().parent.parent / 'docs' / 'randomizer.json'
+        json_path = Path(__file__).resolve().parent.parent / \
+            'docs' / 'randomizer.json'
 
         with open(json_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
@@ -86,6 +94,7 @@ def randomizer_view(request):
 
 # Randomizer - step 2 -  decides what happens after clicking Write Now button
 
+
 def save_random_words_for_user(request, user):
     words = request.session.get('random_words')
 
@@ -100,28 +109,34 @@ def save_random_words_for_user(request, user):
     request.session['current_randomizer_result_id'] = randomizer_result.id
     # Clear the random words from the session after saving to the database
     del request.session['random_words']
-    request.session.pop('random_words', None)  
+    request.session.pop('pending_write_now', None)
 
     return randomizer_result
 
 # Randomizer - step 3 - Redirects to My Story page if user is authenticated, otherwise to login page
+
+
 def write_now_view(request):
     words = request.session.get('random_words')
-
+    # temporary to test
+    print("WRITE NOW VIEW CALLED")
+    
     if not words:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
-    # Sets a flag in the session to indicate that the user has clicked "Write Now" and is pending redirection to My Story page after login  
+    # Sets a flag in the session to indicate that the user has clicked "Write Now" and is pending redirection to My Story page after login
     request.session['pending_write_now'] = True
 
     if request.user.is_authenticated:
         save_random_words_for_user(request, request.user)
         request.session.pop('pending_write_now', None)
         return redirect('my_story')
+        
 
     return redirect('login')
 
 # My Story page view
+
 
 def my_story_view(request):
     randomizer_result_id = request.session.get('current_randomizer_result_id')

@@ -39,11 +39,7 @@
         <div class="randomize-cards-container">
           <div class="randomize-card-button">
             <p>Wrote your story now!</p>
-            {% if user.is_authenticated %}
-              <a href="{% url 'my_story' %}" class="sg-btn">Write now</a>
-            {% else %}
-              <a href="{% url 'login' %}" class="sg-btn">Write now</a>
-            {% endif %}
+            <a href="{% url 'write_now' %}" class="sg-btn">Write now</a>
           </div>
           <div class="randomize-card-button">
             <p>Feel unclucky? Try again!</p>
