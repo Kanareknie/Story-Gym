@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.hashers import make_password
-from .models import Profile, Story
+from .models import Profile, Story, Comment
 import re
 from datetime import date
 
@@ -140,3 +140,43 @@ class StoryForm(forms.ModelForm):
                 'aria-label': 'Story content input',
             }),
         }
+        
+# Comment form - to create and edit the comment        
+
+class CommentForm(forms.ModelForm):
+    author_name = forms.CharField(
+        max_length=255,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'comment-author-input',
+            'placeholder': 'Your name',
+            'maxlength': 255,
+            'aria-label': 'Comment author name input',
+        })
+    )
+    comment_text = forms.CharField(
+        required=True,
+        widget=forms.Textarea(attrs={
+            'class': 'comment-textarea',
+            'placeholder': 'Write your comment here (1,000 characters limit)',
+            'maxlength': 1000,
+            'rows': 5,
+            'aria-label': 'Comment text input',
+        })
+    )
+    rating = forms.IntegerField(
+        required=False,
+        min_value=1,
+        max_value=5,
+        widget=forms.NumberInput(attrs={
+            'class': 'comment-rating-input',
+            'placeholder': 'Rating (1-5)',
+            'min': 1,
+            'max': 5,
+            'aria-label': 'Comment rating input',
+        })
+    )
+    
+    class Meta:
+        model = Comment
+        fields = ['author_name', 'comment_text', 'rating']
