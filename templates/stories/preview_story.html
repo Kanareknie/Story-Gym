@@ -43,14 +43,14 @@
           <form method="post" class="comment-form">
             {% csrf_token %}
             <label for="id_comment_text" class="visually-hidden">Write your comment</label>
-            {{ form.comment_text }}
+            {{ comment_form.comment_text }}
 
             <div class="comment-form-bottom">
               {% if not user.is_authenticated %}
-                {{ form.author_name }}
+                {{ comment_form.author_name }}
               {% endif %}
 
-              {{ form.rating }}
+              {{ comment_form.rating }}
             </div>
             {% comment %}Submit button{% endcomment %}
             <button type="submit" class="sg-btn">Send</button>
@@ -67,15 +67,15 @@
             {% for comment in comments %}
               <div class="single-comment">
                 <p>
-                  <strong>{{ comment_form.display_author }}</strong>
+                  <strong>{{ comment.display_author }}</strong>
                 </p>
-                <p>{{ comment_form.comment_text }}</p>
+                <p>{{ comment.comment_text }}</p>
 
-                {% if comment_form.rating %}
-                  <p>Rating: {{ comment_form.rating }}/5</p>
+                {% if comment.rating %}
+                  <p>Rating: {{ comment.rating }}/5</p>
                 {% endif %}
 
-                <p>{{ comment_form.created_on }}</p>
+                <p>{{ comment.created_on }}</p>
               </div>
             {% empty %}
               <p>No comments yet.</p>
