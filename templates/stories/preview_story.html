@@ -29,9 +29,7 @@
       </div>
       <div class="story-preview-content">
         <h2 class="story-label">Story:</h2>
-        <div class="story-preview-box">
-           {{ story.content|linebreaks }}
-        </div>
+        <div class="story-preview-box">{{ story.content|linebreaks }}</div>
       </div>
     </div>
   </section>
@@ -41,13 +39,20 @@
       <div class="comments-grid">
         <div class="comment-form-col">
           <h2>Leave your comment</h2>
-          <form class="comment-form">
-            <label for="comment-text" class="visually-hidden">Write your comment</label>
-            <textarea id="comment-text" placeholder="Write here (300 words limit)"></textarea>
+          {% comment %}Comment form{% endcomment %}
+          <form method="post" class="comment-form">
+            {% csrf_token %}
+            <label for="id_comment_text" class="visually-hidden">Write your comment</label>
+            {{ form.comment_text }}
+
             <div class="comment-form-bottom">
-              <input type="text" placeholder="Your signature:" />
-              <div class="rating-stars">★★★★★</div>
+              {% if not user.is_authenticated %}
+                {{ form.author_name }}
+              {% endif %}
+
+              {{ form.rating }}
             </div>
+            {% comment %}Submit button{% endcomment %}
             <button type="submit" class="sg-btn">Send</button>
           </form>
         </div>
@@ -57,8 +62,24 @@
             <input type="text" placeholder="Search comments" />
             <button class="sg-btn repo-btn" type="button">More</button>
           </div>
+          {% comment %}  Comment list {% endcomment %}
           <div class="comment-list-box">
-            <p>No comments yet.</p>
+            {% for comment in comments %}
+              <div class="single-comment">
+                <p>
+                  <strong>{{ comment_form.display_author }}</strong>
+                </p>
+                <p>{{ comment_form.comment_text }}</p>
+
+                {% if comment_form.rating %}
+                  <p>Rating: {{ comment_form.rating }}/5</p>
+                {% endif %}
+
+                <p>{{ comment_form.created_on }}</p>
+              </div>
+            {% empty %}
+              <p>No comments yet.</p>
+            {% endfor %}
           </div>
         </div>
       </div>

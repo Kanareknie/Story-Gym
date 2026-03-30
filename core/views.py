@@ -7,7 +7,8 @@ import json
 import random
 from pathlib import Path
 from django.contrib import messages
-from .models import RandomizerResult, Story
+from .models import RandomizerResult, Story, Comment
+from .forms import CommentForm
 from django.utils.html import format_html
 from django.urls import reverse
 
@@ -242,7 +243,33 @@ def my_story_view(request):
 
 def preview_story_view(request, story_id):
     story = get_object_or_404(Story, id=story_id, status=1)  # Only published stories can be previewed
-    return render(request, 'stories/preview_story.html', {'story': story})
+    comments = story.comments.all()  # Get all comments for the story
+    
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+
+            comment.story = story
+
+            if request.user.is_authenticated:
+                comment.user = request.user
+                comment.author_name = request.user.username
+
+            comment.save()
+
+            messages.success(request, "Comment added.")
+            return redirect('preview_story', story_id=story.id)
+    else:
+        form = CommentForm()
+    
+
+    return render(request, 'stories/preview_story.html', {
+        'story': story,
+        'comments': comments,
+        'comment_form': form,
+    })
 
 
 # Repository page view
