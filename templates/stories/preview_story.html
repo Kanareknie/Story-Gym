@@ -12,7 +12,7 @@
       <h1 class="sg-title">{{ story.title }}</h1>
       <div class="story-preview-meta">
         <p>
-          <strong>Generated words:</strong><strong>Generated words:</strong>
+          <strong>Generated words:</strong>
           {{ story.randomizer.words.main_character }},
           {{ story.randomizer.words.personality }},
           {{ story.randomizer.words.physical_description }},
@@ -20,10 +20,10 @@
           {{ story.randomizer.words.place }},
           {{ story.randomizer.words.random_noun }}
         </p>
-        <p>
+        <p class="story-label">
           <strong>Author:</strong> {{ story.user.username }}
         </p>
-        <p>
+        <p class="story-label">
           <strong>Created on:</strong> {{ story.created_on }}
         </p>
       </div>
