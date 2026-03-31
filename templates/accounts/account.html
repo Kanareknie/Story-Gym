@@ -6,54 +6,63 @@
 {% endblock %}
 
 {% block content %}
-<!-- Accounts container -->
-  <section class="account-container">
+<section class="account-container">
     <div class="account-panel">
       <div class="account-col account-col--latest">
         <header class="account-header">
-          <h1 class="account-title">Welcome (username)</h1>
+          <h1 class="account-title">Welcome {{ request.user.username }}</h1>
         </header>
-        <!-- LEFT: Stories -->
+
+        <!-- LEFT: User stories -->
         <aside class="account-col account-col--repository">
           <h2 class="repository-title">Your Repository</h2>
           <ul class="stories-list">
-            <li class="account-row">
-              <span class="story-name">The sun goes down</span>
-              <span class="story-date">10.01.2026</span>
-              <a href="#" class="sg-btn repo-btn">More</a>
-            </li>
-            <li class="account-row">
-              <span class="story-name">The sun goes down</span>
-              <span class="story-date">10.01.2026</span>
-              <a href="#" class="sg-btn repo-btn">More</a>
-            </li>
-            <li class="account-row">
-              <span class="story-name">The sun goes down</span>
-              <span class="story-date">10.01.2026</span>
-              <a href="#" class="sg-btn repo-btn">More</a>
-            </li>
-            <li class="account-row">
-              <span class="story-name">The sun goes down</span>
-              <span class="story-date">10.01.2026</span>
-              <a href="#" class="sg-btn repo-btn">More</a>
-            </li>
+            {% for story in user_stories %}
+              <li class="account-row">
+                <span class="story-name">
+                  {{ story.title }}
+                  {% if story.status == 0 %}
+                    (Draft)
+                  {% endif %}
+                </span>
+                <span class="story-date">{{ story.created_on|date:"d.m.Y" }}</span>
+
+                {% if story.status == 1 %}
+                  <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">More</a>
+                {% else %}
+                  <span class="sg-btn repo-btn disabled" aria-disabled="true">Draft</span>
+                {% endif %}
+              </li>
+            {% empty %}
+              <li class="account-row">
+                <span class="story-name">You do not have any stories yet.</span>
+              </li>
+            {% endfor %}
           </ul>
         </aside>
-        <!-- RIGHT: Article cards -->
+
+        <!-- RIGHT: cards -->
         <aside class="account-col account-col--signup">
-          <h2 class="account-subtitle account-note">This is your creative space. Come back anytime, pick a prompt, and continue your writing journey.</h2>
+          <h2 class="account-subtitle account-note">
+            This is your creative space. Come back anytime, pick a prompt, and continue your writing journey.
+          </h2>
+
           <div class="account-card">
             <p>Your stories live here. Whenever you feel inspired, start a new one and see where your imagination takes you next.</p>
-            <a href="/randomizer" class="sg-btn article-btn">Start here</a>
+            <a href="{% url 'randomizer' %}" class="sg-btn article-btn">Start here</a>
           </div>
+
           <div class="account-card">
-            <p>Explore writing tips and articles to spark ideas and improve your storytelling skills.</p>
-            <a href="/articles" class="sg-btn article-btn">Check it now!</a>
+            <p>Explore all published stories and find inspiration in the creativity of other writers.</p>
+            <a href="{% url 'repo_story' %}" class="sg-btn article-btn">Get inspired</a>
           </div>
-          <div class="account-card">
-            <p>Discover how other writers turned prompts into stories and find inspiration in their creativity.</p>
-            <a href="/repository" class="sg-btn article-btn">Get inspired</a>
-          </div>
+
+          {% if latest_user_story and latest_user_story.status == 1 %}
+            <div class="account-card">
+              <p>Take another look at your latest published story.</p>
+              <a href="{% url 'preview_story' latest_user_story.id %}" class="sg-btn article-btn">View latest</a>
+            </div>
+          {% endif %}
         </aside>
       </div>
     </div>

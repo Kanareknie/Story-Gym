@@ -299,5 +299,15 @@ def repo_view(request):
 
 # Account page view
 
+@login_required
 def account_view(request):
-    return render(request, 'accounts/account.html')
+    user_stories = Story.objects.filter(user=request.user).select_related('randomizer').order_by('-created_on')
+    # Get the latest story of the user to feature it at the top of the account page
+    latest_user_story = user_stories.first()
+    
+    context = {
+        'latest_user_story': latest_user_story,
+        'user_stories': user_stories,
+    }
+    
+    return render(request, 'accounts/account.html', context)
