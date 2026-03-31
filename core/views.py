@@ -257,13 +257,23 @@ def preview_story_view(request, story_id):
                 comment.user = request.user
                 comment.author_name = request.user.username
 
+            
+            
+            elif not comment.author_name:
+                form.add_error('author_name', 'Please enter your name to post a comment.')
+                return render(request, 'stories/preview_story.html', {
+                    'story': story,
+                    'comments': comments,
+                    'comment_form': form,
+                })
+            
             comment.save()
-
-            messages.success(request, "Comment added.")
+            messages.success(request, "Comment added successfully.")
             return redirect('preview_story', story_id=story.id)
     else:
         form = CommentForm()
-    
+        
+        
 
     return render(request, 'stories/preview_story.html', {
         'story': story,

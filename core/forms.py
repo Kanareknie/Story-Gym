@@ -146,7 +146,7 @@ class StoryForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     author_name = forms.CharField(
         max_length=255,
-        required=True,
+        required=False,
         widget=forms.TextInput(attrs={
             'class': 'comment-author-input',
             'placeholder': 'Your name',
