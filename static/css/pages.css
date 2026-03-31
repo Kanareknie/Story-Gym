@@ -1535,7 +1535,7 @@ Pages style CSS
     font-size: clamp(1.05rem, 1.6vw, 1.25rem);
 }
 
-.story-preview-box {
+.repo-preview-box {
     margin: 0;
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1549,7 +1549,7 @@ Pages style CSS
     margin-bottom: 14px;
 }
 
-.story-preview-text {
+.repo-preview-text {
     min-height: clamp(240px, 42vh, 520px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(0, 0, 0, 0.25);
@@ -1558,7 +1558,7 @@ Pages style CSS
     overflow: hidden;
 }
 
-.story-preview-text p {
+.repo-preview-text p {
     margin: 0;
     line-height: 1.6;
     color: #ffffff;
@@ -1578,6 +1578,7 @@ Pages style CSS
 .story-preview-author span {
     font-weight: 700;
 }
+
 
 /*-------- Repository List ---------*/
 

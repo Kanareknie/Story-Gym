@@ -285,7 +285,16 @@ def preview_story_view(request, story_id):
 # Repository page view
 
 def repo_view(request):
-    return render(request, 'stories/repo.html')
+    published_stories = Story.objects.filter(status=1).select_related('user', 'randomizer').order_by('-created_on')
+    # Get the latest published story to feature it at the top of the repository page
+    latest_story = published_stories.first()
+    
+    context = {
+        'latest_story': latest_story,
+        'stories': published_stories,
+    }
+    
+    return render(request, 'stories/repo.html', context)
 
 
 # Account page view
