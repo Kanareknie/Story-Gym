@@ -62,13 +62,14 @@
             <input type="text" placeholder="Search comments" />
             <button class="sg-btn repo-btn" type="button">More</button>
           </div>
-          {% comment %}  Comment list {% endcomment %}
+          {% comment %}Comment list{% endcomment %}
           <div class="comment-list-box">
             {% for comment in comments %}
               <div class="single-comment">
                 <p>
                   <strong>{{ comment.display_author }}</strong>
                 </p>
+
                 <p>{{ comment.comment_text }}</p>
 
                 {% if comment.rating %}
@@ -76,6 +77,17 @@
                 {% endif %}
 
                 <p>{{ comment.created_on }}</p>
+
+                {% if user.is_authenticated and comment.user == user %}
+                  <div class="comment-actions">
+                    <a href="{% url 'edit_comment' comment.id %}" class="sg-btn repo-btn">Edit</a>
+
+                    <form method="post" action="{% url 'delete_comment' comment.id %}">
+                      {% csrf_token %}
+                      <button type="submit" class="sg-btn repo-btn">Delete</button>
+                    </form>
+                  </div>
+                {% endif %}
               </div>
             {% empty %}
               <p>No comments yet.</p>
