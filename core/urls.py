@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CustomLoginView, CustomLogoutView, register_view, randomizer_view, write_now_view, my_story_view, preview_story_view, repo_view, account_view, edit_story_view, delete_story_view
+from .views import CustomLoginView, CustomLogoutView, register_view, randomizer_view, write_now_view, my_story_view, preview_story_view, repo_view, account_view, edit_story_view, delete_story_view, edit_comment_view
 
 urlpatterns = [
     path('', views.home, name='home'), 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('account/', views.account_view, name='account'),
     path('story/<int:story_id>/edit/', views.edit_story_view, name='edit_story'),
     path('story/<int:story_id>/delete/', views.delete_story_view, name='delete_story'),
+    path('comment/<int:comment_id>/edit/', views.edit_comment_view, name='edit_comment'),
 
     
 ]
