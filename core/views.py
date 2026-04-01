@@ -296,9 +296,11 @@ def edit_story_view(request, story_id):
     else:
         form = StoryForm(instance=story)
 
-    return render(request, 'stories/edit_story.html', {
+    return render(request, 'stories/my_story.html', {
         'form': form,
         'story': story,
+        'prompt_words': story.randomizer.words,
+        'is_editing': True,  # Flag to indicate that we are editing an existing story
     })
 
 # Repository page view
