@@ -321,6 +321,18 @@ def edit_story_view(request, story_id):
         'is_editing': True,  # Flag to indicate that we are editing an existing story
     })
 
+# Delete Story view - only the author of the story can delete it. If another user tries to access the URL, they will see a 404 page not found error. After deleting the story, redirect to the account page with a success message.
+@login_required
+def delete_story_view(request, story_id):
+    story = get_object_or_404(Story, id=story_id, user=request.user)  # Only the author can delete the story
+
+    if request.method == 'POST':
+        story.delete()
+        messages.success(request, "Your story has been deleted.")
+        return redirect('account')
+
+    return redirect('account') 
+
 # Repository page view
 
 def repo_view(request):
