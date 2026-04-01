@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<section class="account-container">
+  <section class="account-container">
     <div class="account-panel">
       <div class="account-col account-col--latest">
         <header class="account-header">
@@ -25,13 +25,18 @@
                     (Draft)
                   {% endif %}
                 </span>
-                <span class="story-date">{{ story.created_on|date:"d.m.Y" }}</span>
+                <span class="story-date">{{ story.created_on|date:'d.m.Y' }}</span>
 
-                {% if story.status == 1 %}
-                  <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">More</a>
-                {% else %}
-                  <span class="sg-btn repo-btn disabled" aria-disabled="true">Draft</span>
-                {% endif %}
+                <div class="account-actions">
+                  {% if story.status == 1 %}
+                    <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">Open</a>
+                  {% else %}
+                    <a href="{% url 'edit_story' story.id %}" class="sg-btn repo-btn">Open draft</a>
+                  {% endif %}
+
+                  <a href="{% url 'edit_story' story.id %}" class="sg-btn repo-btn">Edit</a>
+                </div>
+                
               </li>
             {% empty %}
               <li class="account-row">
@@ -43,9 +48,7 @@
 
         <!-- RIGHT: cards -->
         <aside class="account-col account-col--signup">
-          <h2 class="account-subtitle account-note">
-            This is your creative space. Come back anytime, pick a prompt, and continue your writing journey.
-          </h2>
+          <h2 class="account-subtitle account-note">This is your creative space. Come back anytime, pick a prompt, and continue your writing journey.</h2>
 
           <div class="account-card">
             <p>Your stories live here. Whenever you feel inspired, start a new one and see where your imagination takes you next.</p>
