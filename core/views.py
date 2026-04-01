@@ -337,7 +337,7 @@ def delete_story_view(request, story_id):
 
 # Edit Comment view - only the author of the comment can edit it.
 @login_required
-def edit_comment(request, comment_id):
+def edit_comment_view(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, user=request.user) # Only the author can edit the comment
 
     if request.method == 'POST':
@@ -357,7 +357,7 @@ def edit_comment(request, comment_id):
     
 # Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
 @login_required
-def delete_comment(request, comment_id):
+def delete_comment_view(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, user=request.user) # Only the author can delete the comment
 
     if request.method == 'POST':
