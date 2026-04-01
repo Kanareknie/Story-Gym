@@ -239,7 +239,7 @@ def my_story_view(request):
     )
 
 
-# Preview Story page view to be viewed after publishing the story, with a unique URL for each story. Only the author of the story can view it. If another user tries to access the URL, they will see a 404 page not found error.
+# Preview Story page view to be viewed after publishing the story, with a unique URL for each story.
 
 def preview_story_view(request, story_id):
     story = get_object_or_404(Story, id=story_id, status=1)  # Only published stories can be previewed
@@ -301,12 +301,14 @@ def edit_story_view(request, story_id):
     # If the form is valid, save the changes but set the status to 0 (not published) so the user can review the changes before publishing again. If the user clicks "Publish" button, set the status to 1 (published) and redirect to the preview story page.
         if form.is_valid():
             updated_story = form.save(commit=False)
-            updated_story.status = 0  # Set status to not published yet, so the user can review the changes before publishing again
-            updated_story.save()
-            messages.success(request, "Your story has been updated.")
-            return redirect('account')
+            
+            if 'save_draft' in request.POST:
+                updated_story.status = 0  # Set status to not published yet, so the user can review the changes before publishing again
+                updated_story.save()
+                messages.success(request, "Your story has been updated.")
+                return redirect('account')
         
-        if 'publish_story' in request.POST:
+            if 'publish_story' in request.POST:
                 updated_story.status = 1 # Set status to published
                 updated_story.save()
                 messages.success(request, "Your story has been updated and published.")
