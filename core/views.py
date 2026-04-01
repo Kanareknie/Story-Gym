@@ -281,6 +281,25 @@ def preview_story_view(request, story_id):
         'comment_form': form,
     })
 
+# Edit Story page view - only the author of the story can edit it. If another user tries to access the URL, they will see a 404 page not found error.
+@login_required
+def edit_story_view(request, story_id):
+    story = get_object_or_404(Story, id=story_id, user=request.user )  # Only the author can edit the story
+
+    if request.method == 'POST':
+        form = StoryForm(request.POST, instance=story)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your story has been updated.")
+            return redirect('account')
+    else:
+        form = StoryForm(instance=story)
+
+    return render(request, 'stories/edit_story.html', {
+        'form': form,
+        'story': story,
+    })
 
 # Repository page view
 
