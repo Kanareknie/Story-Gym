@@ -335,6 +335,42 @@ def delete_story_view(request, story_id):
 
     return redirect('account') 
 
+# Edit Comment view - only the author of the comment can edit it.
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, user=request.user) # Only the author can edit the comment
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your comment has been updated.")
+            return redirect('preview_story', story_id=comment.story.id)
+    else:
+        form = CommentForm(instance=comment)
+
+    return render(request, 'stories/edit_comment.html', {
+        'form': form,
+        'comment': comment,
+    })
+    
+# Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, user=request.user) # Only the author can delete the comment
+
+    if request.method == 'POST':
+        
+        story_id = comment.story.id  # save BEFORE deleteing the comment, because after deletion we won't have access to comment.story.id anymore
+        
+        comment.delete()
+        messages.success(request, "Your comment has been deleted.")
+        return redirect('preview_story', story_id=story_id)
+
+    return redirect('preview_story', story_id=comment.story.id)
+
+
 # Repository page view
 
 def repo_view(request):
