@@ -305,7 +305,7 @@ def edit_story_view(request, story_id):
             if 'save_draft' in request.POST:
                 updated_story.status = 0  # Set status to not published yet, so the user can review the changes before publishing again
                 updated_story.save()
-                messages.success(request, "Your story has been updated.")
+                messages.success(request, "Your draft has been updated.")
                 return redirect('account')
         
             if 'publish_story' in request.POST:
