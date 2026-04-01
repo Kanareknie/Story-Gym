@@ -287,12 +287,30 @@ def edit_story_view(request, story_id):
     story = get_object_or_404(Story, id=story_id, user=request.user )  # Only the author can edit the story
 
     if request.method == 'POST':
+        if 'clear_story' in request.POST:
+            form = StoryForm(instance=story)
+            return render(request, 'stories/my_story.html', {
+                'form': form,
+                'story': story,
+                'prompt_words': story.randomizer.words,
+                'is_editing': True,  # Flag to indicate that we are editing an existing story
+            })
+            
         form = StoryForm(request.POST, instance=story)
 
+    # If the form is valid, save the changes but set the status to 0 (not published) so the user can review the changes before publishing again. If the user clicks "Publish" button, set the status to 1 (published) and redirect to the preview story page.
         if form.is_valid():
-            form.save()
+            updated_story = form.save(commit=False)
+            updated_story.status = 0  # Set status to not published yet, so the user can review the changes before publishing again
+            updated_story.save()
             messages.success(request, "Your story has been updated.")
             return redirect('account')
+        
+        if 'publish_story' in request.POST:
+                updated_story.status = 1 # Set status to published
+                updated_story.save()
+                messages.success(request, "Your story has been updated and published.")
+                return redirect('preview_story', story_id=updated_story.id)
     else:
         form = StoryForm(instance=story)
 
