@@ -246,35 +246,25 @@ def preview_story_view(request, story_id):
     comments = story.comments.all()  # Get all comments for the story
     
     if request.method == 'POST':
+        # If the user is not authenticated, redirect to login page with an error message. After login, the user will be redirected back to the same preview story page and can post the comment without losing the content of the comment form.
+        if not request.user.is_authenticated:
+            messages.error(request, "You need to be logged in to leave a comment.")
+            return redirect('preview_story', story_id=story.id)
+        
         form = CommentForm(request.POST)
 
         if form.is_valid():
             comment = form.save(commit=False)
-
             comment.story = story
-
-            if request.user.is_authenticated:
-                comment.user = request.user
-                comment.author_name = request.user.username
-
-            
-            
-            elif not comment.author_name:
-                form.add_error('author_name', 'Please enter your name to post a comment.')
-                return render(request, 'stories/preview_story.html', {
-                    'story': story,
-                    'comments': comments,
-                    'comment_form': form,
-                })
-            
+            comment.user = request.user
+            comment.author_name = request.user.username  # Set the author name to the username of the logged-in user
             comment.save()
+            
             messages.success(request, "Comment added successfully.")
             return redirect('preview_story', story_id=story.id)
     else:
-        form = CommentForm()
+        form =CommentForm()
         
-        
-
     return render(request, 'stories/preview_story.html', {
         'story': story,
         'comments': comments,

@@ -40,21 +40,21 @@
         <div class="comment-form-col">
           <h2>Leave your comment</h2>
           {% comment %}Comment form{% endcomment %}
-          <form method="post" class="comment-form">
-            {% csrf_token %}
-            <label for="id_comment_text" class="visually-hidden">Write your comment</label>
-            {{ comment_form.comment_text }}
+          {% if user.is_authenticated %}
+            <form method="post" class="comment-form">
+              {% csrf_token %}
+              {{ comment_form.comment_text }}
 
-            <div class="comment-form-bottom">
-              {% if not user.is_authenticated %}
-                {{ comment_form.author_name }}
-              {% endif %}
+              <div class="comment-form-bottom">{{ comment_form.rating }}</div>
 
-              {{ comment_form.rating }}
+              <button type="submit" class="sg-btn">Send</button>
+            </form>
+          {% else %}
+            <div class="comment-login-note">
+              <p>Adding comments is available only for logged-in users.</p>
+              <a href="{% url 'login' %}?next={{ request.path }}" class="sg-btn">Log in</a>
             </div>
-            {% comment %}Submit button{% endcomment %}
-            <button type="submit" class="sg-btn">Send</button>
-          </form>
+          {% endif %}
         </div>
         <div class="comment-list-col">
           <h2>Lodge of Mockers</h2>
