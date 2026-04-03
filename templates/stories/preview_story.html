@@ -50,9 +50,11 @@
               <button type="submit" class="sg-btn">Send</button>
             </form>
           {% else %}
+          {% comment %} If user is not authenticated {% endcomment %}
             <div class="comment-login-note">
               <p>Adding comments is available only for logged-in users.</p>
               <a href="{% url 'login' %}?next={{ request.path }}" class="sg-btn">Log in</a>
+              <a href="{% url 'register' %}?next={{ request.path }}" class="sg-btn">Sign up</a>
             </div>
           {% endif %}
         </div>
