@@ -1933,6 +1933,18 @@ Pages style CSS
     white-space: normal;
 }
 
+/* Star rating */
+
+.star-rating span {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.star-rating span:hover {
+  color: gold;
+}
+
 /* --------------- Media query for tablets - max-width: 900px --------------- */
 
 @media (max-width: 900px) {
