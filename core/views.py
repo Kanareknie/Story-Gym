@@ -343,6 +343,8 @@ def delete_story_view(request, story_id):
 def edit_comment_view(request, comment_id):
     # Only the author can edit the comment
     comment = get_object_or_404(Comment, id=comment_id, user=request.user)
+    story = comment.story  # Get the story associated with the comment
+    comments = story.comments.all()  # Get all comments for the story
 
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
@@ -357,6 +359,8 @@ def edit_comment_view(request, comment_id):
     return render(request, 'stories/preview_story.html', {
         'form': form,
         'comment': comment,
+        'story': story,
+        'comments': comments,
     })
 
 # Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
