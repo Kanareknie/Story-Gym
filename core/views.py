@@ -294,16 +294,20 @@ def edit_story_view(request, story_id):
 
         form = StoryForm(request.POST, instance=story)
 
-    # If the form is valid, save the changes but set the status to 0 (not published) so the user can review the changes before publishing again. If the user clicks "Publish" button, set the status to 1 (published) and redirect to the preview story page.
+    # Editing a published story or draft
         if form.is_valid():
             updated_story = form.save(commit=False)
 
             if 'save_draft' in request.POST:
-                # Set status to not published yet, so the user can review the changes before publishing again
+                was_published = (updated_story.status == 1)
                 updated_story.status = 0
                 updated_story.save()
-                messages.success(request, "Your draft has been updated.")
-                return redirect('account')
+                
+                if was_published:
+                    messages.success(request, "Your story has been moved to draft.")
+                else:
+                    messages.success(request, "Your story has been updated as a draft.")
+                return redirect('edit_story', story_id=updated_story.id)
 
             if 'publish_story' in request.POST:
                 updated_story.status = 1  # Set status to published
