@@ -38,11 +38,10 @@
                 <div class="account-actions">
                   {% if story.status == 1 %}
                     <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">Open</a>
+                    <a href="{% url 'edit_story' story.id %}" class="sg-btn repo-btn">Edit</a>
                   {% else %}
-                    <a href="{% url 'edit_story' story.id %}" class="sg-btn repo-btn">Open draft</a>
+                    <a href="{% url 'edit_story' story.id %}" class="sg-btn repo-btn">Continue draft</a>
                   {% endif %}
-
-                  <a href="{% url 'edit_story' story.id %}" class="sg-btn repo-btn">Edit</a>
                 </div>
               </li>
             {% empty %}
