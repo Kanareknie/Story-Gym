@@ -108,7 +108,15 @@
                 <p>{{ comment.comment_text }}</p>
 
                 {% if comment.rating %}
-                  <p>Rating: {{ comment.rating }}/5</p>
+                  <p class="comment-rating">
+                    {% for i in "12345" %}
+                      {% if forloop.counter <= comment.rating %}
+                        ⭐
+                      {% else %}
+                        ☆
+                      {% endif %}
+                    {% endfor %}
+                  </p>
                 {% endif %}
 
                 <p>{{ comment.created_on }}</p>
