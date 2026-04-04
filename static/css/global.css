@@ -28,6 +28,13 @@ h3 {
   font-weight: 400;
 }
 
+/* ----- Break words and wrap text ----- */
+
+p, div, span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
 /* --------------------------- Buttons -------------------------- */
 
 /* ONE button style for links + buttons */
