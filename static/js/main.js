@@ -19,3 +19,21 @@ document.addEventListener("DOMContentLoaded", function () {
   setupCounter("story-text", "story-count");
   setupCounter("comment-text", "comment-count");
 });
+
+
+// JavaScript for star rating in comment form
+document.addEventListener("DOMContentLoaded", function () {
+  const stars = document.querySelectorAll("#star-rating span");
+  const input = document.querySelector("input[name='rating']");
+// Add click event listeners to each star
+  stars.forEach((star) => {
+    star.addEventListener("click", function () {
+      const value = this.getAttribute("data-value");
+      input.value = value;
+// Update the star display based on the selected rating
+      stars.forEach((s, index) => {
+        s.textContent = index < value ? "★" : "☆";
+      });
+    });
+  });
+});
