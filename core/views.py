@@ -354,7 +354,7 @@ def edit_comment_view(request, comment_id):
     else:
         form = CommentForm(instance=comment)
 
-    return render(request, 'stories/edit_comment.html', {
+    return render(request, 'stories/preview_story.html', {
         'form': form,
         'comment': comment,
     })
