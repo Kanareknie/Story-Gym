@@ -1875,47 +1875,63 @@ Pages style CSS
     margin-bottom: 20px;
 }
 
-/* Comments list box */
+/* Comment list */
+
 .comment-list-box {
     min-height: 260px;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    background: rgba(255, 255, 255, 0.02);
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.single-comment {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 14px 16px;
     box-sizing: border-box;
 }
 
-.comment-list-box p {
-    margin: 0;
+.single-comment p {
+    margin: 0 0 6px;
+    line-height: 1.5;
     color: #ffffff;
-    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
-/* Optional single comment item for later */
-.comment-item {
-    padding: 0 0 14px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.comment-item:last-child {
-    border-bottom: none;
+.single-comment p:last-of-type {
     margin-bottom: 0;
-    padding-bottom: 0;
+    font-size: 0.85rem;
+    opacity: 0.75;
 }
 
-.comment-item-header {
+.comment-actions {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 10px;
 }
 
-.comment-item-body {
+.comment-actions form {
+    display: inline-flex;
     margin: 0;
-    line-height: 1.6;
 }
 
+.comment-actions .sg-btn {
+    min-width: 0;
+    width: auto;
+    max-width: none;
+    height: 24px;
+    padding: 0 8px;
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+/* Break words and wrap text */
+.single-comment p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
 
 /* --------------- Media query for tablets - max-width: 900px --------------- */
 
