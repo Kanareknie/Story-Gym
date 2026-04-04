@@ -361,6 +361,7 @@ def edit_comment_view(request, comment_id):
         'comment': comment,
         'story': story,
         'comments': comments,
+        'editing_comment': comment,
     })
 
 # Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.

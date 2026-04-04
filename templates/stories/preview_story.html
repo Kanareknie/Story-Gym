@@ -38,23 +38,45 @@
     <div class="story-comments-panel">
       <div class="comments-grid">
         <div class="comment-form-col">
-          <h2>Leave your comment</h2>
-          {% comment %}Comment form{% endcomment %}
+          <!-- TITLE -->
+          <h2>
+            {% if editing_comment %}
+              Edit your comment
+            {% else %}
+              Leave your comment
+            {% endif %}
+          </h2>
+          {% if editing_comment %}
+            <p>You are editing your comment</p>
+          {% endif %}
+          {% comment %}-------Comment form ---------{% endcomment %}
           {% if user.is_authenticated %}
             <form method="post" class="comment-form">
               {% csrf_token %}
-
+              <!-- TEXTAREA + COUNTER -->
               <div class="comment-text-wrap">
                 {{ comment_form.comment_text }}
                 <div class="comment-counter" aria-live="polite">
-                  <span id="comment-count">0</span>
-                  /500
+                  <span id="comment-count">0</span> /500
                 </div>
               </div>
-
+              <!-- RATING -->
               <div class="comment-form-bottom">{{ comment_form.rating }}</div>
-
-              <button type="submit" class="sg-btn">Send</button>
+              <!-- BUTTONS -->
+              <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                <!-- SUBMIT -->
+                <button type="submit" class="sg-btn">
+                  {% if editing_comment %}
+                    Update
+                  {% else %}
+                    Send
+                  {% endif %}
+                </button>
+                <!-- CANCEL (only in edit mode) -->
+                {% if editing_comment %}
+                  <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">Cancel</a>
+                {% endif %}
+              </div>
             </form>
           {% else %}
             {% comment %}If user is not authenticated{% endcomment %}
