@@ -7,6 +7,14 @@
 
 {% block content %}
   <!-- Story preview -->
+   {% comment %} Messages {% endcomment %}
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
   <section class="story-preview-page sg-container">
     <div class="story-preview-panel">
       <h1 class="sg-title">{{ story.title }}</h1>
