@@ -284,7 +284,7 @@ def edit_story_view(request, story_id):
 
     if request.method == 'POST':
         if 'clear_story' in request.POST:
-            form = StoryForm(instance=story)
+            form = StoryForm()
             return render(request, 'stories/my_story.html', {
                 'form': form,
                 'story': story,
