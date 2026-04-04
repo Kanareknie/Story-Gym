@@ -157,6 +157,7 @@ class CommentForm(forms.ModelForm):
     comment_text = forms.CharField(
         required=True,
         widget=forms.Textarea(attrs={
+            'id': 'comment-text',
             'class': 'comment-textarea',
             'placeholder': 'Write your comment here (500 characters limit)',
             'maxlength': 500,

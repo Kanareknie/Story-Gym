@@ -1,3 +1,5 @@
+console.log("main.js loaded");
+
 // JavaScript for character count in story and comment textareas
 function setupCounter(textareaId, counterId) {
   const textarea = document.getElementById(textareaId);
@@ -15,5 +17,5 @@ function setupCounter(textareaId, counterId) {
 // Initialize the counters when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", function () {
   setupCounter("story-text", "story-count");
-  setupCounter("id_comment_text", "comment-count");
+  setupCounter("comment-text", "comment-count");
 });
