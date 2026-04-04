@@ -1,0 +1,19 @@
+// JavaScript for character count in story and comment textareas
+function setupCounter(textareaId, counterId) {
+  const textarea = document.getElementById(textareaId);
+  const counter = document.getElementById(counterId);
+    // If either the textarea or counter element is not found, exit the function
+  if (!textarea || !counter) return;
+// Update the counter with the current length of the textarea content
+  function updateCount() {
+    counter.textContent = textarea.value.length;
+  }
+// Add an event listener to the textarea to update the counter on input
+  textarea.addEventListener("input", updateCount);
+  updateCount();
+}
+// Initialize the counters when the DOM content is loaded
+document.addEventListener("DOMContentLoaded", function () {
+  setupCounter("story-text", "story-count");
+  setupCounter("id_comment_text", "comment-count");
+});

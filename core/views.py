@@ -242,29 +242,32 @@ def my_story_view(request):
 # Preview Story page view to be viewed after publishing the story, with a unique URL for each story.
 
 def preview_story_view(request, story_id):
-    story = get_object_or_404(Story, id=story_id, status=1)  # Only published stories can be previewed
+    # Only published stories can be previewed
+    story = get_object_or_404(Story, id=story_id, status=1)
     comments = story.comments.all()  # Get all comments for the story
-    
+
     if request.method == 'POST':
         # If the user is not authenticated, redirect to login page with an error message. After login, the user will be redirected back to the same preview story page and can post the comment without losing the content of the comment form.
         if not request.user.is_authenticated:
-            messages.error(request, "You need to be logged in to leave a comment.")
+            messages.error(
+                request, "You need to be logged in to leave a comment.")
             return redirect('preview_story', story_id=story.id)
-        
+
         form = CommentForm(request.POST)
 
         if form.is_valid():
             comment = form.save(commit=False)
             comment.story = story
             comment.user = request.user
-            comment.author_name = request.user.username  # Set the author name to the username of the logged-in user
+            # Set the author name to the username of the logged-in user
+            comment.author_name = request.user.username
             comment.save()
-            
+
             messages.success(request, "Comment added successfully.")
             return redirect('preview_story', story_id=story.id)
     else:
-        form =CommentForm()
-        
+        form = CommentForm()
+
     return render(request, 'stories/preview_story.html', {
         'story': story,
         'comments': comments,
@@ -272,9 +275,12 @@ def preview_story_view(request, story_id):
     })
 
 # Edit Story page view - only the author of the story can edit it. If another user tries to access the URL, they will see a 404 page not found error.
+
+
 @login_required
 def edit_story_view(request, story_id):
-    story = get_object_or_404(Story, id=story_id, user=request.user )  # Only the author can edit the story
+    # Only the author can edit the story
+    story = get_object_or_404(Story, id=story_id, user=request.user)
 
     if request.method == 'POST':
         if 'clear_story' in request.POST:
@@ -285,23 +291,25 @@ def edit_story_view(request, story_id):
                 'prompt_words': story.randomizer.words,
                 'is_editing': True,  # Flag to indicate that we are editing an existing story
             })
-            
+
         form = StoryForm(request.POST, instance=story)
 
     # If the form is valid, save the changes but set the status to 0 (not published) so the user can review the changes before publishing again. If the user clicks "Publish" button, set the status to 1 (published) and redirect to the preview story page.
         if form.is_valid():
             updated_story = form.save(commit=False)
-            
+
             if 'save_draft' in request.POST:
-                updated_story.status = 0  # Set status to not published yet, so the user can review the changes before publishing again
+                # Set status to not published yet, so the user can review the changes before publishing again
+                updated_story.status = 0
                 updated_story.save()
                 messages.success(request, "Your draft has been updated.")
                 return redirect('account')
-        
+
             if 'publish_story' in request.POST:
-                updated_story.status = 1 # Set status to published
+                updated_story.status = 1  # Set status to published
                 updated_story.save()
-                messages.success(request, "Your story has been updated and published.")
+                messages.success(
+                    request, "Your story has been updated and published.")
                 return redirect('preview_story', story_id=updated_story.id)
     else:
         form = StoryForm(instance=story)
@@ -314,21 +322,27 @@ def edit_story_view(request, story_id):
     })
 
 # Delete Story view - only the author of the story can delete it. If another user tries to access the URL, they will see a 404 page not found error. After deleting the story, redirect to the account page with a success message.
+
+
 @login_required
 def delete_story_view(request, story_id):
-    story = get_object_or_404(Story, id=story_id, user=request.user)  # Only the author can delete the story
+    # Only the author can delete the story
+    story = get_object_or_404(Story, id=story_id, user=request.user)
 
     if request.method == 'POST':
         story.delete()
         messages.success(request, "Your story has been deleted.")
         return redirect('account')
 
-    return redirect('account') 
+    return redirect('account')
 
 # Edit Comment view - only the author of the comment can edit it.
+
+
 @login_required
 def edit_comment_view(request, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id, user=request.user) # Only the author can edit the comment
+    # Only the author can edit the comment
+    comment = get_object_or_404(Comment, id=comment_id, user=request.user)
 
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
@@ -344,16 +358,20 @@ def edit_comment_view(request, comment_id):
         'form': form,
         'comment': comment,
     })
-    
+
 # Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
+
+
 @login_required
 def delete_comment_view(request, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id, user=request.user) # Only the author can delete the comment
+    # Only the author can delete the comment
+    comment = get_object_or_404(Comment, id=comment_id, user=request.user)
 
     if request.method == 'POST':
-        
-        story_id = comment.story.id  # save BEFORE deleteing the comment, because after deletion we won't have access to comment.story.id anymore
-        
+
+        # save BEFORE deleteing the comment, because after deletion we won't have access to comment.story.id anymore
+        story_id = comment.story.id
+
         comment.delete()
         messages.success(request, "Your comment has been deleted.")
         return redirect('preview_story', story_id=story_id)
@@ -364,15 +382,16 @@ def delete_comment_view(request, comment_id):
 # Repository page view
 
 def repo_view(request):
-    published_stories = Story.objects.filter(status=1).select_related('user', 'randomizer').order_by('-created_on')
+    published_stories = Story.objects.filter(status=1).select_related(
+        'user', 'randomizer').order_by('-created_on')
     # Get the latest published story to feature it at the top of the repository page
     latest_story = published_stories.first()
-    
+
     context = {
         'latest_story': latest_story,
         'stories': published_stories,
     }
-    
+
     return render(request, 'stories/repo.html', context)
 
 
@@ -380,13 +399,14 @@ def repo_view(request):
 
 @login_required
 def account_view(request):
-    user_stories = Story.objects.filter(user=request.user).select_related('randomizer').order_by('-created_on')
+    user_stories = Story.objects.filter(user=request.user).select_related(
+        'randomizer').order_by('-created_on')
     # Get the latest story of the user to feature it at the top of the account page
     latest_user_story = user_stories.first()
-    
+
     context = {
         'latest_user_story': latest_user_story,
         'user_stories': user_stories,
     }
-    
+
     return render(request, 'accounts/account.html', context)

@@ -158,8 +158,8 @@ class CommentForm(forms.ModelForm):
         required=True,
         widget=forms.Textarea(attrs={
             'class': 'comment-textarea',
-            'placeholder': 'Write your comment here (1,000 characters limit)',
-            'maxlength': 1000,
+            'placeholder': 'Write your comment here (500 characters limit)',
+            'maxlength': 500,
             'rows': 5,
             'aria-label': 'Comment text input',
         })
