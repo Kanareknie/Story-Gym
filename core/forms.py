@@ -169,13 +169,8 @@ class CommentForm(forms.ModelForm):
         required=False,
         min_value=1,
         max_value=5,
-        widget=forms.NumberInput(attrs={
-            'class': 'comment-rating-input',
-            'placeholder': 'Rating (1-5)',
-            'min': 1,
-            'max': 5,
-            'aria-label': 'Comment rating input',
-        })
+        # Hidden input for rating, it will be set by JavaScript when the user clicks on the stars
+        widget=forms.HiddenInput()
     )
     
     class Meta:
