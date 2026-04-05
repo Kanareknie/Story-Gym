@@ -28,10 +28,10 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" autocomplete="current-password" />
           </div>
-          {% comment %} Temporary hide the link as the new user story will be completed to achieve the desired functionality {% endcomment %}
-          {% comment %} <div class="login-meta">
-            <a class="login-link" href="#">Forgot password?</a>
-          </div> {% endcomment %}
+          {% comment %} Password reset link {% endcomment %}
+          <div class="login-meta">
+            <a class="login-link" href="{% url 'password_reset' %}">Forgot password?</a>
+          </div> 
           <button type="submit" class="sg-btn login-btn">Login</button>
         </form>
       </div>
