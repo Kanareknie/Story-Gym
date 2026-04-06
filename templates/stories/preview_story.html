@@ -69,7 +69,7 @@
                 </div>
               </div>
               <!-- RATING -->
-              {% if not user_has_rated %}
+              {% if can_edit_rating %}
                 <div class="comment-form-bottom">
                   {{ comment_form.rating }}
 

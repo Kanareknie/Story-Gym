@@ -286,6 +286,8 @@ def preview_story_view(request, story_id):
         'story': story,
         'comments': comments,
         'comment_form': form,
+        'user_has_rated': user_has_rated,
+        'can_edit_rating': not user_has_rated,  # User can edit rating only if they haven't rated yet
     })
 
 # Edit Story page view - only the author of the story can edit it. If another user tries to access the URL, they will see a 404 page not found error.
@@ -364,13 +366,28 @@ def edit_comment_view(request, comment_id):
     story = comment.story  # Get the story associated with the comment
     comments = story.comments.all()  # Get all comments for the story
 
+    rated_comment = Comment.objects.filter(
+        story=story,
+        user=request.user,
+        rating__isnull=False
+    ).first()
+    
+    can_edit_rating = rated_comment is None or rated_comment.id == comment.id
+    
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
 
         if form.is_valid():
-            form.save()
+            updated_comment = form.save(commit=False)
+            
+            # If the user has already rated this story and is trying to edit a comment that is not the one with the rating, we will not allow them to change the rating and keep the original rating value. If they are editing the comment with the rating, they can change the rating as well.
+            if not can_edit_rating:
+                updated_comment.rating = comment.rating  # Keep the original rating if the user has already rated
+            
+            updated_comment.save()
             messages.success(request, "Your comment has been updated.")
             return redirect('preview_story', story_id=comment.story.id)
+        
     else:
         form = CommentForm(instance=comment)
 
@@ -380,6 +397,8 @@ def edit_comment_view(request, comment_id):
         'story': story,
         'comments': comments,
         'editing_comment': comment,
+        'user_has_rated': rated_comment is not None,
+        'can_edit_rating': can_edit_rating,
     })
 
 # Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
