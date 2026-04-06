@@ -69,17 +69,21 @@
                 </div>
               </div>
               <!-- RATING -->
-              <div class="comment-form-bottom">
-                {{ comment_form.rating }}
+              {% if not user_has_rated %}
+                <div class="comment-form-bottom">
+                  {{ comment_form.rating }}
 
-                <div class="star-rating" id="star-rating">
-                  <span data-value="1">☆</span>
-                  <span data-value="2">☆</span>
-                  <span data-value="3">☆</span>
-                  <span data-value="4">☆</span>
-                  <span data-value="5">☆</span>
+                  <div class="star-rating" id="star-rating">
+                    <span data-value="1">☆</span>
+                    <span data-value="2">☆</span>
+                    <span data-value="3">☆</span>
+                    <span data-value="4">☆</span>
+                    <span data-value="5">☆</span>
+                  </div>
                 </div>
-              </div>
+              {% else %}
+                <p>You have already rated this story.</p>
+              {% endif %}
               <!-- BUTTONS -->
               <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
                 <!-- SUBMIT -->
@@ -119,7 +123,7 @@
 
                 {% if comment.rating %}
                   <p class="comment-rating">
-                    {% for i in "12345" %}
+                    {% for i in 12345 %}
                       {% if forloop.counter <= comment.rating %}
                         ⭐
                       {% else %}
