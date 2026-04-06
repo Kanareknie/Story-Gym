@@ -245,7 +245,17 @@ def preview_story_view(request, story_id):
     # Only published stories can be previewed
     story = get_object_or_404(Story, id=story_id, status=1)
     comments = story.comments.all()  # Get all comments for the story
+    
+    # Check if the user has already rated the story (if there is a comment with a rating from the user for this story). If the user has already rated, we will not allow them to rate again and show only their comment without the rating field in the comment form
+    user_has_rated = False
 
+    if request.user.is_authenticated:
+        user_has_rated = Comment.objects.filter(
+            story=story,
+            user=request.user,
+            rating__isnull=False
+        ).exists()
+    
     if request.method == 'POST':
         # If the user is not authenticated, redirect to login page with an error message. After login, the user will be redirected back to the same preview story page and can post the comment without losing the content of the comment form.
         if not request.user.is_authenticated:
@@ -261,6 +271,10 @@ def preview_story_view(request, story_id):
             comment.user = request.user
             # Set the author name to the username of the logged-in user
             comment.author_name = request.user.username
+            
+            if user_has_rated:
+                comment.rating = None  # Clear the rating if the user has already rated
+            
             comment.save()
 
             messages.success(request, "Comment added successfully.")
