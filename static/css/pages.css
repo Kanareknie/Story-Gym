@@ -2345,3 +2345,22 @@ Pages style CSS
         padding: 10px;
     }
 }
+
+/* ===================================== Article pages ================================== */
+
+.article-layout {
+    border: 3px solid limegreen;
+}
+
+.article-column {
+    border: 3px solid limegreen;
+}
+
+.article-block {
+    border: 3px solid orange;
+}
+
+.article-inner-box,
+.article-inner-title-box {
+    border: 3px solid yellow;
+}

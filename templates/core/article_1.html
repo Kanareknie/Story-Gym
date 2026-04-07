@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+  What's new | Story Gym
+{% endblock %}
+
+{% block content %}
+  <section class="article-page">
+    <div class="sg-container article-layout">
+      <!-- LEFT COLUMN -->
+      <div class="article-column">
+        <section class="article-block">
+          <h1 class="article-title">What’s new?</h1>
+        </section>
+
+        <section class="article-block article-block--dark">
+          <div class="article-inner-box">
+            <p>StoryGym is a creative space built to make writing playful, inspiring, and accessible for everyone...</p>
+          </div>
+        </section>
+
+        <section class="article-block article-image-block">
+          <div class="article-inner-title-box">
+            <h2>Be Part of the Journey</h2>
+          </div>
+
+          <div class="article-inner-box article-inner-box--overlay">
+            <p>We would love to hear from you. Your input can help shape the future of this creative space.</p>
+
+            <a href="{% url 'contact' %}" class="sg-btn">Contact us</a>
+          </div>
+
+          <img src="{% static 'images/article-one-car.jpg' %}" alt="Journey image" />
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="article-column">
+        <section class="article-block article-image-top">
+          <div class="article-inner-title-box">
+            <h2>What You Can Expect Right Now</h2>
+          </div>
+
+          <div class="article-image-wrap">
+            <img src="{% static 'images/article-one-tea.jpg' %}" alt="Tea image" />
+
+            <div class="article-inner-box article-inner-box--side">
+              <p>You can write, save, and share your stories with others on the platform...</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-block article-block--dark">
+          <h2 class="article-subtitle">What’s Coming Soon</h2>
+          <p>This place is growing, and new features are planned to make the experience even more engaging...</p>
+        </section>
+
+        <section class="article-block article-block--quote">
+          <p>This is only the beginning — and the story of StoryGym is still being written</p>
+        </section>
+      </div>
+    </div>
+  </section>
+{% endblock %}
