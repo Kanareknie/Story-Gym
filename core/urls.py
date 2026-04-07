@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CustomLoginView, CustomLogoutView, register_view, randomizer_view, write_now_view, my_story_view, preview_story_view, repo_view, account_view, edit_story_view, delete_story_view, edit_comment_view, delete_comment_view
+from .views import CustomLoginView, CustomLogoutView, register_view, randomizer_view, write_now_view, my_story_view, preview_story_view, repo_view, account_view, edit_story_view, delete_story_view, edit_comment_view, delete_comment_view, article_whats_new_view
 from django.contrib.auth import views as auth_views
 
 
@@ -57,4 +57,7 @@ urlpatterns = [
         ),
         name='password_reset_complete'
     ),
+    path('article/whats-new/', views.article_whats_new_view, name='article_whats_new'),
 ]
+
+
