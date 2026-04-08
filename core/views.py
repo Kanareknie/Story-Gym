@@ -453,7 +453,9 @@ def account_view(request):
 
     return render(request, 'accounts/account.html', context)
 
+
 # Articles page view
+
 # What's New page view
 def article_whats_new_view(request):
-    return render(request, 'core/article_whats_new.html')
+    return render(request, 'articles/article_whats_new.html')

@@ -23,6 +23,7 @@ urlpatterns = [
          views.edit_comment_view, name='edit_comment'),
     path('comment/<int:comment_id>/delete/',
          views.delete_comment_view, name='delete_comment'),
+    path('articles/article_whats_new/', views.article_whats_new_view, name='article_whats_new'),
 
      # Password reset views
      # https://docs.djangoproject.com/en/4.2/topics/auth/default/#using-the-views
@@ -57,7 +58,7 @@ urlpatterns = [
         ),
         name='password_reset_complete'
     ),
-    path('article/whats-new/', views.article_whats_new_view, name='article_whats_new'),
+
 ]
 
 
