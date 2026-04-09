@@ -2881,3 +2881,554 @@ Pages style CSS
         min-height: 280px;
     }
 }
+
+
+/* =============================== Article 2 - Writing Tips =============================== */
+
+.article-two-layout {
+    max-width: 1180px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.article-row {
+    padding: 0;
+    display: grid;
+    gap: 14px;
+    min-width: 0;
+}
+
+.article-box {
+    padding: 14px;
+    min-height: 120px;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.article-two-layout .article-inner-box {
+    padding: 18px 16px;
+    height: 100%;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+/* ---------------- TOP HERO ---------------- */
+/* ---------------- TOP HERO ---------------- */
+
+.article-row--hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: stretch;
+    background: url("/static/images/art2-notepad-bg.jpg") center / cover no-repeat;
+    min-height: 360px;
+    padding: 22px;
+    gap: 18px;
+
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 100px);
+}
+
+.article-box--hero-left,
+.article-box--hero-right {
+    min-width: 0;
+    display: flex;
+}
+
+.article-box--hero-left {
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.article-box--hero-right {
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px;
+}
+
+.article-title {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.6rem, 4.3vw, 4.2rem);
+    line-height: 0.98;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.article-overlay-box {
+    width: min(100%, 360px);
+    padding: 18px 16px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.78);
+    text-align: center;
+}
+
+.article-overlay-box p {
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.55;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.article-overlay-box p+p {
+    margin-top: 12px;
+}
+
+/* ---------------- MIDDLE SPLIT ---------------- */
+
+.article-row--split {
+    grid-template-columns: 0.75fr 1.25fr;
+    align-items: stretch;
+}
+
+.article-box--quote-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    min-height: 220px;
+}
+
+.article-line {
+    width: 78%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.article-side-quote {
+    margin: 0;
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+    line-height: 1.15;
+    text-align: center;
+    max-width: 12ch;
+}
+
+.article-box--text {
+    background: #000000;
+    padding: 24px 22px;
+}
+
+.article-box--text p {
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.72;
+    font-size: 1rem;
+}
+
+.article-box--text p+p {
+    margin-top: 14px;
+}
+
+/* ---------------- FOUR GRID ---------------- */
+
+.article-row--grid-four {
+    grid-template-columns: 1fr 1fr;
+    background: url("/static/images/art2-artaircraft-bg.jpg") center / cover no-repeat;
+    padding: 40px;
+    gap: 40px;
+}
+
+.article-row--grid-four .article-box {
+    background: rgba(0, 0, 0, 0.18);
+    min-height: 230px;
+}
+
+.article-row--grid-four .article-inner-box {
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.article-subtitle {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    line-height: 1.1;
+    text-align: center;
+}
+
+.article-row--grid-four p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.62;
+    font-size: 0.96rem;
+}
+
+.article-row--grid-four p+p {
+    margin-top: 12px;
+}
+
+/* proper list styling */
+.article-row--grid-four ul {
+    margin: 12px 0;
+    padding-left: 22px;
+    color: #ffffff;
+}
+
+.article-row--grid-four li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* ---------------- FINAL QUOTE ---------------- */
+
+.article-row--full {
+    grid-template-columns: 1fr;
+}
+
+.article-box--final-quote {
+    padding: 22px 18px;
+}
+
+.article-final-quote-text {
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(1.08rem, 1.5vw, 1.55rem);
+    line-height: 1.6;
+    max-width: 60ch;
+    margin-inline: auto;
+}
+
+.article-row--hero,
+.article-row--grid-four {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 100px);
+    /* 50px each side */
+}
+
+/* ---------------- Tablet / smaller laptops ---------------- */
+
+/* ---------------- Tablet / smaller laptops ---------------- */
+
+@media (max-width: 1024px) {
+    .article-two-layout {
+        max-width: 100%;
+        margin: 24px auto;
+        gap: 18px;
+    }
+
+    .article-row {
+        gap: 12px;
+    }
+
+    .article-box {
+        padding: 12px;
+    }
+
+    /* hero */
+    .article-row--hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 20px 18px;
+        gap: 12px;
+        width: calc(100% + 60px);
+    }
+
+    .article-box--hero-left {
+        justify-content: center;
+        padding: 6px 0 0;
+    }
+
+    .article-box--hero-right {
+        justify-content: center;
+        padding: 0 0 8px;
+    }
+
+    .article-title {
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        text-align: center;
+        padding: 20px;
+    }
+
+    .article-overlay-box {
+        width: min(100%, 720px);
+        padding: 16px 14px;
+        background: rgba(0, 0, 0, 0.82);
+    }
+
+    .article-overlay-box p {
+        font-size: 0.98rem;
+        line-height: 1.5;
+    }
+
+    /* middle */
+    .article-box--text {
+        padding: 20px 18px;
+    }
+
+    .article-box--text p {
+        font-size: 0.98rem;
+        line-height: 1.62;
+    }
+
+    /* bottom grid */
+    .article-row--grid-four {
+        width: calc(100% + 60px);
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .article-row--grid-four p,
+    .article-row--grid-four li {
+        font-size: 0.95rem;
+    }
+
+    .article-final-quote-text {
+        font-size: clamp(1rem, 2vw, 1.3rem);
+    }
+}
+
+/* ---------------- Tablets portrait ---------------- */
+
+@media (max-width: 820px) {
+    .article-two-layout {
+        margin: 16px auto 24px;
+        gap: 16px;
+    }
+
+    .article-row--hero,
+    .article-row--split,
+    .article-row--grid-four {
+        grid-template-columns: 1fr;
+    }
+
+    /* hero */
+    .article-row--hero {
+        width: calc(100% + 30px);
+        min-height: auto;
+        padding: 16px 14px;
+        gap: 10px;
+    }
+
+    .article-box--hero-left,
+    .article-box--hero-right {
+        min-height: auto;
+    }
+
+    .article-box--hero-left {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .article-box--hero-right {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .article-title {
+        padding: 50px;
+        text-align: center;
+        font-size: clamp(2rem, 6.5vw, 2.8rem);
+    }
+
+    .article-overlay-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 15px;
+        background: rgba(0, 0, 0, 0.84);
+    }
+
+    .article-overlay-box p {
+        font-size: 0.96rem;
+        line-height: 1.48;
+    }
+
+    /* middle split */
+    .article-box--quote-side {
+        min-height: 170px;
+        padding: 18px 16px;
+    }
+
+    .article-side-quote {
+        max-width: 16ch;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+
+    .article-box--text {
+        padding: 18px 16px;
+    }
+
+    .article-box--text p {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    /* four grid */
+    .article-row--grid-four {
+        width: calc(100% + 30px);
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .article-row--grid-four .article-box {
+        min-height: auto;
+    }
+
+    .article-two-layout .article-inner-box {
+        padding: 16px 14px;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .article-subtitle {
+        font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+    }
+
+    .article-row--grid-four p,
+    .article-row--grid-four li {
+        font-size: 0.98rem;
+        line-height: 1.58;
+    }
+
+    .article-final-quote-text {
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        line-height: 1.55;
+    }
+}
+
+/* ---------------- Phones ---------------- */
+
+@media (max-width: 600px) {
+    .article-two-layout {
+        margin: 10px auto 20px;
+        gap: 14px;
+    }
+
+    .article-row {
+        gap: 10px;
+    }
+
+    .article-box {
+        padding: 10px;
+    }
+
+    .article-two-layout .article-inner-box {
+        padding: 14px 12px;
+    }
+
+    /* hero */
+    .article-row--hero {
+        width: 100%;
+        left: auto;
+        transform: none;
+        min-height: auto;
+        padding: 14px 10px;
+        gap: 10px;
+        background-position: center;
+    }
+
+    .article-box--hero-left,
+    .article-box--hero-right {
+        padding: 0;
+    }
+
+    .article-title {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    .article-overlay-box {
+        width: 100%;
+        max-width: none;
+        padding: 14px 12px;
+        background: rgba(0, 0, 0, 0.86);
+    }
+
+    .article-overlay-box p {
+        font-size: 0.94rem;
+        line-height: 1.45;
+    }
+
+    /* middle split */
+    .article-box--quote-side {
+        min-height: 140px;
+        gap: 14px;
+        padding: 14px 12px;
+    }
+
+    .article-side-quote {
+        font-size: clamp(1.3rem, 6vw, 1.8rem);
+        max-width: 14ch;
+    }
+
+    .article-box--text {
+        padding: 16px 14px;
+    }
+
+    .article-box--text p {
+        font-size: 0.98rem;
+        line-height: 1.58;
+    }
+
+    /* four grid */
+    .article-row--grid-four {
+        width: 100%;
+        left: auto;
+        transform: none;
+        padding: 8px;
+        gap: 10px;
+    }
+
+    .article-subtitle {
+        font-size: clamp(1.2rem, 6vw, 1.6rem);
+        margin-bottom: 10px;
+    }
+
+    .article-row--grid-four p,
+    .article-row--grid-four li {
+        font-size: 0.94rem;
+        line-height: 1.5;
+    }
+
+    .article-row--grid-four ul {
+        padding-left: 18px;
+    }
+
+    .article-box--final-quote {
+        padding: 16px 12px;
+    }
+
+    .article-final-quote-text {
+        font-size: clamp(0.98rem, 4vw, 1.15rem);
+        line-height: 1.5;
+    }
+}
+
+/* ---------------- Small phones ---------------- */
+
+@media (max-width: 420px) {
+    .article-title {
+        font-size: clamp(1.55rem, 9vw, 2rem);
+        padding: 30px;
+    }
+
+    .article-overlay-box p,
+    .article-box--text p,
+    .article-row--grid-four p,
+    .article-row--grid-four li {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .article-side-quote {
+        font-size: clamp(1.15rem, 7vw, 1.55rem);
+    }
+
+    .article-final-quote-text {
+        font-size: 0.95rem;
+    }
+}
