@@ -459,3 +459,11 @@ def account_view(request):
 # What's New page view
 def article_whats_new_view(request):
     return render(request, 'articles/article_whats_new.html')
+
+# Propmts Story page view
+def article_prompts_story_view(request):
+    return render(request, 'articles/article_prompts_story.html')
+
+# Writing Tips page view
+def article_writing_tips_view(request):
+    return render(request, 'articles/article_writing_tips.html')
