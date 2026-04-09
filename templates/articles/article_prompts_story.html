@@ -1,0 +1,104 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+  Prompts for Storytelling | Story Gym
+{% endblock %}
+
+{% block content %}
+  <section class="article-page">
+    <div class="sg-container article-three-layout">
+      <!-- ROW 1 -->
+      <section class="article-row article-row--hero-banner">
+        <div class="article-box article-box--hero-banner">
+          <img src="{% static 'images/article-three-hero.jpg' %}" alt="Story inspiration" />
+          <div class="article-inner-box article-inner-box--hero-text">
+            <p>Every story begins with a small spark of inspiration. StoryGym simply provides that spark in a fun and unexpected way. From there, your imagination takes over. All you have to do is begin.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW 2 -->
+      <section class="article-row article-row--two-cards">
+        <div class="article-box">
+          <div class="article-inner-title-box">
+            <h2 class="article-subtitle">Where to Start When Writing a Story</h2>
+          </div>
+          <div class="article-inner-box">
+            <p>Starting a story is often the most difficult step. Not because writers lack imagination, but because the pressure to come up with a “perfect” idea can block creativity before it even begins. This is where StoryGym’s random prompt generator becomes so helpful. It removes the need to search for inspiration and replaces it with a playful starting point. Instead of wondering what to write about, you can focus on how to tell the story. A few unexpected words are often enough to unlock your imagination and set your thoughts in motion.</p>
+          </div>
+        </div>
+
+        <div class="article-box">
+          <div class="article-inner-title-box">
+            <h2 class="article-subtitle">Creating a Simple Plan</h2>
+          </div>
+          <div class="article-image-mini">
+            <img src="{% static 'images/article-three-flower.jpg' %}" alt="Simple plan" />
+          </div>
+          <div class="article-inner-box">
+            <p>Before you begin writing, it can help to think about the shape of your story. You only need three simple stages: a beginning where we meet the character and situation, a middle where something changes or challenges them, and an ending where the situation is resolved or transformed. This loose structure gives your story a natural flow without making it feel forced.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW 3 -->
+      <section class="article-row article-row--feature-split">
+        <div class="article-box article-box--light">
+          <div class="article-inner-title-box article-inner-title-box--light">
+            <h2 class="article-subtitle article-subtitle--dark">Why Random Prompts Work</h2>
+          </div>
+          <div class="article-inner-box article-inner-box--light">
+            <p class="article-text-dark">Random prompts gently push you out of your usual thinking patterns. You may not normally choose to write about a certain place, character, or situation, but when these elements are presented together, your mind naturally starts connecting them. Writing becomes less about planning and more about discovery. Prompts don’t limit you — they guide you. They give you direction while leaving plenty of room for creativity.</p>
+          </div>
+        </div>
+
+        <div class="article-box article-box--light article-box--image-note">
+          <div class="article-inner-title-box article-inner-title-box--light">
+            <h2 class="article-subtitle article-subtitle--dark">Adding a Twist to the Plot</h2>
+          </div>
+          <div class="article-note-card">
+            <p class="article-text-dark">A twist does not need to be dramatic or complicated. It can be a small discovery, an unexpected object, a secret, or a surprising decision made by the character. The prompts you receive in StoryGym are perfect tools for introducing this change and making your story more engaging.</p>
+          </div>
+          <img src="{% static 'images/article-three-glasses.jpg' %}" alt="Plot twist idea" />
+        </div>
+      </section>
+
+      <!-- ROW 4 -->
+      <section class="article-row article-row--final-split">
+        <div class="article-box article-box--final-left">
+          <div class="article-inner-title-box">
+            <h2 class="article-subtitle">Finding Inspiration in Simple Things</h2>
+          </div>
+
+          <div class="article-final-left-grid">
+            <div class="article-inner-box">
+              <p>Inspiration does not always come from big, dramatic ideas. Often it can be found in small details from everyday life: a place you remember, a conversation you once had, a feeling you experienced, or even a simple “what if” thought. When you combine these personal impressions with the prompts from StoryGym, your story begins to feel original and meaningful.</p>
+            </div>
+
+            <div class="article-final-image">
+              <img src="{% static 'images/article-three-child.jpg' %}" alt="Inspiration in simple things" />
+            </div>
+          </div>
+
+          <div class="article-final-cta">
+            <p>Take the prompt and start creating.</p>
+            <a href="{% url 'randomizer' %}" class="sg-btn">Start here</a>
+          </div>
+        </div>
+
+        <div class="article-box article-box--final-right">
+          <div class="article-tips-card">
+            <div class="article-inner-title-box">
+              <h2 class="article-subtitle">A Few Helpful Hints</h2>
+            </div>
+
+            <div class="article-inner-box">
+              <p>Don’t worry about perfection. Write first and edit later. Keep your sentences clear and simple, and focus on what your character wants. Most importantly, allow yourself to enjoy the process. Writing is an exploration of ideas, not a test.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+{% endblock %}
