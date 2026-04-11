@@ -250,6 +250,7 @@ def preview_story_view(request, story_id):
     
     # Check if the user has already rated the story (if there is a comment with a rating from the user for this story). If the user has already rated, we will not allow them to rate again and show only their comment without the rating field in the comment form
     user_has_rated = False
+    is_story_author = request.user.is_authenticated and story.user == request.user  # Check if the logged-in user is the author of the story    
 
     if request.user.is_authenticated:
         user_has_rated = Comment.objects.filter(
@@ -274,7 +275,7 @@ def preview_story_view(request, story_id):
             # Set the author name to the username of the logged-in user
             comment.author_name = request.user.username
             
-            if user_has_rated:
+            if user_has_rated or is_story_author:
                 comment.rating = None  # Clear the rating if the user has already rated
             
             comment.save()
@@ -289,6 +290,7 @@ def preview_story_view(request, story_id):
         'comments': comments,
         'comment_form': form,
         'user_has_rated': user_has_rated,
+        'is_story_author': is_story_author, 
         'can_edit_rating': not user_has_rated,  # User can edit rating only if they haven't rated yet
     })
 
