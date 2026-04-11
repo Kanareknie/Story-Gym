@@ -3432,3 +3432,492 @@ Pages style CSS
         font-size: 0.95rem;
     }
 }
+
+/* =============================== Article 3 - Prompts for Storytelling =============================== */
+
+.article-three-layout {
+    max-width: 1120px;
+    margin: 36px auto 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.article-three-layout .article-row {
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+}
+
+.article-three-layout .article-box {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.article-three-layout .article-inner-box,
+.article-three-layout .article-inner-title-box,
+.article-three-layout .article-note-card,
+.article-three-layout .article-tips-card {
+    box-sizing: border-box;
+}
+
+/* ---------------- ROW 1: HERO BANNER ---------------- */
+
+.article-row--hero-banner {
+    grid-template-columns: 1fr;
+}
+
+.article-box--hero-banner {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.article-box--hero-banner img {
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.article-inner-box--hero-text {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 100px;
+    background: rgba(0, 0, 0, 0.78);
+    padding: 18px 16px;
+    text-align: center;
+}
+
+.article-inner-box--hero-text p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 2em;
+    line-height: 1.55;
+    font-weight: 700;
+}
+
+.article-box--hero-banner h1 {
+    margin: 0;
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: 28px;
+    color: #ffffff;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.02;
+} 
+
+
+/* ---------------- ROW 2: TWO BLACK CARDS ---------------- */
+
+.article-row--two-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.article-row--two-cards .article-box {
+    background: #000000;
+    padding: 16px;
+}
+
+.article-row--two-cards .article-inner-title-box {
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    margin-bottom: 12px;
+}
+
+.article-row--two-cards .article-inner-box {
+    padding: 16px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.article-row--two-cards .article-inner-box p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.98rem;
+    line-height: 1.62;
+}
+
+.article-image-mini {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.article-image-mini img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+/* ---------------- ROW 3: LIGHT SPLIT SECTION ---------------- */
+
+
+.article-row--feature-split {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    background: url("/static/images/art3-camera.jpg") center no-repeat;
+    background-size: contain;
+    width: 100%;
+    padding: 30px;
+    background-color: #1a1a1a;
+}
+
+.article-box--light {
+    padding: 16px;
+}
+
+.article-inner-title-box--light {
+    padding: 12px 14px;
+    margin-bottom: 12px;
+}
+
+.article-inner-box--light {
+    background: rgba(255, 255, 255, 0.32);
+    padding: 18px 16px;
+}
+
+.article-subtitle--dark,
+.article-text-dark {
+    color: #111111;
+}
+
+.article-box--light .article-subtitle {
+    text-align: center;
+}
+
+.article-box--light p {
+    margin: 0;
+    line-height: 1.62;
+    font-size: 1rem;
+}
+
+.article-box--image-note {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.article-note-card {
+    background: rgba(255, 255, 255, 0.72);
+    padding: 16px 14px;
+}
+
+.article-note-card p {
+    margin: 0;
+    line-height: 1.58;
+    font-size: 0.98rem;
+}
+
+.article-box--image-note img {
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ---------------- ROW 4: FINAL SPLIT ---------------- */
+
+.article-row--final-split {
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 18px;
+}
+
+.article-box--final-left {
+    background: url("/static/images/art3-kid-bg.jpg") center / cover no-repeat;
+    padding: 16px;
+}
+
+.article-box--final-left > .article-inner-title-box {
+    padding: 12px 14px;
+    background: rgba(0, 0, 0, 0.55);
+    margin-bottom: 12px;
+}
+
+.article-final-left-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 12px;
+    align-items: stretch;
+    margin-bottom: 14px;
+}
+
+.article-final-left-grid .article-inner-box {
+    background: rgba(0, 0, 0, 0.58);
+    padding: 16px 14px;
+}
+
+.article-final-left-grid .article-inner-box p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.6;
+    font-size: 0.98rem;
+}
+
+.article-final-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.article-final-cta {
+    background: rgba(0, 0, 0, 0.82);
+    padding: 18px 14px;
+    text-align: center;
+}
+
+.article-final-cta p {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.article-box--final-right {
+    background: url("/static/images/art3-vietnam-bg.jpg") center / cover no-repeat;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.article-tips-card {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 12px;
+}
+
+.article-tips-card .article-inner-title-box {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+}
+
+.article-tips-card .article-inner-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px 14px;
+}
+
+.article-tips-card .article-inner-box p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.6;
+    font-size: 0.98rem;
+}
+
+/* ---------------- SHARED ARTICLE 3 TYPOGRAPHY ---------------- */
+
+
+
+
+.article-three-layout .article-subtitle {
+    margin: 0;
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    line-height: 1.1;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* ---------------- TABLET ---------------- */
+
+@media (max-width: 1024px) {
+    .article-three-layout {
+        max-width: 100%;
+        margin: 24px auto 20px;
+        gap: 18px;
+    }
+
+    .article-row--two-cards,
+    .article-row--feature-split {
+        gap: 14px;
+    }
+
+    .article-row--final-split {
+        grid-template-columns: 1fr;
+    }
+
+    .article-box--final-right {
+        align-items: stretch;
+    }
+
+    .article-three-layout .article-subtitle {
+        font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+    }
+
+    .article-inner-box--hero-text p,
+    .article-row--two-cards .article-inner-box p,
+    .article-box--light p,
+    .article-note-card p,
+    .article-final-left-grid .article-inner-box p,
+    .article-tips-card .article-inner-box p {
+        font-size: 1.3rem;
+    }
+}
+
+/* ---------------- TABLETS PORTRAIT ---------------- */
+
+@media (max-width: 820px) {
+    .article-three-layout {
+        margin: 16px auto 18px;
+        gap: 16px;
+    }
+
+    .article-row--two-cards,
+    .article-row--feature-split,
+    .article-final-left-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-box--hero-banner {
+        min-height: 260px;
+    }
+
+    .article-box--hero-banner img {
+        min-height: 260px;
+    }
+
+    .article-inner-box--hero-text {
+        left: 16px;
+        right: 16px;
+        bottom: 30px;
+        padding: 16px 14px;
+    }
+
+    .article-inner-box--hero-text p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .article-row--two-cards .article-box,
+    .article-box--light,
+    .article-box--final-left,
+    .article-box--final-right {
+        padding: 14px;
+    }
+
+    .article-row--two-cards .article-inner-title-box,
+    .article-row--two-cards .article-inner-box,
+    .article-inner-title-box--light,
+    .article-inner-box--light,
+    .article-note-card,
+    .article-box--final-left > .article-inner-title-box,
+    .article-final-left-grid .article-inner-box,
+    .article-tips-card .article-inner-title-box,
+    .article-tips-card .article-inner-box {
+        padding: 14px 12px;
+    }
+
+    .article-final-image img {
+        min-height: 180px;
+    }
+}
+
+/* ---------------- PHONES ---------------- */
+
+@media (max-width: 600px) {
+    .article-three-layout {
+        margin: 10px auto 16px;
+        gap: 14px;
+    }
+
+    .article-three-layout .article-row {
+        gap: 12px;
+    }
+
+    .article-box--hero-banner {
+        min-height: 220px;
+    }
+
+    .article-box--hero-banner img {
+        min-height: 220px;
+    }
+
+    .article-inner-box--hero-text {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 14px 12px;
+    }
+
+    .article-inner-box--hero-text p {
+        font-size: 0.94rem;
+        line-height: 1.42;
+    }
+
+    .article-row--two-cards .article-box,
+    .article-box--light,
+    .article-box--final-left,
+    .article-box--final-right {
+        padding: 10px;
+    }
+
+    .article-row--two-cards .article-inner-title-box,
+    .article-row--two-cards .article-inner-box,
+    .article-inner-title-box--light,
+    .article-inner-box--light,
+    .article-note-card,
+    .article-box--final-left > .article-inner-title-box,
+    .article-final-left-grid .article-inner-box,
+    .article-tips-card .article-inner-title-box,
+    .article-tips-card .article-inner-box {
+        padding: 12px 10px;
+    }
+
+    .article-three-layout .article-subtitle {
+        font-size: clamp(1.2rem, 6vw, 1.55rem);
+    }
+
+    .article-row--two-cards .article-inner-box p,
+    .article-box--light p,
+    .article-note-card p,
+    .article-final-left-grid .article-inner-box p,
+    .article-tips-card .article-inner-box p {
+        font-size: 0.94rem;
+        line-height: 1.48;
+    }
+
+    .article-box--image-note img {
+        max-width: 180px;
+    }
+
+    .article-final-image img {
+        min-height: 150px;
+    }
+
+    .article-final-cta {
+        padding: 14px 12px;
+    }
+
+    .article-final-cta p {
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+}
+
+/* ---------------- SMALL PHONES ---------------- */
+
+@media (max-width: 420px) {
+    .article-inner-box--hero-text p,
+    .article-row--two-cards .article-inner-box p,
+    .article-box--light p,
+    .article-note-card p,
+    .article-final-left-grid .article-inner-box p,
+    .article-tips-card .article-inner-box p {
+        font-size: 0.9rem;
+        line-height: 1.42;
+    }
+
+    .article-three-layout .article-subtitle {
+        font-size: 1.1rem;
+    }
+}
