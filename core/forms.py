@@ -122,7 +122,7 @@ class LoginForm(AuthenticationForm):
 class StoryForm(forms.ModelForm):
     class Meta:
         model = Story
-        fields = ['title', 'content']
+        fields = ['title', 'content','genre']
         widgets = {
             'title': forms.TextInput(attrs={
                 'id': 'story-title',
