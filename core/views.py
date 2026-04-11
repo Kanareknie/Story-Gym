@@ -11,6 +11,9 @@ from .models import RandomizerResult, Story, Comment
 from .forms import CommentForm
 from django.utils.html import format_html
 from django.urls import reverse
+from django.db.models import Avg
+from django.db.models import Avg, Value, FloatField
+from django.db.models.functions import Coalesce
 
 
 # Create your views here.
@@ -426,12 +429,26 @@ def delete_comment_view(request, comment_id):
 def repo_view(request):
     # Get the search query from the request parameters (if any) and strip leading/trailing whitespace
     query = request.GET.get('q', '').strip()
+    sort = request.GET.get('sort', 'newest')
     
     published_stories = Story.objects.filter(status=1).select_related(
-        'user', 'randomizer').order_by('-created_on')
+        'user', 'randomizer'
+        ).annotate(
+            avg_rating=Avg('comments__rating'),
+            sort_rating=Coalesce(Avg('comments__rating'), Value(-1.0), output_field=FloatField())
+        )
+        
     # Get the latest published story to feature it at the top of the repository page
     if query:
         published_stories = published_stories.filter(title__icontains=query)
+    # Sorting the stories based on the selected sort option (newest or oldest)
+    if sort == 'liked':
+        published_stories = published_stories.annotate(
+            avg_rating=Avg('comments__rating')
+            ).order_by('-avg_rating', '-created_on')
+    else:
+        published_stories = published_stories.order_by('-created_on')
+        
     # Get the latest published story to feature it at the top of the repository page.
     latest_story = Story.objects.filter(status=1).select_related(
         'user', 'randomizer'
@@ -441,6 +458,7 @@ def repo_view(request):
         'latest_story': latest_story,
         'stories': published_stories,
         'query': query,
+        'sort': sort,
     }
 
     return render(request, 'stories/repo.html', context)

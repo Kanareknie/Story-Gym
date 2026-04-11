@@ -56,14 +56,18 @@
 
         <form method="get" class="repo-search-form">
           <label for="repo-search" class="sr-only">Search stories by title</label>
-          <input
-            type="text"
-            name="q"
-            id="repo-search"
-            class="repo-search-input"
-            placeholder="Search by title..."
-            value="{{ query }}"
-          >
+          <input type="text" name="q" id="repo-search" class="repo-search-input" placeholder="Search by title..." value="{{ query }}" />
+          <label for="repo-sort" class="sr-only">Sort stories</label>
+          <select name="sort" id="repo-sort" class="repo-sort-select">
+            {% if sort == 'liked' %}
+              <option value="newest">Newest</option>
+              <option value="liked" selected="selected">Most liked</option>
+            {% else %}
+              <option value="newest" selected="selected">Newest</option>
+              <option value="liked">Most liked</option>
+            {% endif %}
+          </select>
+
           <button type="submit" class="sg-btn repo-search-btn">Search</button>
 
           {% if query %}
@@ -76,6 +80,13 @@
             <li class="stories-row">
               <span class="story-name">{{ story.title }}</span>
               <span class="story-date">{{ story.created_on|date:'d.m.Y' }}</span>
+              <span class="story-rating">
+                {% if story.avg_rating %}
+                  {{ story.avg_rating|floatformat:1 }}/5
+                {% else %}
+                  No rating yet
+                {% endif %}
+              </span>
               <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">More</a>
             </li>
           {% empty %}
