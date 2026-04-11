@@ -67,8 +67,9 @@
                 <option value="newest">Newest</option>
                 <option value="liked" selected="selected">Most liked</option>
               {% else %}
-                <option value="newest" selected="selected">Newest</option>
-                <option value="liked">Most liked</option>
+                <option value="newest" {% if sort == 'newest' %}selected="selected"{% endif %}>Newest</option>
+                <option value="oldest" {% if sort == 'oldest' %}selected="selected"{% endif %}>Oldest</option>
+                <option value="liked" {% if sort == 'liked' %}selected="selected"{% endif %}>Most liked</option>
               {% endif %}
             </select>
 

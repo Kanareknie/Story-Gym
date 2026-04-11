@@ -453,12 +453,17 @@ def repo_view(request):
     if query:
         published_stories = published_stories.filter(title__icontains=query)
     # Sorting the stories based on the selected sort option (newest or oldest)
+
     if sort == 'liked':
         published_stories = published_stories.order_by(
             '-has_rating',   # rated first
             '-avg_rating',   # then highest rating
-            '-created_on'    # then newest
+            '-created_on',    # then newest
         )
+        
+    elif sort == 'oldest':
+        published_stories = published_stories.order_by('created_on')
+        
     else:
         published_stories = published_stories.order_by('-created_on')
 
