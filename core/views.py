@@ -247,10 +247,11 @@ def preview_story_view(request, story_id):
     # Only published stories can be previewed
     story = get_object_or_404(Story, id=story_id, status=1)
     comments = story.comments.all()  # Get all comments for the story
-    
+
     # Check if the user has already rated the story (if there is a comment with a rating from the user for this story). If the user has already rated, we will not allow them to rate again and show only their comment without the rating field in the comment form
     user_has_rated = False
-    is_story_author = request.user.is_authenticated and story.user == request.user  # Check if the logged-in user is the author of the story    
+    # Check if the logged-in user is the author of the story
+    is_story_author = request.user.is_authenticated and story.user == request.user
 
     if request.user.is_authenticated:
         user_has_rated = Comment.objects.filter(
@@ -258,7 +259,7 @@ def preview_story_view(request, story_id):
             user=request.user,
             rating__isnull=False
         ).exists()
-    
+
     if request.method == 'POST':
         # If the user is not authenticated, redirect to login page with an error message. After login, the user will be redirected back to the same preview story page and can post the comment without losing the content of the comment form.
         if not request.user.is_authenticated:
@@ -274,10 +275,10 @@ def preview_story_view(request, story_id):
             comment.user = request.user
             # Set the author name to the username of the logged-in user
             comment.author_name = request.user.username
-            
+
             if user_has_rated or is_story_author:
                 comment.rating = None  # Clear the rating if the user has already rated
-            
+
             comment.save()
 
             messages.success(request, "Comment added successfully.")
@@ -290,8 +291,9 @@ def preview_story_view(request, story_id):
         'comments': comments,
         'comment_form': form,
         'user_has_rated': user_has_rated,
-        'is_story_author': is_story_author, 
-        'can_edit_rating': not user_has_rated,  # User can edit rating only if they haven't rated yet
+        'is_story_author': is_story_author,
+        # User can edit rating only if they haven't rated yet
+        'can_edit_rating': not user_has_rated,
     })
 
 # Edit Story page view - only the author of the story can edit it. If another user tries to access the URL, they will see a 404 page not found error.
@@ -322,11 +324,13 @@ def edit_story_view(request, story_id):
                 was_published = (updated_story.status == 1)
                 updated_story.status = 0
                 updated_story.save()
-                
+
                 if was_published:
-                    messages.success(request, "Your story has been moved to draft.")
+                    messages.success(
+                        request, "Your story has been moved to draft.")
                 else:
-                    messages.success(request, "Your story has been updated as a draft.")
+                    messages.success(
+                        request, "Your story has been updated as a draft.")
                 return redirect('edit_story', story_id=updated_story.id)
 
             if 'publish_story' in request.POST:
@@ -375,23 +379,24 @@ def edit_comment_view(request, comment_id):
         user=request.user,
         rating__isnull=False
     ).first()
-    
+
     can_edit_rating = rated_comment is None or rated_comment.id == comment.id
-    
+
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
 
         if form.is_valid():
             updated_comment = form.save(commit=False)
-            
+
             # If the user has already rated this story and is trying to edit a comment that is not the one with the rating, we will not allow them to change the rating and keep the original rating value. If they are editing the comment with the rating, they can change the rating as well.
             if not can_edit_rating:
-                updated_comment.rating = comment.rating  # Keep the original rating if the user has already rated
-            
+                # Keep the original rating if the user has already rated
+                updated_comment.rating = comment.rating
+
             updated_comment.save()
             messages.success(request, "Your comment has been updated.")
             return redirect('preview_story', story_id=comment.story.id)
-        
+
     else:
         form = CommentForm(instance=comment)
 
@@ -431,7 +436,7 @@ def repo_view(request):
     # Get the search query from the request parameters (if any) and strip leading/trailing whitespace
     query = request.GET.get('q', '').strip()
     sort = request.GET.get('sort', 'newest')
-    
+
     published_stories = Story.objects.filter(status=1).select_related(
         'user', 'randomizer'
     ).annotate(
@@ -443,22 +448,24 @@ def repo_view(request):
             output_field=IntegerField(),
         )
     )
-        
+
     # Get the latest published story to feature it at the top of the repository page
     if query:
         published_stories = published_stories.filter(title__icontains=query)
     # Sorting the stories based on the selected sort option (newest or oldest)
     if sort == 'liked':
-        published_stories = published_stories.annotate(
-            avg_rating=Avg('comments__rating')
-            ).order_by('-avg_rating', '-created_on')
+        published_stories = published_stories.order_by(
+            '-has_rating',   # rated first
+            '-avg_rating',   # then highest rating
+            '-created_on'    # then newest
+        )
     else:
         published_stories = published_stories.order_by('-created_on')
-        
+
     # Get the latest published story to feature it at the top of the repository page.
     latest_story = Story.objects.filter(status=1).select_related(
         'user', 'randomizer'
-        ).order_by('-created_on').first()
+    ).order_by('-created_on').first()
 
     context = {
         'latest_story': latest_story,
@@ -494,9 +501,13 @@ def article_whats_new_view(request):
     return render(request, 'articles/article_whats_new.html')
 
 # Propmts Story page view
+
+
 def article_prompts_story_view(request):
     return render(request, 'articles/article_prompts_story.html')
 
 # Writing Tips page view
+
+
 def article_writing_tips_view(request):
     return render(request, 'articles/article_writing_tips.html')
