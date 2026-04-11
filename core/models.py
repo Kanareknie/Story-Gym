@@ -7,8 +7,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     dob = models.DateField()
     created_on = models.DateTimeField(auto_now_add=True)
-    security_question = models.CharField(max_length=255)
-    security_answer_hash = models.CharField(max_length=255)
 
     def __str__(self):
         return f"{self.user.username}'s profile"
@@ -39,6 +37,7 @@ class Story(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True, blank=True, related_name='stories')
     
     # Order stories by creation date, newest first
     class Meta:
@@ -46,6 +45,14 @@ class Story(models.Model):
 
     def __str__(self):
         return f"Story '{self.title}' by {self.user.username}"
+    
+    
+class Genre(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return self.name
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='comments')
