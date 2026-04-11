@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.hashers import make_password
 from .models import Profile, Story, Comment
 import re
 from datetime import date
@@ -14,18 +13,6 @@ class SignUpForm(UserCreationForm):
     # Profile table - add dob, security question and answer - only to reset the password purpuse
     dob = forms.DateField(
         required=True, widget=forms.DateInput(attrs={'type': 'date'}))
-    security_question = forms.ChoiceField(
-        required=True,
-        choices=[
-            ('pet', 'What was the name of your first pet?'),
-            ('school', 'What was the name of your first school?'),
-            ('mother', "What is your mother's maiden name?"),
-        ]
-    )
-    security_answer = forms.CharField(
-        required=True,
-        widget=forms.TextInput(attrs={'autocomplete': 'off'})
-    )
 
     # Username validation
     def clean_username(self):
@@ -91,7 +78,7 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2',
-                  'dob', 'security_question', 'security_answer')
+                  'dob')
 
     # Creates the related profile immediately after the user is saved
     def save(self, commit=True):
@@ -101,11 +88,6 @@ class SignUpForm(UserCreationForm):
             Profile.objects.create(
                 user=user,
                 dob=self.cleaned_data['dob'],
-                security_question=self.cleaned_data['security_question'],
-                # hashes the answer before storing it
-                security_answer_hash=make_password(
-                    self.cleaned_data['security_answer']
-                )
             )
         return user
 
@@ -139,6 +121,11 @@ class StoryForm(forms.ModelForm):
                 'rows': 10,
                 'aria-label': 'Story content input',
             }),
+                'genre': forms.Select(attrs={
+                    'id': 'story-genre',
+                    'class': 'story-genre-select',
+                    'aria-label': 'Story genre select',
+                }),
         }
         
 # Comment form - to create and edit the comment        
