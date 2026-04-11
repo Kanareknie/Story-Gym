@@ -11,8 +11,7 @@ from .models import RandomizerResult, Story, Comment
 from .forms import CommentForm
 from django.utils.html import format_html
 from django.urls import reverse
-from django.db.models import Avg
-from django.db.models import Avg, Value, FloatField
+from django.db.models import Avg, Case, IntegerField, Value, FloatField, When
 from django.db.models.functions import Coalesce
 
 
@@ -433,10 +432,15 @@ def repo_view(request):
     
     published_stories = Story.objects.filter(status=1).select_related(
         'user', 'randomizer'
-        ).annotate(
-            avg_rating=Avg('comments__rating'),
-            sort_rating=Coalesce(Avg('comments__rating'), Value(-1.0), output_field=FloatField())
+    ).annotate(
+        avg_rating=Avg('comments__rating'),
+        # Annotate each story with a boolean field indicating whether it has at least one comment with a rating, to be used for displaying the "No ratings yet" message in the template for stories without ratings
+        has_rating=Case(
+            When(comments__rating__isnull=False, then=Value(1)),
+            default=Value(0),
+            output_field=IntegerField(),
         )
+    )
         
     # Get the latest published story to feature it at the top of the repository page
     if query:
