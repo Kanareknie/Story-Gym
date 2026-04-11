@@ -211,6 +211,7 @@ def my_story_view(request):
                     user=request.user,
                     randomizer=randomizer_result,
                     title=title,
+                    genre=genre,   
                     content=content,
                     status=1,
                 )
