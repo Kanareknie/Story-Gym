@@ -69,7 +69,9 @@
                 </div>
               </div>
               <!-- RATING -->
-              {% if can_edit_rating %}
+              {% if is_story_author %}
+                <p>You cannot rate your own story.</p>
+              {% elif can_edit_rating %}
                 <div class="comment-form-bottom">
                   {{ comment_form.rating }}
 
@@ -123,7 +125,7 @@
 
                 {% if comment.rating %}
                   <p class="comment-rating">
-                    {% for i in "12345" %}
+                    {% for i in 12345 %}
                       {% if forloop.counter <= comment.rating %}
                         ⭐
                       {% else %}
