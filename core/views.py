@@ -11,8 +11,7 @@ from .models import RandomizerResult, Story, Comment
 from .forms import CommentForm
 from django.utils.html import format_html
 from django.urls import reverse
-from django.db.models import Avg, Case, IntegerField, Value, FloatField, When
-from django.db.models.functions import Coalesce
+from django.db.models import Avg, Case, IntegerField, Value, When
 
 
 # Create your views here.
@@ -294,6 +293,7 @@ def preview_story_view(request, story_id):
         'is_story_author': is_story_author,
         # User can edit rating only if they haven't rated yet
         'can_edit_rating': not user_has_rated,
+        'rating_range': range(1, 6),  # Range for displaying rating stars in the template   
     })
 
 # Edit Story page view - only the author of the story can edit it. If another user tries to access the URL, they will see a 404 page not found error.
@@ -408,6 +408,7 @@ def edit_comment_view(request, comment_id):
         'editing_comment': comment,
         'user_has_rated': rated_comment is not None,
         'can_edit_rating': can_edit_rating,
+        'rating_range': range(1, 6),  # Range for displaying rating stars in the template
     })
 
 # Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
