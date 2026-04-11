@@ -82,6 +82,7 @@
               <span class="story-date">{{ story.created_on|date:'d.m.Y' }}</span>
               <span class="story-rating">
                 {% if story.avg_rating %}
+                <span class="story-rating-star">★</span>
                   {{ story.avg_rating|floatformat:1 }}/5
                 {% else %}
                   No rating yet

@@ -1646,7 +1646,19 @@ Pages style CSS
     padding: 4px 12px;
     font-size: 0.8rem;
 }
+/* Story rating */
 
+.story-rating {
+    font-size: 0.85rem;
+    opacity: 0.95;
+    white-space: nowrap;
+}
+
+.story-rating-star {
+    color: #f4c542;
+    margin-right: 4px;
+    font-size: 1rem;
+}
 
 /* --------------- Media query for tablets - max-width: 900px --------------- */
 
