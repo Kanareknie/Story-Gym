@@ -1580,6 +1580,40 @@ Pages style CSS
     font-weight: 700;
 }
 
+/* -------- Repository Search --------- */
+
+.repo-search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    margin: 16px 0 20px;
+    flex-wrap: wrap;
+}
+
+.repo-search-input {
+    flex: 1;
+    min-width: 220px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.repo-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.repo-search-input:focus {
+    border-color: rgba(255, 255, 255, 0.95);
+}
+
+.repo-search-btn {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+}
 
 /*-------- Repository List ---------*/
 
@@ -1649,6 +1683,33 @@ Pages style CSS
 
     .stories-panel {
         grid-template-columns: 1fr;
+    }
+}
+/* --------------- Media query for smallscreens - max-width: 600px --------------- */
+
+@media (max-width: 600px) {
+    .repo-search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .repo-search-input {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .repo-search-btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .stories-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .repo-btn {
+        justify-self: center;
     }
 }
 

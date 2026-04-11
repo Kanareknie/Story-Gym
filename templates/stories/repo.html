@@ -28,6 +28,7 @@
               <h2>Title:</h2>
               <p class="repo-preview-box">{{ latest_story.title }}</p>
             </div>
+
             <div class="story-preview-content">
               <div class="repo-preview-text">
                 <p>{{ latest_story.content|truncatewords:45 }}</p>
@@ -53,6 +54,23 @@
       <aside class="stories-col stories-col--repository">
         <h2 class="repository-title">Story Repository</h2>
 
+        <form method="get" class="repo-search-form">
+          <label for="repo-search" class="sr-only">Search stories by title</label>
+          <input
+            type="text"
+            name="q"
+            id="repo-search"
+            class="repo-search-input"
+            placeholder="Search by title..."
+            value="{{ query }}"
+          >
+          <button type="submit" class="sg-btn repo-search-btn">Search</button>
+
+          {% if query %}
+            <a href="{% url 'repo_story' %}" class="sg-btn repo-search-btn">Clear</a>
+          {% endif %}
+        </form>
+
         <ul class="stories-list">
           {% for story in stories %}
             <li class="stories-row">
@@ -62,7 +80,11 @@
             </li>
           {% empty %}
             <li class="stories-row">
-              <span class="story-name">No stories published yet.</span>
+              {% if query %}
+                <span class="story-name">No results found for "{{ query }}".</span>
+              {% else %}
+                <span class="story-name">No stories published yet.</span>
+              {% endif %}
             </li>
           {% endfor %}
         </ul>

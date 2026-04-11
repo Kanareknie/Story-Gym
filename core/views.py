@@ -424,14 +424,23 @@ def delete_comment_view(request, comment_id):
 # Repository page view
 
 def repo_view(request):
+    # Get the search query from the request parameters (if any) and strip leading/trailing whitespace
+    query = request.GET.get('q', '').strip()
+    
     published_stories = Story.objects.filter(status=1).select_related(
         'user', 'randomizer').order_by('-created_on')
     # Get the latest published story to feature it at the top of the repository page
-    latest_story = published_stories.first()
+    if query:
+        published_stories = published_stories.filter(title__icontains=query)
+    # Get the latest published story to feature it at the top of the repository page.
+    latest_story = Story.objects.filter(status=1).select_related(
+        'user', 'randomizer'
+        ).order_by('-created_on').first()
 
     context = {
         'latest_story': latest_story,
         'stories': published_stories,
+        'query': query,
     }
 
     return render(request, 'stories/repo.html', context)
