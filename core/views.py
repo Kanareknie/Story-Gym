@@ -180,6 +180,7 @@ def my_story_view(request):
         if form.is_valid():
             title = form.cleaned_data['title']
             content = form.cleaned_data['content']
+            genre = form.cleaned_data['genre']
 
             # save for later = draft
             if 'save_draft' in request.POST:
@@ -187,6 +188,7 @@ def my_story_view(request):
                     user=request.user,
                     randomizer=randomizer_result,
                     title=title,
+                    genre=genre,
                     content=content,
                     status=0,
                 )
