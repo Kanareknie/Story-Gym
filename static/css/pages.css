@@ -1714,6 +1714,31 @@ Pages style CSS
         grid-template-columns: 1fr;
     }
 }
+
+/* --------------- Media query for tablets - max-width: 700px --------------- */
+
+@media (max-width: 700px) {
+ .repo-sort-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .repo-sort-select,
+    .repo-search-btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .stories-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .repo-btn {
+        justify-self: center;
+    }
+}
+
 /* --------------- Media query for smallscreens - max-width: 600px --------------- */
 
 @media (max-width: 600px) {
