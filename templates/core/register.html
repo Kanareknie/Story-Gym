@@ -104,29 +104,6 @@
               </div>
             {% endif %}
           </div>
-          <div class="mb-3">
-            <label for="security_question" class="form-label">Security Question</label>
-            {% comment %}Form hint{% endcomment %}
-            <p class="form-hint">Used for account recovery.</p>
-            {{ form.security_question }}
-            {% comment %}Error check regarding this particular section{% endcomment %}
-            {% if form.security_question.errors %}
-              <div class="form-error">
-                {% for error in form.security_question.errors %}
-                  <p>{{ error }}</p>
-                {% endfor %}
-              </div>
-            {% endif %}
-            <input type="text" name="security_answer" class="form-control mt-2" id="security-answer" value="{{ form.security_answer.value|default:'' }}" placeholder="Enter your answer" autocomplete="off" />
-            {% comment %}Error check regarding this particular section{% endcomment %}
-            {% if form.security_answer.errors %}
-              <div class="form-error">
-                {% for error in form.security_answer.errors %}
-                  <p>{{ error }}</p>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
           <button type="submit" class="sg-btn register-btn">Create account</button>
         </form>
       </div>
