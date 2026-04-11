@@ -55,24 +55,29 @@
         <h2 class="repository-title">Story Repository</h2>
 
         <form method="get" class="repo-search-form">
-          <label for="repo-search" class="sr-only">Search stories by title</label>
-          <input type="text" name="q" id="repo-search" class="repo-search-input" placeholder="Search by title..." value="{{ query }}" />
-          <label for="repo-sort" class="sr-only">Sort stories</label>
-          <select name="sort" id="repo-sort" class="repo-sort-select">
-            {% if sort == 'liked' %}
-              <option value="newest">Newest</option>
-              <option value="liked" selected="selected">Most liked</option>
-            {% else %}
-              <option value="newest" selected="selected">Newest</option>
-              <option value="liked">Most liked</option>
+          <div class="repo-search-row">
+            <label for="repo-search" class="sr-only">Search stories by title</label>
+            <input type="text" name="q" id="repo-search" class="repo-search-input" placeholder="Search by title..." value="{{ query }}" />
+          </div>
+
+          <div class="repo-sort-row">
+            <label for="repo-sort" class="sr-only">Sort stories</label>
+            <select name="sort" id="repo-sort" class="repo-sort-select">
+              {% if sort == 'liked' %}
+                <option value="newest">Newest</option>
+                <option value="liked" selected="selected">Most liked</option>
+              {% else %}
+                <option value="newest" selected="selected">Newest</option>
+                <option value="liked">Most liked</option>
+              {% endif %}
+            </select>
+
+            <button type="submit" class="sg-btn repo-search-btn">Search</button>
+
+            {% if query or sort != 'newest' %}
+              <a href="{% url 'repo_story' %}" class="sg-btn repo-search-btn">Clear</a>
             {% endif %}
-          </select>
-
-          <button type="submit" class="sg-btn repo-search-btn">Search</button>
-
-          {% if query %}
-            <a href="{% url 'repo_story' %}" class="sg-btn repo-search-btn">Clear</a>
-          {% endif %}
+          </div>
         </form>
 
         <ul class="stories-list">
@@ -82,7 +87,7 @@
               <span class="story-date">{{ story.created_on|date:'d.m.Y' }}</span>
               <span class="story-rating">
                 {% if story.avg_rating %}
-                <span class="story-rating-star">★</span>
+                  <span class="story-rating-star">★</span>
                   {{ story.avg_rating|floatformat:1 }}/5
                 {% else %}
                   No rating yet
