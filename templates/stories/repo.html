@@ -24,7 +24,8 @@
                 {{ latest_story.randomizer.words.verb }},
                 {{ latest_story.randomizer.words.place }},
                 {{ latest_story.randomizer.words.random_noun }}</p>
-
+              <h2>Genre:</h2>
+              <p class="repo-preview-box">{{ latest_story.genre }}</p>
               <h2>Title:</h2>
               <p class="repo-preview-box">{{ latest_story.title }}</p>
             </div>
@@ -85,7 +86,9 @@
           {% for story in stories %}
             <li class="stories-row">
               <span class="story-name">{{ story.title }}</span>
+              <span class="story-genre">{{ story.genre }}</span>
               <span class="story-date">{{ story.created_on|date:'d.m.Y' }}</span>
+              <span class="story-author">by {{ story.user.username }}</span>
               <span class="story-rating">
                 {% if story.avg_rating %}
                   <span class="story-rating-star">★</span>
