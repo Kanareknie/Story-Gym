@@ -7,7 +7,7 @@ import json
 import random
 from pathlib import Path
 from django.contrib import messages
-from .models import RandomizerResult, Story, Comment
+from .models import RandomizerResult, Story, Comment, Genre
 from .forms import CommentForm
 from django.utils.html import format_html
 from django.urls import reverse
@@ -440,9 +440,10 @@ def repo_view(request):
     # Get the search query from the request parameters (if any) and strip leading/trailing whitespace
     query = request.GET.get('q', '').strip()
     sort = request.GET.get('sort', 'newest')
+    genre_id = request.GET.get('genre', '').strip()
 
     published_stories = Story.objects.filter(status=1).select_related(
-        'user', 'randomizer'
+        'user', 'randomizer', 'genre'
     ).annotate(
         avg_rating=Avg('comments__rating'),
         # Annotate each story with a boolean field indicating whether it has at least one comment with a rating, to be used for displaying the "No ratings yet" message in the template for stories without ratings
@@ -456,14 +457,18 @@ def repo_view(request):
     # Get the latest published story to feature it at the top of the repository page
     if query:
         published_stories = published_stories.filter(title__icontains=query)
+    
     # Sorting the stories based on the selected sort option (newest or oldest)
-
     if sort == 'liked':
         published_stories = published_stories.order_by(
             '-has_rating',   # rated first
             '-avg_rating',   # then highest rating
             '-created_on',    # then newest
         )
+
+    # Filter by genre if a genre is selected
+    if genre_id:
+        published_stories = published_stories.filter(genre_id=genre_id)
         
     elif sort == 'oldest':
         published_stories = published_stories.order_by('created_on')
@@ -473,13 +478,14 @@ def repo_view(request):
 
     # Get the latest published story to feature it at the top of the repository page.
     latest_story = Story.objects.filter(status=1).select_related(
-        'user', 'randomizer'
+        'user', 'randomizer', 'genre'
     ).order_by('-created_on').first()
 
     context = {
         'latest_story': latest_story,
         'stories': published_stories,
         'query': query,
+        'genres': Genre.objects.all().order_by('name'),
         'sort': sort,
     }
 

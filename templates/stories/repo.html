@@ -73,6 +73,15 @@
                 <option value="liked" {% if sort == 'liked' %}selected="selected"{% endif %}>Most liked</option>
               {% endif %}
             </select>
+            <label for="repo-genre" class="sr-only">Filter by genre</label>
+            <select name="genre" id="repo-genre" class="repo-sort-select">
+              <option value="">All genres</option>
+            {% for genre in genres %}
+              <option value="{{ genre.id }}" {% if selected_genre == genre.id|stringformat:"s" %}selected{% endif %}>
+            {{ genre.name }}
+              </option>
+              {% endfor %}
+            </select>
 
             <button type="submit" class="sg-btn repo-search-btn">Search</button>
 
