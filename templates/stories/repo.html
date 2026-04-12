@@ -94,20 +94,32 @@
         <ul class="stories-list">
           {% for story in stories %}
             <li class="stories-row">
-              <span class="story-name">{{ story.title }}</span>
-              <span class="story-genre">{{ story.genre }}</span>
-              <span class="story-date">{{ story.created_on|date:'d.m.Y' }}</span>
-              <span class="story-author">by {{ story.user.username }}</span>
-              <span class="story-rating">
-                {% if story.avg_rating %}
-                  <span class="story-rating-star">★</span>
-                  {{ story.avg_rating|floatformat:1 }}/5
-                {% else %}
-                  No rating yet
-                {% endif %}
-              </span>
-              <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">More</a>
-            </li>
+  <div class="story-main">
+    <span class="story-name">{{ story.title }}</span>
+
+    <div class="story-subline">
+      <span class="story-author">by <strong>{{ story.user.username }}</strong></span>
+      <span class="story-date">
+        <span class="date-label">created on</span>
+        {{ story.created_on|date:'d.m.Y' }}
+      </span>
+    </div>
+  </div>
+
+  <div class="story-meta">
+    <span class="story-genre">{{ story.genre|default:"No genre" }}</span>
+    <span class="story-rating">
+      {% if story.avg_rating %}
+        <span class="story-rating-star">★</span>{{ story.avg_rating|floatformat:1 }}/5
+      {% else %}
+        No rating yet
+      {% endif %}
+    </span>
+    <a href="{% url 'preview_story' story.id %}" class="sg-btn repo-btn">More</a>
+  </div>
+
+  
+</li>
           {% empty %}
             <li class="stories-row">
               {% if query %}

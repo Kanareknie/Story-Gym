@@ -1469,7 +1469,7 @@ Pages style CSS
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .stories-col--repository {
@@ -1588,7 +1588,7 @@ Pages style CSS
     gap: 10px;
     width: 100%;
     margin: 16px 0 20px;
-    
+
 }
 
 .repo-sort-row {
@@ -1643,38 +1643,103 @@ Pages style CSS
 
 .stories-row {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr 160px;
+    gap: 10px;
     align-items: center;
-    gap: 12px;
-    padding: 10px 0;
+    padding: 14px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.story-main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .story-name {
     font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.story-author {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.story-author strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.story-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    text-align: right;
+}
+
+.story-genre,
+.story-date,
+.story-rating {
+    display: block;
+    white-space: nowrap;
+}
+
+.story-genre {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #cfcfcf;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    letter-spacing: 0.2px;
 }
 
 .story-date {
     font-size: 0.85rem;
-    opacity: 0.85;
+    color: rgba(255, 255, 255, 0.82);
+    white-space: nowrap;
+    opacity: 0.7;
 }
 
-.repo-btn {
-    padding: 4px 12px;
-    font-size: 0.8rem;
+.date-label {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-right: 4px;
 }
-/* Story rating */
 
 .story-rating {
     font-size: 0.85rem;
-    opacity: 0.95;
-    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .story-rating-star {
     color: #f4c542;
     margin-right: 4px;
     font-size: 1rem;
+}
+
+.stories-row .repo-btn {
+    justify-self: center;
+}
+
+.story-subline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.date-label {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-right: 4px;
+    text-transform: lowercase;
 }
 
 /* --------------- Media query for tablets - max-width: 900px --------------- */
@@ -1718,7 +1783,7 @@ Pages style CSS
 /* --------------- Media query for tablets - max-width: 700px --------------- */
 
 @media (max-width: 700px) {
- .repo-sort-row {
+    .repo-sort-row {
         flex-direction: column;
         align-items: stretch;
     }
@@ -1731,11 +1796,28 @@ Pages style CSS
 
     .stories-row {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: left;
     }
 
-    .repo-btn {
-        justify-self: center;
+    .story-main {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .story-name,
+    .story-subline {
+        text-align: left;
+    }
+
+    .story-meta {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .story-meta .repo-btn {
+        align-self: end;
+        width: 100%;
+        max-width: 100px;
     }
 }
 
@@ -1759,11 +1841,28 @@ Pages style CSS
 
     .stories-row {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: left;
     }
 
-    .repo-btn {
-        justify-self: center;
+    .story-main {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .story-name,
+    .story-subline {
+        text-align: left;
+    }
+
+    .story-meta {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .story-meta .repo-btn {
+        align-self: end;
+        width: 100%;
+        max-width: 100px;
     }
 }
 
@@ -3623,7 +3722,7 @@ Pages style CSS
     color: #ffffff;
     font-size: clamp(2.8rem, 5vw, 4.2rem);
     line-height: 1.02;
-} 
+}
 
 
 /* ---------------- ROW 2: TWO BLACK CARDS ---------------- */
@@ -3751,7 +3850,7 @@ Pages style CSS
     padding: 16px;
 }
 
-.article-box--final-left > .article-inner-title-box {
+.article-box--final-left>.article-inner-title-box {
     padding: 12px 14px;
     background: rgba(0, 0, 0, 0.55);
     margin-bottom: 12px;
@@ -3925,7 +4024,7 @@ Pages style CSS
     .article-inner-title-box--light,
     .article-inner-box--light,
     .article-note-card,
-    .article-box--final-left > .article-inner-title-box,
+    .article-box--final-left>.article-inner-title-box,
     .article-final-left-grid .article-inner-box,
     .article-tips-card .article-inner-title-box,
     .article-tips-card .article-inner-box {
@@ -3981,7 +4080,7 @@ Pages style CSS
     .article-inner-title-box--light,
     .article-inner-box--light,
     .article-note-card,
-    .article-box--final-left > .article-inner-title-box,
+    .article-box--final-left>.article-inner-title-box,
     .article-final-left-grid .article-inner-box,
     .article-tips-card .article-inner-title-box,
     .article-tips-card .article-inner-box {
@@ -4022,6 +4121,7 @@ Pages style CSS
 /* ---------------- SMALL PHONES ---------------- */
 
 @media (max-width: 420px) {
+
     .article-inner-box--hero-text p,
     .article-row--two-cards .article-inner-box p,
     .article-box--light p,
