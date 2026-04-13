@@ -2423,6 +2423,60 @@ Pages style CSS
     font-family: var(--font-display);
 }
 
+/* --------------- Media query for large screen - max-width: 1400px --------------- */
+
+@media (max-width: 1400px) {
+    .account-col--latest {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .account-col--signup {
+        padding-left: 0;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .account-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .account-card p {
+        text-align: center;
+        max-width: 42ch;
+    }
+
+    .article-btn {
+        justify-self: center;
+        width: 100%;
+        max-width: 220px;
+    }
+}
+/* --------------- Media query for large screen - max-width: 1280px --------------- */
+
+@media (max-width: 1280px) {
+    .account-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .account-card p {
+        text-align: center;
+        max-width: 42ch;
+    }
+
+    .article-btn {
+        justify-self: center;
+        width: 100%;
+        max-width: 220px;
+    }
+}
+
 /* --------------- Media query for large screen - max-width: 1024px --------------- */
 
 @media (max-width: 1024px) {
@@ -2437,7 +2491,6 @@ Pages style CSS
     }
 
     .account-col--latest {
-        grid-template-columns: 1fr;
         gap: 24px;
     }
 
@@ -3013,6 +3066,20 @@ Pages style CSS
     }
 }
 
+/* --------------- Media query for phones - max-width: 768px --------------- */
+
+@media (max-width: 768px) {
+  .article-journey-overlay {
+    position: static;
+    margin-top: 10px;
+    padding: 16px;
+  }
+
+  .article-image-block img {
+    width: 100%;
+    height: auto;
+  }
+}
 
 /* --------------- Media query for phones - max-width: 600px --------------- */
 
