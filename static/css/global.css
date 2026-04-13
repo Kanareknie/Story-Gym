@@ -283,6 +283,14 @@ img {
   }
 }
 
+/* ---- Mobile — GLOBAL spacing ---- */
+
+@media (max-width: 768px) {
+  .sg-container {
+    padding-inline: 16px;
+  }
+}
+
 
 
 /* ------------------------------- Footer  ----------------------------- */
