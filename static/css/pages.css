@@ -1127,6 +1127,37 @@ Pages style CSS
     margin-bottom: 22px !important;
 }
 
+/* -------------------- Mobile - max-width: 768px -------------------- */
+
+
+@media (max-width: 768px) {
+    .register-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .register-panel {
+        padding: 20px 16px;
+        width: 100%;
+    }
+}
+
+/* -------------------- Small Mobile - max-width: 480px -------------------- */
+
+@media (max-width: 480px) {
+    .register-panel {
+        padding: 16px 12px;
+    }
+
+    .register-title {
+        font-size: clamp(1.6rem, 6vw, 2rem);
+    }
+
+    .register-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
 /* ===================================== My Story page ================================== */
 
 
