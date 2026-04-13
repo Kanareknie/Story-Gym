@@ -22,7 +22,7 @@
         </header>
 
         <!-- LEFT: User stories -->
-        <aside class="account-col account-col--repository">
+        <div class="account-col account-col--repository">
           <h2 class="repository-title">Your Repository</h2>
           <ul class="stories-list">
             {% for story in user_stories %}
@@ -60,8 +60,8 @@
               </li>
             {% endfor %}
           </ul>
-        </aside>
-
+          </div>
+          
         <!-- RIGHT: cards -->
         <aside class="account-col account-col--signup">
           <h2 class="account-subtitle account-note">This is your creative space. Come back anytime, pick a prompt, and continue your writing journey.</h2>
