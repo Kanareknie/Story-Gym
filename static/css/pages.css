@@ -1457,7 +1457,7 @@ Pages style CSS
 .stories-panel {
     width: min(1400px, calc(100% - 40px));
     display: grid;
-    grid-template-columns: 1.35fr 1fr;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr);
     gap: clamp(16px, 3vw, 40px);
     padding: clamp(18px, 3.5vw, 44px);
     background: rgba(0, 0, 0, 0.70);
@@ -1643,9 +1643,9 @@ Pages style CSS
 
 .stories-row {
     display: grid;
-    grid-template-columns: 1fr 160px;
-    gap: 10px;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(120px, auto);
+    gap: 16px;
+    align-items: start;
     padding: 14px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -1654,12 +1654,15 @@ Pages style CSS
     display: flex;
     flex-direction: column;
     gap: 15px;
+    min-width: 0;
 }
 
 .story-name {
     font-size: 0.95rem;
     line-height: 1.5;
     color: #ffffff;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .story-author {
@@ -1679,6 +1682,7 @@ Pages style CSS
     align-items: flex-end;
     gap: 8px;
     text-align: right;
+    min-width: 110px;
 }
 
 .story-genre,
@@ -1784,6 +1788,17 @@ Pages style CSS
 
 @media (max-width: 700px) {
     
+     .stories-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .stories-panel {
+        width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
     .repo-sort-row {
         flex-direction: column;
         align-items: stretch;
@@ -1851,6 +1866,17 @@ Pages style CSS
 
 /* ✅ Small phones: full-width buttons */
 @media (max-width: 520px) {
+
+    .stories-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .stories-panel {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 
     .stories-btn {
         width: 100%;
