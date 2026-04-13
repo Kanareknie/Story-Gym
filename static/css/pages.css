@@ -1742,12 +1742,12 @@ Pages style CSS
     text-transform: lowercase;
 }
 
-/* --------------- Media query for tablets - max-width: 900px --------------- */
+/* --------------- Media query for tablets - max-width: 1000px --------------- */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .stories-panel {
         grid-template-columns: 1fr;
-
+        gap: 24px;
     }
 
     .stories-col--repository {
@@ -1755,34 +1755,35 @@ Pages style CSS
         border-top: 1px solid rgba(255, 255, 255, 0.12);
         padding-left: 0;
         padding-top: 18px;
+        align-items: stretch;
+        text-align: left;
     }
 
-    .stories-container p {
+    .stories-header {
         text-align: center;
-        margin-left: auto;
-        margin-right: auto;
     }
 
-    .stories-header,
-    .stories-col--repository {
-        text-align: center;
-        align-items: center;
+    .repository-title {
+        text-align: left;
     }
 
     .stories-btn {
-        align-self: center;
+        align-self: flex-start;
     }
 
-    /* Repository list */
+    .repo-search-form {
+        align-items: stretch;
+    }
 
-    .stories-panel {
-        grid-template-columns: 1fr;
+    .stories-list {
+        width: 100%;
     }
 }
 
 /* --------------- Media query for tablets - max-width: 700px --------------- */
 
 @media (max-width: 700px) {
+    
     .repo-sort-row {
         flex-direction: column;
         align-items: stretch;
@@ -1796,6 +1797,7 @@ Pages style CSS
 
     .stories-row {
         grid-template-columns: 1fr;
+        gap: 12px;
         text-align: left;
     }
 
@@ -1809,61 +1811,40 @@ Pages style CSS
         text-align: left;
     }
 
-    .story-meta {
+    .story-subline {
+        flex-direction: column;
         align-items: flex-start;
+        gap: 4px;
+    }
+
+    .story-meta {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "genre button"
+            "rating button";
+        align-items: center;
+        gap: 6px 12px;
+        width: 100%;
         text-align: left;
     }
 
+    .story-genre {
+        grid-area: genre;
+    }
+
+    .story-rating {
+        grid-area: rating;
+    }
+
     .story-meta .repo-btn {
-        align-self: end;
-        width: 100%;
-        max-width: 100px;
-    }
-}
-
-/* --------------- Media query for smallscreens - max-width: 600px --------------- */
-
-@media (max-width: 600px) {
-    .repo-search-form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .repo-search-input {
-        min-width: 0;
-        width: 100%;
-    }
-
-    .repo-search-btn {
-        width: 100%;
+        grid-area: button;
+        align-self: center;
+        justify-self: end;
+        width: auto;
         max-width: none;
     }
 
-    .stories-row {
-        grid-template-columns: 1fr;
-        text-align: left;
-    }
-
-    .story-main {
-        text-align: left;
-        align-items: flex-start;
-    }
-
-    .story-name,
-    .story-subline {
-        text-align: left;
-    }
-
-    .story-meta {
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .story-meta .repo-btn {
-        align-self: end;
-        width: 100%;
-        max-width: 100px;
-    }
 }
 
 /* --------------- Media query for smallscreens - max-width: 520px --------------- */
