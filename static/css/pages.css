@@ -377,55 +377,53 @@ Pages style CSS
 
     .features-section .sg-card {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 350px 1fr;
         gap: 20px;
-        align-items: center;
+        align-items: start;
         max-width: 700px;
         margin: 10px auto;
+        padding: 20px;
     }
 
-    /* place items explicitly */
     .features-section .sg-card h3 {
         grid-column: 1;
         grid-row: 1;
+        align-self: end;
     }
 
     .features-section .sg-card img {
         grid-column: 1;
         grid-row: 2;
+        width: 100%;
+        max-width: 350px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        justify-self: center;
+        padding: 0;
     }
 
     .features-section .sg-card p {
         grid-column: 2;
         grid-row: 1 / span 2;
-    }
-
-
-    .features-section .sg-card img {
-        max-height: none;
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-        padding: 0;
-        justify-self: center;
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+        align-self: center;
     }
 
     .features-section .sg-card .sg-btn {
         grid-column: 2;
-        grid-row: 2;
-        align-self: end;
+        grid-row: 3;
         justify-self: center;
-        margin-top: 20px;
+        align-self: start;
+        margin-top: 8px;
+        width: 100%;
+        max-width: 220px;
     }
 
     .features-section h3 {
         font-size: 1.9rem;
     }
-
-    .features-section p {
-        font-size: 1rem;
-    }
-
 }
 
 /* --------------- Media query for medium screens - max-width: 700px --------------- */
@@ -437,43 +435,41 @@ Pages style CSS
     .features-section .sg-card {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        max-width: 400px;
+        gap: 16px;
+        width: 100%;
+        max-width: 420px;
         margin: 10px auto;
+        padding: 18px;
     }
 
     .features-section .sg-card h3,
-    .features-section .sg-card img,
-    .features-section .sg-card p,
-    .features-section .sg-card .sg-btn {
-        grid-column: auto;
+    .features-section .sg-card p {
+        text-align: center;
     }
-
-    .features-section .sg-card .sg-btn {
-        align-self: center;
-        justify-self: auto;
-    }
-
-    .features-section .sg-card {
-        width: 100%;
-        max-width: 400px;
-    }
-
 
     .features-section .sg-card img {
-        aspect-ratio: 4 / 3;
         width: 100%;
-        height: 100%;
+        max-width: 350px;
+        aspect-ratio: 4 / 3;
         object-fit: cover;
-        padding: 20px;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .features-section .sg-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .features-section .sg-card .sg-btn {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+        align-self: center;
     }
 
     .features-section h3 {
         font-size: 1.9rem;
-    }
-
-    .features-section p {
-        font-size: 0.9rem;
     }
 }
 
