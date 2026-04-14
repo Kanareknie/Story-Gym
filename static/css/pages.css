@@ -2764,10 +2764,10 @@ Pages style CSS
 .article-block p,
 .article-inner-box p {
     margin: 0;
-    color: #000000;
     line-height: 1.65;
     font-size: 1rem;
 }
+
 
 /* ---------------- Left column ---------------- */
 
@@ -2878,7 +2878,7 @@ Pages style CSS
 .article-image-top {
     position: relative;
     padding: 0;
-    min-height: 520px;
+    min-height: 300px;
     overflow: hidden;
     background: transparent;
 }
@@ -2892,15 +2892,27 @@ Pages style CSS
     background: transparent;
     border: none;
     padding: 0;
+    justify-content: center;
 }
 
 .article-image-top .article-inner-title-box h2 {
-    margin: 0;
-    color: #111111;
-    font-size: clamp(2.9rem, 5vw, 6rem);
-    line-height: 0.9;
-    max-width: 6ch;
-    padding-top: 30px;
+    margin: 10px;
+    color: #ffffff;
+    font-size: clamp(3rem, 4vw, 5rem);
+    text-align: center;
+    padding: 30px 30px;
+    justify-content: center;
+     background-color: rgba(0, 0, 0, 0.38);
+}
+
+.article-image-top .article-inner-title-box p {
+    margin: 5px 0;
+    color: #ffffff;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    text-align: center;
+    padding: 10px 10px;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.68);
 }
 
 .article-image-wrap {
@@ -2988,6 +3000,9 @@ Pages style CSS
 }
 
 
+.article-text-dark p {
+    color: #ffffff;
+}
 /* --------------- Media query for laptops and large tablets - max-width: 1024px --------------- */
 
 
@@ -3110,19 +3125,42 @@ Pages style CSS
     }
 }
 
-/* --------------- Media query for phones - max-width: 768px --------------- */
+/* --------------- Media query for phones - max-width: 820px --------------- */
+@media (max-width: 820px) {
+    .article-page .sg-container {
+        padding-inline: 10px;
+    }
+
+    .article-layout {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .article-column {
+        width: 100%;
+        padding: 0;
+    }
+
+    .article-block,
+    .article-image-block,
+    .article-image-top,
+    .article-column:first-child .article-block--dark,
+    .article-column:last-child .article-block--dark,
+    .article-column:last-child .article-image-top {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* --------------- Media query for small screens - max-width: 768px --------------- */
 
 @media (max-width: 768px) {
-  .article-journey-overlay {
-    position: static;
-    margin-top: 10px;
-    padding: 16px;
-  }
-
-  .article-image-block img {
-    width: 100%;
-    height: auto;
-  }
+    .article-image-top .article-inner-title-box p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
 }
 
 /* --------------- Media query for phones - max-width: 600px --------------- */
@@ -3207,6 +3245,18 @@ Pages style CSS
     }
 }
 
+
+@media (max-width: 490px) {
+.article-image-top .article-inner-title-box h2 {
+        font-size: clamp(1.8rem, 9vw, 2.4rem);
+    }
+
+.article-image-top .article-inner-title-box p {
+        font-size: 0.85rem;
+        line-height: 1.45;
+    }
+}
+
 /* --------------- Media query for small phones - max-width: 420px --------------- */
 
 @media (max-width: 420px) {
@@ -3234,6 +3284,11 @@ Pages style CSS
     .article-image-wrap,
     .article-image-wrap img {
         min-height: 280px;
+    }
+
+    .article-image-top .article-inner-title-box p {
+        font-size: 0.85rem;
+        line-height: 1.45;
     }
 }
 
@@ -3269,7 +3324,6 @@ Pages style CSS
     background: rgba(0, 0, 0, 0.72);
 }
 
-/* ---------------- TOP HERO ---------------- */
 /* ---------------- TOP HERO ---------------- */
 
 .article-row--hero {
@@ -3940,10 +3994,7 @@ Pages style CSS
     padding: 18px 16px;
 }
 
-.article-subtitle--dark,
-.article-text-dark {
-    color: #111111;
-}
+
 
 .article-box--light .article-subtitle {
     text-align: center;
