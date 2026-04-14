@@ -376,6 +376,7 @@ def edit_comment_view(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id, user=request.user)
     story = comment.story  # Get the story associated with the comment
     comments = story.comments.all()  # Get all comments for the story
+    is_story_author = story.user == request.user # Check if the logged-in user is the author of the story
 
     rated_comment = Comment.objects.filter(
         story=story,
@@ -390,9 +391,13 @@ def edit_comment_view(request, comment_id):
 
         if form.is_valid():
             updated_comment = form.save(commit=False)
+            
+             # Story author cannot rate own story
+            if is_story_author:
+                updated_comment.rating = None
 
             # If the user has already rated this story and is trying to edit a comment that is not the one with the rating, we will not allow them to change the rating and keep the original rating value. If they are editing the comment with the rating, they can change the rating as well.
-            if not can_edit_rating:
+            elif not can_edit_rating:
                 # Keep the original rating if the user has already rated
                 updated_comment.rating = comment.rating
 
@@ -410,8 +415,9 @@ def edit_comment_view(request, comment_id):
         'comments': comments,
         'editing_comment': comment,
         'user_has_rated': rated_comment is not None,
-        'can_edit_rating': can_edit_rating,
         'rating_range': range(1, 6),  # Range for displaying rating stars in the template
+        'is_story_author': is_story_author,
+        'can_edit_rating': can_edit_rating and not is_story_author,  # Story authors cannot rate their own stories
     })
 
 # Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
