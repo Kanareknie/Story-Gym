@@ -803,6 +803,16 @@ Pages style CSS
         width: 100%;
     }
 
+     .sg-container.randomize-second-section {
+        padding: 50px 0; 
+    }
+
+    .randomize-response-container {
+        width: 100%;
+        margin: 0;
+        padding: 20px 16px;
+    }
+
 }
 
 
