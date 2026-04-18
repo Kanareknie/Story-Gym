@@ -94,12 +94,11 @@
         </nav>
       </header>
       {% comment %}Main block{% endcomment %}
-      <main>
+      <main class="{% block main_class %}{% endblock %}">
         {% block content %}
 
         {% endblock %}
       </main>
-
       <!-- Footer-nav -->
       <footer>
         <!-- Section divider -->

@@ -5,9 +5,13 @@
   Home | Story Gym
 {% endblock %}
 
+
+{% block main_class %}main-surface{% endblock %}
+
 {% block content %}
+
   <!-- SECTION 1: HERO -->
-   {% comment %} Messages {% endcomment %}
+  {% comment %}Messages{% endcomment %}
   {% if messages %}
     <div class="messages">
       {% for message in messages %}

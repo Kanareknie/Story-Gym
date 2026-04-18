@@ -107,9 +107,13 @@ Pages style CSS
 .hero-card-col-right {
     width: clamp(260px, 22vw, 320px);
     align-self: flex-end;
-    background: rgba(0, 0, 0, 0.70);
+    background: linear-gradient(180deg,
+            rgba(18, 12, 10, 0.82) 0%,
+            rgba(10, 7, 6, 0.78) 100%);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     padding: 10px;
-    color: #fff;
+    color: var(--text-main);
 
     display: flex;
     flex-direction: column;
@@ -297,7 +301,6 @@ Pages style CSS
 .features-section .sg-cards {
     width: 100%;
     height: 100%;
-    background: #000000;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 20px 60px;
@@ -305,10 +308,14 @@ Pages style CSS
 
 /* cards sit on the panel (no own background) */
 .features-section .sg-card {
-    background: #000;
-    color: #fff;
-
-    border: 1px solid rgba(255, 255, 255, 0.7);
+     background: linear-gradient(
+    180deg,
+    rgba(8, 6, 5, 0.90) 0%,
+    rgba(3, 2, 2, 0.94) 100%
+  );
+  color: var(--text-main);
+  border: 1px solid var(--copper-border);
+  box-shadow: var(--warm-shadow);
     padding: 24px;
     box-sizing: border-box;
 
@@ -799,8 +806,8 @@ Pages style CSS
         width: 100%;
     }
 
-     .sg-container.randomize-second-section {
-        padding: 50px 0; 
+    .sg-container.randomize-second-section {
+        padding: 50px 0;
     }
 
     .randomize-response-container {
@@ -1820,8 +1827,8 @@ Pages style CSS
 /* --------------- Media query for tablets - max-width: 700px --------------- */
 
 @media (max-width: 700px) {
-    
-     .stories-container {
+
+    .stories-container {
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -2495,6 +2502,7 @@ Pages style CSS
         max-width: 220px;
     }
 }
+
 /* --------------- Media query for large screen - max-width: 1280px --------------- */
 
 @media (max-width: 1280px) {
@@ -2578,31 +2586,32 @@ Pages style CSS
 /* --------------- Media query for phones - max-width: 768px --------------- */
 
 @media (max-width: 768px) {
-  .sg-btn,
-  .hero-card-btn {
-    width: 100%;
-    max-width: 320px;
-    margin: 10px auto;
-  }
 
-  .account-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+    .sg-btn,
+    .hero-card-btn {
+        width: 100%;
+        max-width: 320px;
+        margin: 10px auto;
+    }
 
-  .stories-row,
-  .account-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+    .account-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
 
-  .story-meta {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+    .stories-row,
+    .account-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .story-meta {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 /* --------------- Media query for phones - max-width: 600px --------------- */
@@ -2898,7 +2907,7 @@ Pages style CSS
     text-align: center;
     padding: 30px 30px;
     justify-content: center;
-     background-color: rgba(0, 0, 0, 0.38);
+    background-color: rgba(0, 0, 0, 0.38);
 }
 
 .article-image-top .article-inner-title-box p {
@@ -2999,6 +3008,7 @@ Pages style CSS
 .article-text-dark p {
     color: #ffffff;
 }
+
 /* --------------- Media query for laptops and large tablets - max-width: 1024px --------------- */
 
 
@@ -3243,11 +3253,11 @@ Pages style CSS
 
 
 @media (max-width: 490px) {
-.article-image-top .article-inner-title-box h2 {
+    .article-image-top .article-inner-title-box h2 {
         font-size: clamp(1.8rem, 9vw, 2.4rem);
     }
 
-.article-image-top .article-inner-title-box p {
+    .article-image-top .article-inner-title-box p {
         font-size: 0.85rem;
         line-height: 1.45;
     }
