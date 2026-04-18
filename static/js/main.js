@@ -109,7 +109,7 @@ document.addEventListener("mousemove", (e) => {
     const strength = Math.max(0, 1 - dist / maxDist);
     const opacity = 0.18 + strength * 0.75;
 
-    tri.el.style.stroke = `rgba(255,255,255,${opacity})`;
+    tri.el.style.stroke = `rgba(255, 160, 120,${opacity})`;
   });
 });
 

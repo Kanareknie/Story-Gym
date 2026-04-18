@@ -825,7 +825,6 @@ Pages style CSS
     display: grid;
     place-items: center;
     padding: clamp(16px, 4vw, 60px);
-    background: url("/static/images/login-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
 }
 
@@ -1031,7 +1030,6 @@ Pages style CSS
     display: grid;
     place-items: center;
     padding: clamp(16px, 4vw, 60px);
-    background: url("/static/images/register-startup-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
 }
 
@@ -1171,7 +1169,6 @@ Pages style CSS
 .story-container {
     display: grid;
     place-items: center;
-    background: url("/static/images/story-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
     padding: clamp(14px, 2vw, 24px) 0;
 }
@@ -1483,7 +1480,6 @@ Pages style CSS
     display: grid;
     place-items: center;
     padding: clamp(20px, 4vw, 80px);
-    background: url("/static/images/repository-bg.jpg") center / cover no-repeat;
     margin-top: 40px;
 
     max-width: 1600px;
