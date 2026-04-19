@@ -1561,7 +1561,7 @@ Pages style CSS
     font-size: clamp(2.4rem, 3.8vw, 3.6rem);
     line-height: 1.5;
     letter-spacing: 0.3px;
-     text-shadow: 0 2px 12px rgba(176,118,88,0.15);
+    text-shadow: 0 2px 12px rgba(176, 118, 88, 0.15);
 }
 
 .stories-col--repository .stories-title {
@@ -1573,9 +1573,9 @@ Pages style CSS
 .story-preview-panel {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--copper-line-soft);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+    background: rgba(8, 5, 4, 0.62);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     padding: clamp(16px, 2vw, 24px);
     box-sizing: border-box;
     width: 100%;
@@ -1597,7 +1597,9 @@ Pages style CSS
 .repo-preview-box {
     margin: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--copper-line-soft);
+    background: rgba(0, 0, 0, 0.52);
+    box-shadow: 0 0 0 1px rgba(176, 118, 88, 0.12);
     color: #ffffff;
     padding: 10px 12px;
     box-sizing: border-box;
@@ -1690,10 +1692,10 @@ Pages style CSS
 .repo-preview-text,
 .repo-search-input,
 .repo-sort-select {
-    border: 1px solid rgba(176,118,88,0.5);
-    box-shadow: 
-        0 0 0 1px rgba(176,118,88,0.15),
-        0 0 12px rgba(176,118,88,0.08);
+    border: 1px solid rgba(176, 118, 88, 0.5);
+    box-shadow:
+        0 0 0 1px rgba(176, 118, 88, 0.15),
+        0 0 12px rgba(176, 118, 88, 0.08);
 }
 
 /*-------- Repository List ---------*/
@@ -1711,11 +1713,11 @@ Pages style CSS
     gap: 16px;
     align-items: start;
     padding: 14px 0;
-    border-bottom: 1px solid rgba(176,118,88,0.35);
+    border-bottom: 1px solid rgba(176, 118, 88, 0.35);
 }
 
 .stories-row:hover {
-    background: rgba(176,118,88,0.05);
+    background: rgba(176, 118, 88, 0.05);
 }
 
 .story-main {
@@ -1824,8 +1826,8 @@ Pages style CSS
 
     .stories-col--repository {
         border-left: 0;
-        border-left: 1px solid rgba(176,118,88,0.4);
-        border-top-right-radius: 1px solid rgba(176,118,88,0.4);
+        border-left: 1px solid rgba(176, 118, 88, 0.4);
+        border-top-right-radius: 1px solid rgba(176, 118, 88, 0.4);
         padding-left: 0;
         padding-top: 18px;
         align-items: stretch;
@@ -1976,7 +1978,9 @@ Pages style CSS
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.70);
+    background: rgba(8, 5, 4, 0.62);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     width: min(1100px, calc(100% - 20px));
     padding: clamp(16px, 2vw, 24px);
     box-sizing: border-box;
@@ -2001,7 +2005,7 @@ Pages style CSS
     align-items: center;
     margin-bottom: 18px;
     padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border-top: 1px solid var(--copper-line-soft);
 }
 
 .story-preview-meta p {
@@ -2025,8 +2029,9 @@ Pages style CSS
 .story-preview-box {
     min-height: clamp(260px, 45vh, 560px);
     width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--copper-line-soft);
+    background: rgba(0, 0, 0, 0.52);
+    box-shadow: 0 0 0 1px rgba(176, 118, 88, 0.12);
     padding: clamp(14px, 2vw, 22px);
     box-sizing: border-box;
 }
@@ -2066,7 +2071,9 @@ Pages style CSS
 .story-comments-panel {
     width: min(1100px, calc(100% - 20px));
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.88);
+    background: rgba(8, 5, 4, 0.62);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     padding: clamp(16px, 2vw, 28px);
     box-sizing: border-box;
     color: #ffffff;
@@ -2103,8 +2110,8 @@ Pages style CSS
 .comment-form input,
 .comment-search input {
     width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--copper-border);
+    background: rgba(0, 0, 0, 0.35);
     color: #ffffff;
     padding: 10px 12px;
     box-sizing: border-box;
@@ -2120,13 +2127,14 @@ Pages style CSS
 .comment-form textarea::placeholder,
 .comment-form input::placeholder,
 .comment-search input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .comment-form textarea:focus,
 .comment-form input:focus,
 .comment-search input:focus {
-    border-color: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 0 1px rgba(176, 118, 88, 0.2);
 }
 
 /* line under textarea */
@@ -2176,7 +2184,9 @@ Pages style CSS
 }
 
 .single-comment {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--copper-line-soft);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
     padding: 14px 16px;
     box-sizing: border-box;
 }
@@ -2254,7 +2264,7 @@ Pages style CSS
     }
 
     .comment-list-col {
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-left: 1px solid var(--copper-line-soft);
         margin-top: 30px;
         padding-top: 25px;
     }
@@ -2339,19 +2349,22 @@ Pages style CSS
 
 .account-container {
     min-height: calc(100vh - 80px);
+    width: min(1400px, calc(100% - 40px));
     display: grid;
     place-items: center;
     padding: clamp(20px, 4vw, 80px);
-    background: url("/static/images/accounts-wall-bg.jpg") center / cover no-repeat;
-    margin-top: 40px;
     max-width: 1600px;
     margin-inline: auto;
 }
 
 /* Main dark panel */
 .account-panel {
-    width: min(1400px, calc(100% - 40px));
-    background: rgba(0, 0, 0, 0.62);
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+        url("/static/images/accounts-wall-bg.jpg") center / cover no-repeat;
     padding: clamp(18px, 3vw, 36px);
     box-sizing: border-box;
     color: #ffffff;
@@ -2361,7 +2374,7 @@ Pages style CSS
 .account-col--latest {
     display: grid;
     /* speacify based on screen size */
-    grid-template-columns: minmax(320px, 0.95fr) minmax(360px, 1.05fr);
+    grid-template-columns: minmax(400px, 1.3fr) minmax(280px, 0.7fr);
     gap: clamp(24px, 3vw, 50px);
     align-items: start;
 }
@@ -2402,7 +2415,10 @@ Pages style CSS
     align-items: center;
     padding: 0 0 8px;
     margin-bottom: 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba(176, 118, 88, 0.5);
+    box-shadow:
+        0 0 0 1px rgba(176, 118, 88, 0.12),
+        0 0 10px rgba(176, 118, 88, 0.06);
     font-size: 0.92rem;
     font-weight: 700;
 }
@@ -2421,7 +2437,7 @@ Pages style CSS
     gap: 12px;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(176, 118, 88, 0.5);
 }
 
 .account-row:last-child {
@@ -2457,7 +2473,7 @@ Pages style CSS
     text-align: center;
     color: #ffffff;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba(176, 118, 88, 0.5);
 }
 
 /* each card */
@@ -2466,7 +2482,15 @@ Pages style CSS
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 20px;
-    background: rgba(0, 0, 0, 0.38);
+    background: linear-gradient(
+        180deg,
+        rgba(10, 7, 6, 0.82) 0%,
+        rgba(6, 4, 4, 0.88) 100%
+    );
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
+
+
     padding: clamp(14px, 2vw, 22px);
     box-sizing: border-box;
 }
@@ -2499,6 +2523,10 @@ Pages style CSS
     font-family: var(--font-display);
 }
 
+.account-story-row:hover {
+    background: rgba(176,118,88,0.05);
+}
+
 /* --------------- Media query for large screen - max-width: 1400px --------------- */
 
 @media (max-width: 1400px) {
@@ -2510,7 +2538,10 @@ Pages style CSS
     .account-col--signup {
         padding-left: 0;
         padding-top: 8px;
-        border-top: 1px solid rgba(255, 255, 255, 0.18);
+        border-top: 1px solid rgba(176, 118, 88, 0.5);
+        box-shadow:
+            0 0 0 1px rgba(176, 118, 88, 0.12),
+            0 0 10px rgba(176, 118, 88, 0.06);
     }
 
     .account-card {
@@ -2612,6 +2643,10 @@ Pages style CSS
     }
 }
 
+.account-actions {
+    border-left: 1px solid rgba(176,118,88,0.25);
+}
+
 /* --------------- Media query for phones - max-width: 768px --------------- */
 
 @media (max-width: 768px) {
@@ -2659,6 +2694,7 @@ Pages style CSS
     .account-title {
         font-size: clamp(1.55rem, 7vw, 2.1rem);
         text-align: center;
+        margin-bottom: 30px;
     }
 
     .repository-title,
@@ -2823,7 +2859,7 @@ Pages style CSS
 }
 
 .article-column:first-child .article-block--dark .article-inner-box {
-    border: 1px solid rgba(255, 255, 255, 0.55);
+    border: 1px solid var(--copper-border);
     padding: 24px 20px;
     text-align: center;
     background: rgba(0, 0, 0, 0.96);
@@ -2868,7 +2904,7 @@ Pages style CSS
 .article-journey-overlay h2 {
     margin: 0 0 24px;
     color: #ffffff;
-    font-size: clamp(3rem, 6vw, 5.6rem);
+    font-size: clamp(2.5rem, 3vw, 4rem);
     line-height: 0.95;
     font-family: var(--font-display);
 }
@@ -2876,7 +2912,7 @@ Pages style CSS
 .article-journey-overlay p {
     margin: 0;
     color: #ffffff;
-    font-size: clamp(1.15rem, 1.7vw, 1.6rem);
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
     line-height: 1.6;
     text-align: center;
 }
@@ -2891,12 +2927,12 @@ Pages style CSS
 .article-contact-mail a {
     color: #ffffff;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid var(--copper-border);
     padding-bottom: 2px;
 }
 
 .article-contact-mail a:hover {
-    border-bottom-color: #ffffff;
+    border-bottom-color: var(--copper-border);
 }
 
 /* ---------------- Right top image section ---------------- */
@@ -2942,7 +2978,7 @@ Pages style CSS
 .article-image-top .article-inner-title-box p {
     margin: 5px 0;
     color: #ffffff;
-    font-size: clamp(1.2rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     text-align: center;
     padding: 10px 10px;
     justify-content: center;
@@ -3147,7 +3183,6 @@ Pages style CSS
         max-width: none;
         padding: 18px 16px;
         text-align: center;
-        border-radius: 6px;
     }
 
     .article-inner-box--side p {
@@ -3969,13 +4004,13 @@ Pages style CSS
 
 .article-row--two-cards .article-inner-title-box {
     padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    border: 1px solid var(--copper-border);
     margin-bottom: 12px;
 }
 
 .article-row--two-cards .article-inner-box {
     padding: 16px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid var(--copper-border);
 }
 
 .article-row--two-cards .article-inner-box p {
@@ -4113,7 +4148,7 @@ Pages style CSS
 }
 
 .article-final-cta {
-    background: rgba(0, 0, 0, 0.32);
+    background: rgba(0, 0, 0, 0.8);
     padding: 18px 14px;
     text-align: center;
 }
