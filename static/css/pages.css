@@ -308,14 +308,12 @@ Pages style CSS
 
 /* cards sit on the panel (no own background) */
 .features-section .sg-card {
-     background: linear-gradient(
-    180deg,
-    rgba(8, 6, 5, 0.90) 0%,
-    rgba(3, 2, 2, 0.94) 100%
-  );
-  color: var(--text-main);
-  border: 1px solid var(--copper-border);
-  box-shadow: var(--warm-shadow);
+    background: linear-gradient(180deg,
+            rgba(8, 6, 5, 0.90) 0%,
+            rgba(3, 2, 2, 0.94) 100%);
+    color: var(--text-main);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     padding: 24px;
     box-sizing: border-box;
 
@@ -653,6 +651,7 @@ Pages style CSS
 .randomize-first-section {
     margin-top: 40px;
     padding: 60px;
+    box-shadow: var(--warm-shadow);
     background: url("/static/images/randomizer-start.jpg") center / cover no-repeat;
 }
 
@@ -664,7 +663,9 @@ Pages style CSS
     gap: 40px;
     padding: 40px 40px;
     color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: var(--panel-dark);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     text-align: center;
     width: min(800px, 100%);
     margin: 0 auto;
@@ -690,6 +691,7 @@ Pages style CSS
     justify-content: flex-end;
     margin-top: 40px;
     padding: 60px;
+    box-shadow: var(--warm-shadow);
     background: url("/static/images/randomizer-1.jpg") center / cover no-repeat;
 }
 
@@ -704,7 +706,9 @@ Pages style CSS
     align-items: center;
     gap: 40px;
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: var(--panel-dark);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     max-width: 600px;
     text-align: center;
 
@@ -757,8 +761,8 @@ Pages style CSS
     display: inline-block;
     padding: 10px 16px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--copper-border);
     color: #ffffff;
     font-size: 1rem;
     font-weight: 700;
@@ -842,7 +846,11 @@ Pages style CSS
     grid-template-columns: 1.35fr 1fr;
     gap: clamp(16px, 3vw, 40px);
     padding: clamp(18px, 3.5vw, 44px);
-    background: rgba(0, 0, 0, 0.70);
+    background: linear-gradient(180deg,
+            rgba(10, 7, 6, 0.82) 0%,
+            rgba(6, 4, 4, 0.88) 100%);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     box-sizing: border-box;
 }
 
@@ -888,7 +896,9 @@ Pages style CSS
     display: flex;
     flex-direction: column;
     gap: 14px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--copper-line-soft);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
     margin: clamp(20px, 4vw, 40px) 0;
     padding: clamp(18px, 3.5vw, 44px);
 }
@@ -1048,7 +1058,11 @@ Pages style CSS
     justify-content: center;
     gap: clamp(16px, 3vw, 40px);
     padding: clamp(18px, 3.5vw, 44px);
-    background: rgba(0, 0, 0, 0.70);
+    background: linear-gradient(180deg,
+            rgba(10, 7, 6, 0.82) 0%,
+            rgba(6, 4, 4, 0.88) 100%);
+    border: 1px solid var(--copper-border);
+    box-shadow: var(--warm-shadow);
     box-sizing: border-box;
 }
 
@@ -1102,7 +1116,9 @@ Pages style CSS
     max-width: 520px;
     margin: 0 auto;
     padding: 24px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--copper-line-soft);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
     display: flex;
     flex-direction: column;
 }
