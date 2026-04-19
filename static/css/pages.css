@@ -706,7 +706,11 @@ Pages style CSS
     align-items: center;
     gap: 40px;
     padding: 40px;
-    background: var(--panel-dark);
+     background: linear-gradient(
+        to right,
+        rgba(8,5,4,0.6),
+        rgba(8,5,4,0.85)
+    );
     border: 1px solid var(--copper-border);
     box-shadow: var(--warm-shadow);
     max-width: 600px;
