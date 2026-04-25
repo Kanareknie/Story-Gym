@@ -364,11 +364,6 @@ img {
   body {
     background-attachment: scroll;
   }
-
-  .polygon-bg {
-    position: absolute;
-    min-height: 100%;
-  }
 }
 
 
