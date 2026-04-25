@@ -205,7 +205,7 @@ Pages style CSS
 /* Remove extra padding */
 @media (max-width: 1000px) {
     .hero .sg-container {
-        padding-inline: 100px;
+        padding-inline: 20px;
     }
 }
 
