@@ -3137,8 +3137,8 @@ Pages style CSS
 @media (max-width: 820px) {
 
     .article-column:last-child .article-image-top {
-    margin-left: 0px;
-}
+        margin-left: 0px;
+    }
 
     .article-page .sg-container {
         padding-inline: 0;
@@ -3239,11 +3239,20 @@ Pages style CSS
         font-size: 1.5rem;
         line-height: 1.5;
     }
+
+    .article-column:last-child .article-image-top {
+        margin-left: 0px;
+    }
+
 }
 
 /* --------------- Media query for phones - max-width: 600px --------------- */
 
 @media (max-width: 600px) {
+
+    .article-column:last-child .article-image-top {
+        margin-left: 0px;
+    }
 
 
     .article-page .sg-container {
@@ -3348,6 +3357,11 @@ Pages style CSS
 /* --------------- Media query for small phones - max-width: 420px --------------- */
 
 @media (max-width: 420px) {
+
+
+    .article-column:last-child .article-image-top {
+        margin-left: 0px;
+    }
 
     .article-page .sg-container {
         padding-inline: 0;
