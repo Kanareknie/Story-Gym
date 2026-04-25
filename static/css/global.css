@@ -356,6 +356,20 @@ img {
 
 /* --------------------------- GLOBAL MEDIA QUERY ---------------------- */
 
+/* ---- Mesh background - global position */
+
+@media (max-width: 1024px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .polygon-bg {
+    position: absolute;
+    min-height: 100%;
+  }
+}
+
+
 /* ---- Tablet (iPad Mini/Air) — GLOBAL spacing ---- */
 
 @media (max-width: 1024px) and (min-width: 700px) {
