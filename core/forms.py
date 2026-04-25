@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import Profile, Story, Comment
+from .models import Profile, Story, Comment, Genre
 import re
 from datetime import date
 
@@ -102,6 +102,12 @@ class LoginForm(AuthenticationForm):
 # Story form - to create and edit the story
 
 class StoryForm(forms.ModelForm):
+    genre = forms.ModelChoiceField(
+        queryset=Genre.objects.all(),
+        required=True,
+        empty_label="Select a genre"
+    )
+    
     class Meta:
         model = Story
         fields = ['title', 'content','genre']
