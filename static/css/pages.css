@@ -2482,11 +2482,9 @@ Pages style CSS
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 20px;
-    background: linear-gradient(
-        180deg,
-        rgba(10, 7, 6, 0.82) 0%,
-        rgba(6, 4, 4, 0.88) 100%
-    );
+    background: linear-gradient(180deg,
+            rgba(10, 7, 6, 0.82) 0%,
+            rgba(6, 4, 4, 0.88) 100%);
     border: 1px solid var(--copper-border);
     box-shadow: var(--warm-shadow);
 
@@ -2524,7 +2522,7 @@ Pages style CSS
 }
 
 .account-story-row:hover {
-    background: rgba(176,118,88,0.05);
+    background: rgba(176, 118, 88, 0.05);
 }
 
 /* --------------- Media query for large screen - max-width: 1400px --------------- */
@@ -2644,7 +2642,7 @@ Pages style CSS
 }
 
 .account-actions {
-    border-left: 1px solid rgba(176,118,88,0.25);
+    border-left: 1px solid rgba(176, 118, 88, 0.25);
 }
 
 /* --------------- Media query for phones - max-width: 768px --------------- */
@@ -3329,6 +3327,14 @@ Pages style CSS
 /* --------------- Media query for small phones - max-width: 420px --------------- */
 
 @media (max-width: 420px) {
+
+    .article-page .sg-container {
+        padding-inline: 0;
+    }
+
+    .article-column {
+        padding: 0;
+    }
 
     .article-title {
         font-size: clamp(1.8rem, 10vw, 2.2rem);
