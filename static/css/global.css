@@ -239,6 +239,8 @@ html,
 body {
   height: 100%;
   margin: 0;
+  /* cutting the overfow */
+  overflow-x: hidden;
 }
 
 body {
@@ -361,9 +363,17 @@ img {
 
 
 @media (max-width: 1024px) {
-  body {
-    background-attachment: scroll;
+
+  /*  */
+  .polygon-bg {
+    height: 100dvh;
+    min-height: 100dvh;
+    /* - keep the object in one place -  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/translateZ */
+    transform: translateZ(0);
+    /* - keep the object hidden - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backface-visibility */
+    backface-visibility: hidden;
   }
+
 }
 
 
