@@ -393,7 +393,7 @@ Pages style CSS
     .features-section .sg-card h3 {
         grid-column: 1;
         grid-row: 1;
-        align-self: end;
+        align-self: center;
     }
 
     .features-section .sg-card img {
