@@ -3277,7 +3277,7 @@ Pages style CSS
     }
 
     .article-block {
-        padding: 8px;
+        padding-right: 4px;
     }
 
     .article-block--dark {
