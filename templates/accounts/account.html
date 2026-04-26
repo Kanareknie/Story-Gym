@@ -44,14 +44,14 @@
 
                     <form method="post" action="{% url 'delete_story' story.id %}" style="display:inline;" onsubmit="return confirm('Are you sure? This action cannot be undone.');">
                       {% csrf_token %}
-                      <button type="submit" class="sg-btn repo-btn">Delete</button>
+                      <button type="submit" class="sg-btn repo-btn danger-btn">Delete</button>
                     </form>
                   {% else %}
                     <a href="{% url 'edit_story' story.id %}" class="sg-btn repo-btn">Continue draft</a>
 
                     <form method="post" action="{% url 'delete_story' story.id %}" style="display:inline;" onsubmit="return confirm('Are you sure? This action cannot be undone.');">
                       {% csrf_token %}
-                      <button type="submit" class="sg-btn repo-btn">Delete</button>
+                      <button type="submit" class="sg-btn repo-btn danger-btn">Delete</button>
                     </form>
                   {% endif %}
                 </div>

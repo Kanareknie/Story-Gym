@@ -2501,7 +2501,7 @@ Pages style CSS
     color: #ffffff;
 }
 
-.article-btn {
+.article-btn, .danger-btn {
     white-space: nowrap;
     justify-self: end;
 }
@@ -2554,7 +2554,7 @@ Pages style CSS
         max-width: 42ch;
     }
 
-    .article-btn {
+    .article-btn, .danger-btn {
         justify-self: center;
         width: 100%;
         max-width: 220px;
@@ -2576,7 +2576,7 @@ Pages style CSS
         max-width: 42ch;
     }
 
-    .article-btn {
+    .article-btn, .danger-btn {
         justify-self: center;
         width: 100%;
         max-width: 220px;
@@ -2636,7 +2636,7 @@ Pages style CSS
         justify-items: center;
     }
 
-    .article-btn {
+    .article-btn, .danger-btn {
         justify-self: center;
     }
 }
@@ -2720,7 +2720,8 @@ Pages style CSS
     }
 
     .repo-btn,
-    .article-btn {
+    .article-btn,
+    .danger-btn {
         width: 100%;
         max-width: 220px;
         justify-self: center;
