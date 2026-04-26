@@ -69,6 +69,7 @@
               <!-- TEXTAREA + COUNTER -->
               <div class="comment-text-wrap">
                 {{ comment_form.comment_text }}
+                {{ comment_form.comment_text.errors }}
                 <div class="comment-counter" aria-live="polite">
                   <span id="comment-count">0</span> /500
                 </div>
