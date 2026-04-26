@@ -2568,9 +2568,9 @@ Pages style CSS
     background: rgba(176, 118, 88, 0.05);
 }
 
-/* --------------- Media query for large screen - max-width: 1400px --------------- */
+/* --------------- Media query for large screen - max-width: 1401px --------------- */
 
-@media (max-width: 1400px) {
+@media (max-width: 1401px) {
     .account-col--latest {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -2601,6 +2601,43 @@ Pages style CSS
         justify-self: center;
         width: 100%;
         max-width: 220px;
+    }
+}
+
+/* --------------- Media query for large screen to medium - 1400px - 769px --------------- */
+
+@media (max-width: 1400px) and (min-width: 769px) {
+    .account-row {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "title date"
+            "title actions";
+    }
+
+    .account-row .story-name {
+        grid-area: title;
+    }
+
+    .account-row .story-date {
+        grid-area: date;
+        justify-self: end;
+    }
+
+    .account-actions {
+        grid-area: actions;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-self: end;
+        border-left: 0;
+    }
+
+    .account-actions .sg-btn,
+    .account-actions .danger-btn,
+    .account-actions .repo-btn {
+        width: 160px;
+        max-width: 160px;
+        margin: 0;
     }
 }
 
