@@ -87,7 +87,7 @@
 
             <button type="submit" class="sg-btn repo-search-btn">Search</button>
 
-            {% if query or sort != 'newest' %}
+            {% if query or sort != 'newest' or selected_genre%}
               <a href="{% url 'repo_story' %}" class="sg-btn repo-search-btn">Clear</a>
             {% endif %}
           </div>

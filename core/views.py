@@ -11,7 +11,7 @@ from .models import RandomizerResult, Story, Comment, Genre
 from .forms import CommentForm
 from django.utils.html import format_html
 from django.urls import reverse
-from django.db.models import Avg, Case, IntegerField, Value, When
+from django.db.models import Avg, Case, IntegerField, Value, When, Count
 
 
 # Create your views here.
@@ -452,9 +452,9 @@ def repo_view(request):
         'user', 'randomizer', 'genre'
     ).annotate(
         avg_rating=Avg('comments__rating'),
-        # Annotate each story with a boolean field indicating whether it has at least one comment with a rating, to be used for displaying the "No ratings yet" message in the template for stories without ratings
+        # Annotate each story with 0/1 
         has_rating=Case(
-            When(comments__rating__isnull=False, then=Value(1)),
+            When(avg_rating__isnull=False, then=Value(1)),
             default=Value(0),
             output_field=IntegerField(),
         )
@@ -463,7 +463,11 @@ def repo_view(request):
     # Get the latest published story to feature it at the top of the repository page
     if query:
         published_stories = published_stories.filter(title__icontains=query)
-    
+        
+    # Filter by genre if a genre is selected  
+    if genre_id:
+        published_stories = published_stories.filter(genre_id=genre_id)
+        
     # Sorting the stories based on the selected sort option (newest or oldest)
     if sort == 'liked':
         published_stories = published_stories.order_by(
@@ -471,11 +475,7 @@ def repo_view(request):
             '-avg_rating',   # then highest rating
             '-created_on',    # then newest
         )
-
-    # Filter by genre if a genre is selected
-    if genre_id:
-        published_stories = published_stories.filter(genre_id=genre_id)
-        
+ 
     elif sort == 'oldest':
         published_stories = published_stories.order_by('created_on')
         
@@ -493,6 +493,7 @@ def repo_view(request):
         'query': query,
         'genres': Genre.objects.all().order_by('name'),
         'sort': sort,
+        'selected_genre': genre_id,
     }
 
     return render(request, 'stories/repo.html', context)
