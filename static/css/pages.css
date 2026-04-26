@@ -2277,7 +2277,6 @@ Pages style CSS
     }
 
     .comment-list-col {
-        border-left: 1px solid var(--copper-line-soft);
         margin-top: 30px;
         padding-top: 25px;
     }
