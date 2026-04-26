@@ -355,7 +355,18 @@ img {
     0 0 40px rgba(120, 70, 40, 0.12);
 }
 
+/* Error list color */
 
+.errorlist {
+    color: #ff4d4d; 
+    margin: 6px 0 10px;
+    padding-left: 18px;
+    list-style: disc;
+}
+
+.errorlist li {
+    font-size: 0.9rem;
+}
 /* --------------------------- GLOBAL MEDIA QUERY ---------------------- */
 
 
