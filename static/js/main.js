@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 console.log("main.js loaded");
 
 // JavaScript for the triangle mesh background
