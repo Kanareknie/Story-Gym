@@ -2206,9 +2206,7 @@ Pages style CSS
 }
 
 .comment-actions {
-    display: flex;
-    justify-content: flex-start;
-    gap: 8px;
+    gap: 15px;
     margin-top: 10px;
 }
 
@@ -2217,14 +2215,26 @@ Pages style CSS
     margin: 0;
 }
 
-.comment-actions .sg-btn {
-    min-width: 0;
+.comment-actions .sg-btn,
+.comment-actions .repo-btn,
+.comment-actions .danger-btn{
+    min-width: 70px;
     width: auto;
     max-width: none;
     height: 24px;
     padding: 0 8px;
     font-size: 0.7rem;
     line-height: 1;
+    text-align: center; 
+    white-space: nowrap;
+}
+
+.comment-actions .sg-btn {
+    margin-right: 10px;
+}
+
+.comment-actions .sg-btn:last-child {
+    margin-right: 0;
 }
 
 /* Break words and wrap text */
@@ -2267,6 +2277,20 @@ Pages style CSS
         border-left: 1px solid var(--copper-line-soft);
         margin-top: 30px;
         padding-top: 25px;
+    }
+
+     .comment-actions {
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .comment-actions .sg-btn,
+    .comment-actions .repo-btn,
+    .comment-actions .danger-btn{
+        height: auto;
+        min-width: 80px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
     }
 }
 
@@ -2314,6 +2338,20 @@ Pages style CSS
     .comment-search .repo-btn {
         width: 100%;
         max-width: none;
+    }
+
+      .comment-actions {
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .comment-actions .sg-btn,
+    .comment-actions .repo-btn,
+    .comment-actions .danger-btn{
+        height: auto;
+        min-width: 80px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
     }
 }
 

@@ -149,7 +149,7 @@
 
                     <form method="post" action="{% url 'delete_comment' comment.id %}">
                       {% csrf_token %}
-                      <button type="submit" class="sg-btn danger-btn">Delete</button>
+                      <button type="submit" class="sg-btn repo-btn danger-btn">Delete</button>
                     </form>
                   </div>
                 {% endif %}
