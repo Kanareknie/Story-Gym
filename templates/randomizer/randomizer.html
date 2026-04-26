@@ -44,7 +44,7 @@
             <a href="{% url 'write_now' %}" class="sg-btn">Write now</a>
           </div>
           <div class="randomize-card-button">
-            <p>Feel unclucky? Try again!</p>
+            <p>Feel unclucky? Try again! - Remember, you cannot come back! </p>
             <form method="post">
               {% csrf_token %}
               <button class="sg-btn" type="submit" name="generate_words">Draw again</button>
