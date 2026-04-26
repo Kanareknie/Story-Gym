@@ -2399,6 +2399,9 @@ Pages style CSS
 .account-panel {
     width: 100%;
     max-width: 1400px;
+    min-height: 500px;
+    max-height: 900px;
+    overflow-y: auto;
     margin: 0 auto;
     background:
         linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
