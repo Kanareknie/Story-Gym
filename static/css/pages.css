@@ -1301,6 +1301,20 @@ Pages style CSS
     flex-wrap: wrap;
 }
 
+.story-footer .danger-btn {
+    width: auto;
+    min-width: 150px;
+    max-width: 220px;
+}
+
+.story-footer-delete {
+    margin-top: 40px;
+}
+
+.story-footer-delete form {
+    margin: 0;
+}
+
 
 /* -------------------- Tablet / iPad Pro - max-width: 1024px -------------------- */
 @media (max-width: 1024px) {
@@ -1425,7 +1439,8 @@ Pages style CSS
         margin-top: 6px;
     }
 
-    .story-footer .sg-btn {
+    .story-footer .sg-btn,
+    .story-footer .danger-btn {
         width: 100%;
         max-width: none;
         min-width: 0;
@@ -1470,7 +1485,8 @@ Pages style CSS
         align-items: stretch;
     }
 
-    .story-footer .sg-btn {
+    .story-footer .sg-btn,
+    .story-footer .danger-btn {
         width: 100%;
     }
 }

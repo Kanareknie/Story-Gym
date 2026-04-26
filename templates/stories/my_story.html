@@ -5,7 +5,9 @@
   My Story | Story Gym
 {% endblock %}
 
-{% block main_class %}main-surface{% endblock %}
+{% block main_class %}
+  main-surface
+{% endblock %}
 
 {% block content %}
   {% comment %}Messages{% endcomment %}
@@ -64,10 +66,12 @@
         </div>
       </form>
       {% if is_editing and story %}
-        <form method="post" action="{% url 'delete_story' story.id %}" style="display:inline;" onsubmit="return confirm('Are you sure? This action cannot be undone.');">
-          {% csrf_token %}
-          <button type="submit" class="sg-btn danger-btn">Delete story</button>
-        </form>
+        <div class="story-footer story-footer-delete">
+          <form method="post" action="{% url 'delete_story' story.id %}" onsubmit="return confirm('Are you sure? This action cannot be undone.');">
+            {% csrf_token %}
+            <button type="submit" class="sg-btn danger-btn">Delete story</button>
+          </form>
+        </div>
       {% endif %}
     </div>
   </section>
