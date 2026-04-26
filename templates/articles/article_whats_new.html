@@ -8,20 +8,20 @@
 {% block main_class %}main-surface{% endblock %}
 
 {% block content %}
-  <section class="article-page">
+  <div class="article-page">
     <div class="sg-container article-layout">
       <!-- LEFT COLUMN -->
       <div class="article-column">
-        <section class="article-block">
+        <header class="article-block">
           <h1 class="article-title">What’s new?</h1>
-        </section>
+        </header>
 
-        <section class="article-block article-block--dark">
+        <div class="article-block article-block--dark">
           <div class="article-inner-box">
             <p class="article-text-dark">StoryGym is a creative space built to make writing playful, inspiring, and accessible for everyone. You can publish your stories, explore what others have created from their own prompts, leave comments, and be part of a growing community of storytellers. Every visit offers something different, because every prompt leads to a different story.</p>
             <p class="article-text-dark">At its heart is a simple idea: a prompt generator that gives you unexpected words and turns them into the starting point of a story. With one click, you receive a unique combination of elements that challenge your imagination and invite you to begin writing straight away.</p>
           </div>
-        </section>
+        </div>
 
         <section class="article-block article-image-block">
           <img src="{% static 'images/art1-blue-car.jpg' %}" alt="Journey image" />
@@ -51,17 +51,17 @@
           </div>
         </section>
 
-        <section class="article-block article-block--dark">
-          <h2 class="article-subtitle"></h2>
-          
+        <div class="article-block article-block--dark">
           <p>Soon, prompts will expand into themed collections including different worlds, time periods, and cultural settings. These additions will make the challenges even more varied and inspiring, opening up endless new storytelling possibilities. We also plan to introduce personal user accounts, allowing writers to save their stories in one place and keep track of their creative journey.</p>
           <p>This will make it easier to return to past work and see how your writing evolves over time.</p>
-        </section>
+        </div>
 
-        <section class="article-block article-block--quote">
+        <div class="article-block article-block--quote">
+          <blockquote>
           <p>This is only the beginning — and the story of StoryGym is still being written</p>
-        </section>
+          </blockquote>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 {% endblock %}
