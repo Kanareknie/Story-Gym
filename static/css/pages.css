@@ -2446,7 +2446,7 @@ Pages style CSS
 
 .repository-title {
     margin: 0 0 14px;
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-size: clamp(2.5rem, 3.5vw, 3rem);
     text-align: center;
     color: #ffffff;
 }
