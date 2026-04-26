@@ -34,6 +34,7 @@
             {{ prompt_words.random_noun }}.
           </p>
           {{ form.title }}
+          {{ form.title.errors }}
           <div class="story-genre-field">
             <label for="{{ form.genre.id_for_label }}">Genre</label>
             {{ form.genre }}
@@ -43,6 +44,7 @@
         <div class="story-content">
           <div class="story-text-wrap">
             {{ form.content }}
+            {{ form.content.errors }}
             <div class="story-counter" aria-live="polite">
               <span id="story-count">0</span>
               /2000
