@@ -7,4 +7,3 @@ admin.site.register(RandomizerResult)
 admin.site.register(Story)
 admin.site.register(Comment)
 admin.site.register(Genre)
-
