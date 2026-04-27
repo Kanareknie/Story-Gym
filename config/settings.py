@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Email settings for password reset functionality
 # https://docs.djangoproject.com/en/4.2/topics/email/#email-backends
-# twilio sendgrid email backend settings - 
+# twilio sendgrid email backend settings
 # #https://docs.sendgrid.com/for-developers/sending-email/django-email-integration
 
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
