@@ -1,8 +1,24 @@
 from django.urls import path
 from . import views
-from .views import CustomLoginView, CustomLogoutView, register_view, randomizer_view, write_now_view, my_story_view, preview_story_view, repo_view, account_view, edit_story_view, delete_story_view, edit_comment_view, delete_comment_view, article_whats_new_view, article_prompts_story_view, article_writing_tips_view
+from .views import (
+    CustomLoginView,
+    CustomLogoutView,
+    register_view,
+    randomizer_view,
+    write_now_view,
+    my_story_view,
+    preview_story_view,
+    repo_view,
+    account_view,
+    edit_story_view,
+    delete_story_view,
+    edit_comment_view,
+    delete_comment_view,
+    article_whats_new_view,
+    article_prompts_story_view,
+    article_writing_tips_view
+)
 from django.contrib.auth import views as auth_views
-
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -16,20 +32,25 @@ urlpatterns = [
          views.preview_story_view, name='preview_story'),
     path('repo/', views.repo_view, name='repo_story'),
     path('account/', views.account_view, name='account'),
-    path('story/<int:story_id>/edit/', views.edit_story_view, name='edit_story'),
+    path('story/<int:story_id>/edit/',
+         views.edit_story_view, name='edit_story'),
     path('story/<int:story_id>/delete/',
          views.delete_story_view, name='delete_story'),
     path('comment/<int:comment_id>/edit/',
          views.edit_comment_view, name='edit_comment'),
     path('comment/<int:comment_id>/delete/',
          views.delete_comment_view, name='delete_comment'),
-    path('article/whats-new/', views.article_whats_new_view, name='article_whats_new'),
-    path('article/prompts-story/', views.article_prompts_story_view, name='article_prompts_story'),
-    path('article/writing-tips/', views.article_writing_tips_view, name='article_writing_tips'),
+    path('article/whats-new/',
+         views.article_whats_new_view, name='article_whats_new'),
+    path('article/prompts-story/',
+         views.article_prompts_story_view, name='article_prompts_story'),
+    path('article/writing-tips/',
+         views.article_writing_tips_view, name='article_writing_tips'),
 
-     # Password reset views
-     # https://docs.djangoproject.com/en/4.2/topics/auth/default/#using-the-views
-     # https://docs.djangoproject.com/en/4.2/_modules/django/contrib/auth/views/?utm_source=chatgpt.com # for more info on the password reset views and how to customize them
+    # Password reset views
+    # https://docs.djangoproject.com/en/4.2/topics/auth/default/#using-the-views
+    # https://docs.djangoproject.com/en/4.2/_modules/django/contrib/auth/views
+    # for more info on the password reset views and how to customize them
     path(
         'password_reset/',
         auth_views.PasswordResetView.as_view(
@@ -62,5 +83,3 @@ urlpatterns = [
     ),
 
 ]
-
-
