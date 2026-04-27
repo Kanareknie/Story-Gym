@@ -10,7 +10,8 @@ class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=15, required=True)
     # User table - add email
     email = forms.EmailField(required=True)
-    # Profile table - add dob, security question and answer - only to reset the password purpuse
+    # Profile table - add dob, security question and
+    # answer only to reset the password purpuse
     dob = forms.DateField(
         required=True, widget=forms.DateInput(attrs={'type': 'date'}))
 
@@ -106,11 +107,11 @@ class StoryForm(forms.ModelForm):
         queryset=Genre.objects.all(),
         required=True,
         empty_label="Select a genre"
-    )
-    
+        )
+
     class Meta:
         model = Story
-        fields = ['title', 'content','genre']
+        fields = ['title', 'content', 'genre']
         widgets = {
             'title': forms.TextInput(attrs={
                 'id': 'story-title',
@@ -127,14 +128,15 @@ class StoryForm(forms.ModelForm):
                 'rows': 10,
                 'aria-label': 'Story content input',
             }),
-                'genre': forms.Select(attrs={
+            'genre': forms.Select(attrs={
                     'id': 'story-genre',
                     'class': 'story-genre-select',
                     'aria-label': 'Story genre select',
-                }),
+                    }),
         }
-        
-# Comment form - to create and edit the comment        
+
+# Comment form - to create and edit the comment
+
 
 class CommentForm(forms.ModelForm):
     author_name = forms.CharField(
@@ -162,10 +164,11 @@ class CommentForm(forms.ModelForm):
         required=False,
         min_value=1,
         max_value=5,
-        # Hidden input for rating, it will be set by JavaScript when the user clicks on the stars
+        # Hidden input for rating, it will be set by JavaScript
+        # when the user clicks on the stars
         widget=forms.HiddenInput()
     )
-    
+
     class Meta:
         model = Comment
         fields = ['author_name', 'comment_text', 'rating']
