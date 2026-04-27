@@ -14,8 +14,6 @@ from django.urls import reverse
 from django.db.models import Avg, Case, IntegerField, Value, When, Count
 
 
-# Create your views here.
-
 # Home page view
 def home(request):
     return render(request, 'core/index.html')
@@ -31,8 +29,12 @@ def register_view(request):
             messages.success(
                 request, "Account created successfully. Welcome to Story Gym.")
             login(request, user)
-            # If there are random words in the session and user click "Write Now", save them for the user and redirect to My Story page
-            if request.session.get('random_words') and request.session.get('pending_write_now'):
+        # If there are random words in the session and user click "Write Now"
+        # save them for the user and redirect to My Story page
+            if (
+                request.session.get('random_words')
+                and request.session.get('pending_write_now')
+            ):
                 save_random_words_for_user(request, user)
                 request.session.pop('pending_write_now', None)
                 return redirect('my_story')
@@ -48,26 +50,31 @@ def register_view(request):
 class CustomLoginView(LoginView):
     template_name = 'core/login.html'
     authentication_form = LoginForm
-    # Override form_valid to check for random words in the session and save them for the user if they exist
+    # Override form_valid to check for random words in the session
+    # and save them for the user if they exist
 
     def form_valid(self, form):
         response = super().form_valid(form)
 
-        if self.request.session.get('random_words') and self.request.session.get('pending_write_now'):
+        if (
+            self.request.session.get('random_words')
+            and self.request.session.get('pending_write_now')
+        ):
             save_random_words_for_user(self.request, self.request.user)
             self.request.session.pop('pending_write_now', None)
             return redirect('my_story')
 
         return response
 
-# Custom logout view (can be extended if needed)
+# Custom logout view
 
 
 class CustomLogoutView(LogoutView):
     pass
 
-# Randomizer - step 1 - pull data from JSON - getting the random words from each cathegory.
-# Used https://python.plainenglish.io/how-to-read-json-file-in-python-with-examples-in-2026-9877d0cdca71
+# Randomizer - step 1 - pull data from JSON -
+# getting the random words from each cathegory.
+# # Used as reference for reading JSON files in Python.
 
 
 def randomizer_view(request):
@@ -86,7 +93,9 @@ def randomizer_view(request):
         words = {
             'main_character': random.choice(data['main_character']),
             'personality': random.choice(data['personality']),
-            'physical_description': random.choice(data['physical_description']),
+            'physical_description': random.choice(
+                data['physical_description']
+            ),
             'verb': random.choice(data['verb']),
             'place': random.choice(data['place']),
             'random_noun': random.choice(data['random_noun']),
@@ -118,7 +127,8 @@ def save_random_words_for_user(request, user):
 
     return randomizer_result
 
-# Randomizer - step 3 - Redirects to My Story page if user is authenticated, otherwise to login page
+# Randomizer - step 3 - Redirects to My Story page if user is authenticated,
+# otherwise to login page
 
 
 def write_now_view(request):
@@ -129,7 +139,9 @@ def write_now_view(request):
     if not words:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
-    # Sets a flag in the session to indicate that the user has clicked "Write Now" and is pending redirection to My Story page after login
+    # Sets a flag in the session to indicate that
+    # the user has clicked "Write Now"
+    # and is pending redirection to My Story page after login
     request.session['pending_write_now'] = True
 
     if request.user.is_authenticated:
@@ -141,23 +153,30 @@ def write_now_view(request):
 
 # My Story page view
 
-# Add login requiremnt to My Story page - if user is not authenticated, redirect to login page. After login, if there are random words in the session and user click "Write Now", save them for the user and redirect to My Story page
+# Add login requiremnt to My Story page
+# - if user is not authenticated, redirect to login page.
+# After login, if there are random words in the session and
+# user click "Write Now",
+# save them for the user and redirect to My Story page
 
 
 @login_required
 def my_story_view(request):
     randomizer_result_id = request.session.get('current_randomizer_result_id')
-# If there are no random words or user is not authenticated, redirect to randomizer page with an error message
+# If there are no random words or user is not authenticated,
+# redirect to randomizer page with an error message
     if not randomizer_result_id:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
-    # Fetch the randomizer result from the database using the stored ID and ensure it belongs to the current user
+    # Fetch the randomizer result from the database using the stored ID and
+    # ensure it belongs to the current user
     try:
         randomizer_result = RandomizerResult.objects.get(
             id=randomizer_result_id,
             user=request.user
         )
-    # If the randomizer result does not exist or does not belong to the user, redirect to randomizer page with an error message
+    # If the randomizer result does not exist or does not belong to the user,
+    # redirect to randomizer page with an error message
     except RandomizerResult.DoesNotExist:
         messages.error(request, "Please generate a prompt first.")
         return redirect('randomizer')
@@ -192,14 +211,16 @@ def my_story_view(request):
                     content=content,
                     status=0,
                 )
-                # Use reverse to get the URL of the account page and include it in the success message
-                # https://docs.bearer.com/reference/rules/python_django_mark_safe/
+        # Use reverse to get the URL of the account page and
+        # include it in the success message
+        # https://docs.bearer.com/reference/rules/python_django_mark_safe/
                 account_url = reverse('account')
 
                 messages.success(
                     request,
                     format_html(
-                        'Your story was saved as a draft. <a href="{}">Go to your account</a>',
+                        "Your story was saved as a draft. "
+                        '<a href="{}">Go to your account</a>',
                         account_url
                     )
                 )
@@ -211,19 +232,21 @@ def my_story_view(request):
                     user=request.user,
                     randomizer=randomizer_result,
                     title=title,
-                    genre=genre,   
+                    genre=genre,
                     content=content,
                     status=1,
                 )
 
-                # Use reverse to get the URL of the account page and include it in the success message
-                # https://docs.bearer.com/reference/rules/python_django_mark_safe/
+        # Use reverse to get the URL of the account page and
+        # include it in the success message
+        # https://docs.bearer.com/reference/rules/python_django_mark_safe/
                 story_url = reverse('preview_story', args=[story.id])
 
                 messages.success(
                     request,
                     format_html(
-                        'Your story has been published! <a href="{}">View your story →</a>',
+                        "'Your story has been published! "
+                        '<a href="{}">View your story →</a>',
                         story_url
                     )
                 )
@@ -243,17 +266,24 @@ def my_story_view(request):
     )
 
 
-# Preview Story page view to be viewed after publishing the story, with a unique URL for each story.
+# Preview Story page view to be viewed after publishing the story,
+# with a unique URL for each story.
 
 def preview_story_view(request, story_id):
     # Only published stories can be previewed
     story = get_object_or_404(Story, id=story_id, status=1)
     comments = story.comments.all()  # Get all comments for the story
 
-    # Check if the user has already rated the story (if there is a comment with a rating from the user for this story). If the user has already rated, we will not allow them to rate again and show only their comment without the rating field in the comment form
+    # Check if the user has already rated the story
+    # (if there is a comment with a rating from the user for this story).
+    # If the user has already rated, we will not allow them to rate again and
+    # show only their comment without the rating field in the comment form
     user_has_rated = False
     # Check if the logged-in user is the author of the story
-    is_story_author = request.user.is_authenticated and story.user == request.user
+    is_story_author = (
+        request.user.is_authenticated
+        and story.user == request.user
+    )
 
     if request.user.is_authenticated:
         user_has_rated = Comment.objects.filter(
@@ -263,7 +293,12 @@ def preview_story_view(request, story_id):
         ).exists()
 
     if request.method == 'POST':
-        # If the user is not authenticated, redirect to login page with an error message. After login, the user will be redirected back to the same preview story page and can post the comment without losing the content of the comment form.
+        # If the user is not authenticated,
+        # redirect to login page with an error message.
+        # After login, the user will be redirected back to
+        # the same preview story page and
+        # can post the comment without losing
+        # the content of the comment form.
         if not request.user.is_authenticated:
             messages.error(
                 request, "You need to be logged in to leave a comment.")
@@ -279,7 +314,8 @@ def preview_story_view(request, story_id):
             comment.author_name = request.user.username
 
             if user_has_rated or is_story_author:
-                comment.rating = None  # Clear the rating if the user has already rated
+                # Clear the rating if the user has already rated
+                comment.rating = None
 
             comment.save()
 
@@ -296,10 +332,13 @@ def preview_story_view(request, story_id):
         'is_story_author': is_story_author,
         # User can edit rating only if they haven't rated yet
         'can_edit_rating': not user_has_rated,
-        'rating_range': range(1, 6),  # Range for displaying rating stars in the template   
+        # Range for displaying rating stars in the templat
+        'rating_range': range(1, 6),
     })
 
-# Edit Story page view - only the author of the story can edit it. If another user tries to access the URL, they will see a 404 page not found error.
+# Edit Story page view - only the author of the story can edit it.
+# If another user tries to access the URL,
+# they will see a 404 page not found error.
 
 
 @login_required
@@ -314,7 +353,8 @@ def edit_story_view(request, story_id):
                 'form': form,
                 'story': story,
                 'prompt_words': story.randomizer.words,
-                'is_editing': True,  # Flag to indicate that we are editing an existing story
+                # Flag to indicate that we are editing an existing story
+                'is_editing': True,
             })
 
         form = StoryForm(request.POST, instance=story)
@@ -349,10 +389,15 @@ def edit_story_view(request, story_id):
         'form': form,
         'story': story,
         'prompt_words': story.randomizer.words,
-        'is_editing': True,  # Flag to indicate that we are editing an existing story
+        # Flag to indicate that we are editing an existing story
+        'is_editing': True,
     })
 
-# Delete Story view - only the author of the story can delete it. If another user tries to access the URL, they will see a 404 page not found error. After deleting the story, redirect to the account page with a success message.
+# Delete Story view - only the author of the story can delete it.
+# If another user tries to access the URL,
+# they will see a 404 page not found error.
+# After deleting the story, redirect to the account page
+# with a success message.
 
 
 @login_required
@@ -374,9 +419,12 @@ def delete_story_view(request, story_id):
 def edit_comment_view(request, comment_id):
     # Only the author can edit the comment
     comment = get_object_or_404(Comment, id=comment_id, user=request.user)
-    story = comment.story  # Get the story associated with the comment
-    comments = story.comments.all()  # Get all comments for the story
-    is_story_author = story.user == request.user # Check if the logged-in user is the author of the story
+    # Get the story associated with the comment
+    story = comment.story
+    # Get all comments for the story
+    comments = story.comments.all()
+    # Check if the logged-in user is the author of the story
+    is_story_author = story.user == request.user
 
     rated_comment = Comment.objects.filter(
         story=story,
@@ -391,12 +439,19 @@ def edit_comment_view(request, comment_id):
 
         if form.is_valid():
             updated_comment = form.save(commit=False)
-            
-             # Story author cannot rate own story
+
+            # Story author cannot rate own story
             if is_story_author:
                 updated_comment.rating = None
 
-            # If the user has already rated this story and is trying to edit a comment that is not the one with the rating, we will not allow them to change the rating and keep the original rating value. If they are editing the comment with the rating, they can change the rating as well.
+# If the user has already rated this story and
+# is trying to edit a comment
+# that is not the one with the rating,
+# we will not allow them to change the rating and
+# keep the original rating value.
+# If they are editing the comment with the rating,
+# they can change the rating as well.
+
             elif not can_edit_rating:
                 # Keep the original rating if the user has already rated
                 updated_comment.rating = comment.rating
@@ -415,12 +470,15 @@ def edit_comment_view(request, comment_id):
         'comments': comments,
         'editing_comment': comment,
         'user_has_rated': rated_comment is not None,
-        'rating_range': range(1, 6),  # Range for displaying rating stars in the template
+        # Range for displaying rating stars in the template
+        'rating_range': range(1, 6),
         'is_story_author': is_story_author,
-        'can_edit_rating': can_edit_rating and not is_story_author,  # Story authors cannot rate their own stories
+        'can_edit_rating': can_edit_rating and not is_story_author,
     })
 
-# Delete Comment view - only the author of the comment can delete it. After deleting the comment, redirect to the preview story page with a success message.
+# Delete Comment view - only the author of the comment can delete it.
+# After deleting the comment,
+# redirect to the preview story page with a success message.
 
 
 @login_required
@@ -430,7 +488,9 @@ def delete_comment_view(request, comment_id):
 
     if request.method == 'POST':
 
-        # save BEFORE deleteing the comment, because after deletion we won't have access to comment.story.id anymore
+        # save BEFORE deleteing the comment,
+        # because after deletion we won't have access to comment.story.id
+
         story_id = comment.story.id
 
         comment.delete()
@@ -442,8 +502,10 @@ def delete_comment_view(request, comment_id):
 
 # Repository page view
 
+
 def repo_view(request):
-    # Get the search query from the request parameters (if any) and strip leading/trailing whitespace
+    # Get the search query from the request parameters (if any)
+    # and strip leading/trailing whitespace
     query = request.GET.get('q', '').strip()
     sort = request.GET.get('sort', 'newest')
     genre_id = request.GET.get('genre', '').strip()
@@ -452,7 +514,7 @@ def repo_view(request):
         'user', 'randomizer', 'genre'
     ).annotate(
         avg_rating=Avg('comments__rating'),
-        # Annotate each story with 0/1 
+        # Annotate each story with 0/1
         has_rating=Case(
             When(avg_rating__isnull=False, then=Value(1)),
             default=Value(0),
@@ -460,29 +522,31 @@ def repo_view(request):
         )
     )
 
-    # Get the latest published story to feature it at the top of the repository page
+# Get the latest published story to feature it
+# at the top of the repository page
     if query:
         published_stories = published_stories.filter(title__icontains=query)
-        
-    # Filter by genre if a genre is selected  
+
+# Filter by genre if a genre is selected
     if genre_id:
         published_stories = published_stories.filter(genre_id=genre_id)
-        
-    # Sorting the stories based on the selected sort option (newest or oldest)
+
+# Sorting the stories based on the selected sort option (newest or oldest)
     if sort == 'liked':
         published_stories = published_stories.order_by(
             '-has_rating',   # rated first
             '-avg_rating',   # then highest rating
             '-created_on',    # then newest
         )
- 
+
     elif sort == 'oldest':
         published_stories = published_stories.order_by('created_on')
-        
+
     else:
         published_stories = published_stories.order_by('-created_on')
 
-    # Get the latest published story to feature it at the top of the repository page.
+# Get the latest published story
+# to feature it at the top of the repository page.
     latest_story = Story.objects.filter(status=1).select_related(
         'user', 'randomizer', 'genre'
     ).order_by('-created_on').first()
@@ -501,11 +565,12 @@ def repo_view(request):
 
 # Account page view
 
+
 @login_required
 def account_view(request):
     user_stories = Story.objects.filter(user=request.user).select_related(
         'randomizer').order_by('-created_on')
-    # Get the latest story of the user to feature it at the top of the account page
+# Get the latest story of the user to feature it at the top of the account page
     latest_user_story = user_stories.first()
 
     context = {
@@ -519,6 +584,8 @@ def account_view(request):
 # Articles page view
 
 # What's New page view
+
+
 def article_whats_new_view(request):
     return render(request, 'articles/article_whats_new.html')
 
