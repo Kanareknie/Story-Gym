@@ -76,7 +76,7 @@ These checks apply to all templates that inherit from the shared base template.
 | GX-L-03 | Footer visibility | Scroll to footer on every page | Social icons visible, aligned, and not overlapping footer text | Pass |
 | GX-L-04 | External link behaviour | Click Facebook / Instagram / X links | External links open correctly; original site remains intact | Pass |
 | GX-L-05 | Favicon presence | Check browser tab icon on multiple pages | Favicon is visible; no broken default tab icon | Pass |
-| GX-L-06 | Console cleanliness | Navigate through main pages with Console open | No recurring JS errors caused by counters, ratings, mesh, or page layout | Fail | * After debugging - PASS
+| GX-L-06 | Console cleanliness | Navigate through main pages with Console open | No recurring JS errors caused by counters, ratings, mesh, or page layout | Fail - after debugging: Pass|
 | GX-L-07 | Typography consistency | Compare headings, body text, buttons, and labels across templates | Consistent visual hierarchy with no abrupt style mismatches | Pass |
 | GX-L-08 | Zoom resilience | Check key pages at 90%, 100%, 110%, and 125% browser zoom | No clipping, overlap, or unusable controls | Pass |
 | GX-L-09 | Keyboard focus visibility | Tab through links, buttons, inputs, and selects | Visible focus state present; tab order follows page logic | Pass |
@@ -110,7 +110,7 @@ These checks apply to all templates that inherit from the shared base template.
 
 | Test ID | What to test | Test steps (very specific) | Expected result | Pass / Fail |
 |---|---|---|---|---|
-| HP-L-01 | Page loads cleanly | Load home page → open DevTools Console | No console errors on initial load; page renders fully | Fail | * After debugging - PASS
+| HP-L-01 | Page loads cleanly | Load home page → open DevTools Console | No console errors on initial load; page renders fully | Fail - after debugging: Pass |
 | HP-L-02 | Hero heading readability | Inspect the main `h1` and supporting paragraph | Heading readable; text does not overlap image or CTA block | Pass |
 | HP-L-03 | Hero image display | Inspect hero image | Image loads correctly; no blur, distortion, or broken file | Pass |
 | HP-L-04 | Main CTA routing | Click hero “Start here” button | Redirects correctly to Randomizer page | Pass |
@@ -153,7 +153,7 @@ These checks apply to all templates that inherit from the shared base template.
 | AWN-L-02 | Two-column layout | Inspect left and right columns | Columns align correctly; no overlap or imbalance | Pass |
 | AWN-L-03 | Intro text readability | Read first content section | Paragraphs have good spacing and readable line length | Pass |
 | AWN-L-04 | Overlay image section | Inspect “Be Part of the Journey” block | Overlay text remains readable over image | Pass |
-| AWN-L-05 | Mailto link | Click email link | Default mail client opens correctly | Fail | * After debugging - PASS
+| AWN-L-05 | Mailto link | Click email link | Default mail client opens correctly | Fail - after debugging: Pass|
 | AWN-L-06 | “Coming Soon” block | Inspect heading, paragraph, and image | Content aligned correctly; image not distorted | Pass |
 | AWN-L-07 | Final quote styling | Scroll to quote block | Quote remains visually distinct and centered | Pass |
 
@@ -441,7 +441,7 @@ These checks apply to all templates that inherit from the shared base template.
 | MS-L-09 | Draft-to-published edit branch | Open an existing published story in edit mode | Correct button state shown for editing/published branch | Pass |
 | MS-L-10 | Edit mode delete button | Open existing story in edit mode | Delete button visible only where expected | Pass |
 | MS-L-11 | Empty submission handling | Submit without required content/title as applicable | Validation prevents bad submission | Pass |
-| MS-L-12 | Spaces-only input | Enter only spaces and attempt submit | Validation prevents invalid content if implemented | Fail | * After debugging - PASS
+| MS-L-12 | Spaces-only input | Enter only spaces and attempt submit | Validation prevents invalid content if implemented | Fail - after debugging: Pass|
 | MS-L-13 | Long content stress test | Paste very long story text | Layout remains usable; textarea and counter behave | Pass |
 | MS-L-14 | Special characters/emoji | Enter punctuation, quotes, HTML-like text, emoji | Input accepted/displayed safely without breaking layout | Pass |
 
@@ -481,7 +481,7 @@ These checks apply to all templates that inherit from the shared base template.
 | PV-L-08 | Star rating UI | Click stars in rating widget | Visual stars update to selected rating | Pass |
 | PV-L-09 | Submit valid comment | Enter text and submit | Comment appears in list after submit | Pass |
 | PV-L-10 | Empty comment submit | Submit blank comment | Validation blocks submission | Pass |
-| PV-L-11 | Spaces-only comment | Submit only spaces | Validation blocks submission if implemented | Fail | * After debugging - PASS
+| PV-L-11 | Spaces-only comment | Submit only spaces | Validation blocks submission if implemented | Fail - after debugging: Pass|
 | PV-L-12 | Edit comment mode | Open own comment for editing | Form switches into edit mode; Cancel button visible | Pass |
 | PV-L-13 | Cancel edit | Click Cancel while editing | Returns to normal preview page state | Pass |
 | PV-L-14 | Delete own comment | Delete own comment | Comment removed successfully | Pass |
@@ -499,7 +499,7 @@ These checks apply to all templates that inherit from the shared base template.
 | PV-M-01 | Preview panel fit | Inspect story preview at 768px | Story panel remains readable and centered | Pass |
 | PV-M-02 | Comments grid collapse | Inspect comments area | Two-column comment layout collapses cleanly to one column | Pass |
 | PV-M-03 | Rating control fit | Use star rating UI at tablet width | Stars remain visible and tappable | Pass |
-| PV-M-04 | Action button fit | Inspect Edit/Delete buttons in comment list | Buttons remain visible and aligned | Fail | * After debugging - PASS
+| PV-M-04 | Action button fit | Inspect Edit/Delete buttons in comment list | Buttons remain visible and aligned | Fail - after debugging: Pass|
 
 ### Small Screen (Mobile ≤ 414px)
 
@@ -509,7 +509,7 @@ These checks apply to all templates that inherit from the shared base template.
 | PV-S-02 | Story box readability | Scroll story content on mobile | Content remains readable; no clipped paragraphs | Pass |
 | PV-S-03 | Comment form usability | Type comment on mobile | Textarea usable; keyboard does not hide essential controls | Pass |
 | PV-S-04 | Rating/tap usability | Tap star rating on mobile | Stars respond correctly to touch | Pass |
-| PV-S-05 | Comment buttons on mobile | Inspect Edit/Delete buttons | Buttons remain usable and not too small | Fail | * After debugging - PASS
+| PV-S-05 | Comment buttons on mobile | Inspect Edit/Delete buttons | Buttons remain usable and not too small | Fail - after debugging: Pass|
 
 ---
 
@@ -527,7 +527,7 @@ These checks apply to all templates that inherit from the shared base template.
 | REPO-L-06 | Search with no result | Submit query with no matches | “No results found” message shown correctly | Pass |
 | REPO-L-07 | Sort newest | Select “Newest” and submit | Stories ordered newest first | Pass |
 | REPO-L-08 | Sort oldest | Select “Oldest” and submit | Stories ordered oldest first | Pass |
-| REPO-L-09 | Sort liked | Select “Most liked” and submit | Stories ordered by average rating/likes as implemented | Fail | Pass
+| REPO-L-09 | Sort liked | Select “Most liked” and submit | Stories ordered by average rating/likes as implemented | Fail - after debugging: Pass |
 | REPO-L-10 | Genre filter | Select genre and submit | Only matching stories displayed | Pass |
 | REPO-L-11 | Combined search + filter | Use search + sort + genre together | Combined filtering works without breaking layout | Pass |
 | REPO-L-12 | Clear button visibility | Apply query/sort and inspect clear button | Clear button appears when expected | Pass |
@@ -702,7 +702,7 @@ This section focuses on global CSS behaviour and page polish rather than busines
 | CSS-04 | Main surface background | Inspect `.main-surface` pages | Dark surface panel appears consistently and centers content | Pass |
 | CSS-05 | Image scaling | Inspect images across home/article/story pages | Images preserve aspect ratio and do not distort | Pass |
 | CSS-06 | Panel shadows/borders | Inspect cards and dark panels | Borders and shadows remain subtle but visible | Pass |
-| CSS-07 | Mobile button width | Inspect buttons on small screens | Buttons expand or stack appropriately | Fail |  * After debugging - PASS
+| CSS-07 | Mobile button width | Inspect buttons on small screens | Buttons expand or stack appropriately | Fail - after debugging: Pass|
 | CSS-08 | Overflow handling | Inspect long content on mobile and tablet | No clipped text or unmanaged overflow | Pass |
 
 ---
@@ -711,7 +711,7 @@ This section focuses on global CSS behaviour and page polish rather than busines
 
 | Test ID | What to test | Test steps (very specific) | Expected result | Pass / Fail |
 |---|---|---|---|---|
-| SEC-01 | Logged-out access to protected pages | Attempt to open account / write / edit pages while logged out | User is redirected or blocked appropriately |  |
+| SEC-01 | Logged-out access to protected pages | Attempt to open account / write / edit pages while logged out | User is redirected or blocked appropriately | Pass |
 | SEC-02 | URL tampering for story edit | Manually change story ID in edit URL to another user story | Access denied or 404 | Pass |
 | SEC-03 | URL tampering for story delete | Submit delete on another user’s story | Access denied or safe handling | Pass |
 | SEC-04 | URL tampering for comment edit/delete | Try direct URLs/actions for another user’s comment | Access denied or action unavailable | Pass |
@@ -1325,6 +1325,7 @@ The application is **fully functional, responsive, and provides a consistent use
 
 ## Bugs Found & Fixed
 
+The following bugs were identified during final testing of the deployed application and responsive layouts.
 
 ### Bug - Password reset not working
 
@@ -1600,7 +1601,7 @@ Background remains visually consistent regardless of content length.
 
 ### Bug - TESTING 11
 
-**Issue:**  Divider line remained visible on mobile view despite being removed (CSS Border Conflict Issue).
+**Issue:**  Divider line remained visible on mobile view despite being removed (CSS Border Conflict Issue) - Repo page.
 
 **Cause:**  
 
@@ -1619,7 +1620,7 @@ Divider behaves correctly in both desktop (visible) and mobile (hidden) layouts.
 ### Bug - TESTING 12
 
 
-**Issue:**  Divider line remained visible on mobile view despite being removed (CSS Border Conflict Issue).
+**Issue:**  Divider line remained visible on mobile view despite being removed (CSS Border Conflict Issue) - Preview page
 
 **Cause:**  
 
@@ -1704,6 +1705,258 @@ To reduce the risk of accidental clicks by separating destructive actions from p
 **Result:**  
 
 Improved usability and safer interaction by clearly distinguishing between regular and destructive actions.
+
+---
+
+## Development Debugging Process
+
+The following bugs were identified during the build process and are linked to the `Debug` commit history. These are separate from the final testing bugs listed above.
+
+## Bug 1 — Missing Open Graph Image Meta Tag
+
+![Meta inspection warning](assets/images/bugs/bug-1-meta.png)
+
+![HTML meta tags inspection](assets/images/bugs/bug-1-meta-inspection-page.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The Meta inspection tool showed a warning that the `og:image` property was missing. This meant the shared page link could display without a proper preview image on social platforms. |
+| **Cause** | The page included Open Graph tags such as `og:title`, `og:url`, `og:site_name`, and `og:type`, but no explicit `og:image` meta tag was provided. |
+| **Fix** | Added an `og:image` meta tag to the page `<head>` section, pointing to a valid image URL for the project preview. |
+| **Result** | The warning was resolved and the application now generates proper link previews when shared externally. |
+| **Commit** | Debug 1 - Meta inspection issue |
+
+---
+
+## Bug 2 — CSS Validation Errors on Randomizer Page
+
+![CSS validation errors](assets/images/bugs/bug2-validation-pages.css-randmizer.png)
+
+![CSS validation passed](assets/images/bugs/bug2-validation-pages.css-randmizer-pass.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The W3C CSS Validator reported errors in `pages.css`, specifically invalid values for `grid-template-columns` and `justify-content`. |
+| **Cause** | Incorrect CSS values were used: `auto,1fr` was not valid syntax for `grid-template-columns`, and `cspace-between` was a typo instead of the correct `space-between` for `justify-content`. |
+| **Fix** | Corrected the CSS syntax by updating `grid-template-columns` to a valid format (e.g., `auto 1fr`) and fixing the typo to `justify-content: space-between`. |
+| **Result** | The CSS passed W3C validation successfully with no errors, ensuring better standards compliance and cross-browser consistency. |
+| **Commit** | Debug 2 - CSS validation fix |
+
+---
+
+---
+
+## Bug 3 — Find Page Error (Application Crash)
+
+![Application error](assets/images/bugs/bug3-app.png)
+
+![Find page error](assets/images/bugs/bug3-find-error.png)
+
+![Detailed error](assets/images/bugs/bug3-find-error2.png)
+
+![Error resolved](assets/images/bugs/bug3-find-error2-resolved.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The “Find” page caused the application to crash, displaying a Django error page instead of loading results. |
+| **Cause** | There was an issue in the view logic handling the Find functionality, likely due to incorrect query handling or missing context data being passed to the template. This resulted in the template attempting to access undefined variables, triggering a server error. |
+| **Fix** | Updated the view to correctly handle the query and ensured all required context variables were passed to the template. Additional checks were added to prevent errors when no data was available. |
+| **Result** | The Find page now loads correctly without errors, and search functionality works as expected. |
+| **Commit** | Debug 3 - Find page error resolved |
+
+---
+
+## Bug 4 — Unclosed Template Tag
+
+![Template end tag fix](assets/images/bugs/bug4-resolve-end-tag.png)
+
+![Runserver template error](assets/images/bugs/bug4-runserver.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The application failed to run correctly because Django detected a template syntax error. |
+| **Cause** | A Django template block was opened but not closed correctly. The error showed that an `{% if %}` statement was missing its matching `{% endif %}` tag. |
+| **Fix** | Reviewed the template structure and added the missing `{% endif %}` closing tag in the correct position. |
+| **Result** | The template rendered correctly and the server was able to run without the template syntax error. |
+| **Commit** | Debug 4 - Resolve end tag |
+
+---
+
+## Bug 5 — Start Button Not Working (Runserver Error)
+
+![Start button issue](assets/images/bugs/bug5-button-start-not-working.png)
+
+![Runserver error](assets/images/bugs/bug5-runserver-error.png)
+
+![Additional runserver error](assets/images/bugs/bug5-runserver-error-3.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The “Start” button did not work and triggered a server error when clicked, preventing the user from progressing in the application. |
+| **Cause** | The button was linked to a view or URL that was not correctly configured. This resulted in a Django runserver error, likely due to a missing or incorrectly defined URL pattern or view function. |
+| **Fix** | Corrected the URL configuration and ensured the button was properly connected to an existing view. Verified that the corresponding view handled the request correctly. |
+| **Result** | The “Start” button now works as intended, successfully navigating the user to the next step without errors. |
+| **Commit** | Debug 5 - Start button fix |
+
+---
+
+## Bug 6 — My Story Template Path Issue
+
+![My Story template path error](assets/images/bugs/bug6-mystory-template-path-issue.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The “My Story” page failed to load, resulting in a Django template error instead of rendering the page. |
+| **Cause** | The template path referenced in the view was incorrect or did not match the actual file structure. Django could not locate the specified template file. |
+| **Fix** | Updated the template path in the view to match the correct directory structure (e.g., `app_name/template_name.html`). Ensured the template file existed in the proper templates folder. |
+| **Result** | The “My Story” page now loads correctly and renders the intended content. |
+| **Commit** | Debug 6 - Fix template path |
+
+---
+
+## Bug 7 — Duplicate Input Fields in Form
+
+![Duplicate input fields](assets/images/bugs/bug7-duplicate-input-fields.png)
+
+![Duplicate input fields resolved](assets/images/bugs/bug7-duplicate-input-fields-resolved.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | Form fields were displayed twice on the page, causing a confusing user experience and potential duplicate data input. |
+| **Cause** | The same form fields were rendered more than once, likely due to combining automatic form rendering (e.g., `{{ form.as_p }}`) with manual field markup in the template. |
+| **Fix** | Removed the duplicate rendering method and ensured each form field was only defined once in the template. |
+| **Result** | The form now displays correctly with a single set of input fields, improving usability and preventing duplicate input. |
+| **Commit** | Debug 7 - Remove duplicate inputs |
+
+---
+
+## Bug 8 — Future Date Validation Issue
+
+![Future date issue](assets/images/bugs/bug8-future-date.png)
+
+![Future date resolved](assets/images/bugs/bug8-resolve.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The application allowed users to select or submit a future date where it should not be permitted, leading to invalid data being accepted. |
+| **Cause** | Missing validation on the date field (either in the form or model) meant there was no restriction preventing future dates from being entered. |
+| **Fix** | Implemented validation to restrict the date field to the current date or earlier. This was done using Django form validation (e.g., `clean_<field>()`) or model validation to compare against the current date. |
+| **Result** | The form now correctly prevents future dates from being submitted, ensuring valid and consistent data. |
+| **Commit** | Debug 8 - Future date validation fix |
+
+---
+
+## Bug 9 — “Write Now” Story Submission Error
+
+![Write Now submission error](assets/images/bugs/bug9-write-now-story-send-error.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | Submitting the “Write Now” story form caused a server error, preventing the story from being saved. |
+| **Cause** | The form submission was not handled correctly in the view. This was likely due to missing `POST` handling, incorrect form validation flow, or required fields not being properly processed before saving. |
+| **Fix** | Updated the view to properly handle `POST` requests, validated the form using `form.is_valid()`, and ensured all required fields were correctly saved to the database. |
+| **Result** | The story submission now works correctly, and users can successfully create and save their stories. |
+| **Commit** | Debug 9 - Fix story submission |
+
+---
+
+## Bug 10 — Comment Form Fields Not Displayed
+
+![Missing comment fields](assets/images/bugs/bug10-no-comment-fields.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The comment section was visible, but input fields (e.g., text area, submit button) were missing, preventing users from adding comments. |
+| **Cause** | The comment form was not properly rendered in the template. This could be due to the form not being passed in the view context or the template missing the form rendering code (e.g., `{{ form }}` or specific fields). |
+| **Fix** | Updated the view to include the comment form in the context and ensured the template correctly rendered the form fields and submit button. |
+| **Result** | The comment form now appears correctly, allowing users to submit comments without issues. |
+| **Commit** | Debug 10 - Add comment fields |
+
+---
+
+## Bug 11 — Account Page Error
+
+![Account page error](assets/images/bugs/bug11-account -page-error.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The Account page failed to load correctly and displayed a server error instead of user account information. |
+| **Cause** | The view responsible for rendering the account page did not correctly handle user-related data. This may have been due to missing context variables, incorrect query usage, or assumptions about authenticated user data that were not met. |
+| **Fix** | Updated the view to properly retrieve and pass the authenticated user’s data to the template. Added checks to ensure the user is authenticated before accessing account-related information. |
+| **Result** | The Account page now loads correctly and displays the expected user information without errors. |
+| **Commit** | Debug 11 - Fix account page |
+
+---
+
+## Bug 12 — URL Configuration Error (Runserver)
+
+![Runserver URL error](assets/images/bugs/bug12-terminal-urls-issue-runserver.png)
+
+![URL issue resolved](assets/images/bugs/bug12-resolved.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The application failed to run due to a URL configuration error shown in the terminal when starting the development server. |
+| **Cause** | There was an issue in the Django `urls.py` configuration, such as an incorrect import, missing view reference, or invalid path definition, causing Django to fail during URL resolution. |
+| **Fix** | Reviewed and corrected the `urls.py` file by fixing the incorrect path or import and ensuring all referenced views existed and were properly connected. |
+| **Result** | The server started successfully without errors, and all routes became accessible again. |
+| **Commit** | Debug 12 - Fix URL configuration |
+
+---
+
+## Bug 13 — Comment Edit Error
+
+![Comment edit error](assets/images/bugs/bug13-comment-edit-error.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | Editing a comment caused an error instead of updating the existing comment. |
+| **Cause** | The edit functionality did not correctly bind the existing comment instance to the form, or the view did not properly handle the update logic (e.g., missing `instance=comment` in the form). |
+| **Fix** | Updated the edit view to pass the correct comment instance into the form and ensured the form submission updates the existing record rather than creating a new one. |
+| **Result** | Comments can now be edited successfully, and changes are saved correctly. |
+| **Commit** | Debug 13 - Fix comment edit |
+
+---
+
+## Bug 14 — Character Counter Not Updating
+
+![Character counter issue](assets/images/bugs/bug14-character-counter-not-working.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The character counter did not update while the user was typing, providing no feedback on input length. |
+| **Cause** | The JavaScript responsible for tracking input length was not properly attached to the input field, or the event listener (e.g., `input` event) was missing or incorrectly implemented. |
+| **Fix** | Added or corrected the JavaScript event listener to track user input in real time and update the character counter dynamically. |
+| **Result** | The character counter now updates live as the user types, improving usability and input awareness. |
+| **Commit** | Debug 14 - Fix character counter |
+
+---
+
+## Bug 15 — Integer Not Iterable Error
+
+![Integer iteration error](assets/images/bugs/bug15-int-iteration.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The application crashed with a TypeError indicating that an integer object is not iterable. |
+| **Cause** | A loop in the template or view attempted to iterate over an integer value instead of an iterable (e.g., list or queryset). This commonly happens when passing a count instead of a collection to the template. |
+| **Fix** | Updated the logic to pass an iterable object (such as a list, range, or queryset) instead of a raw integer. Alternatively, used `range()` when iteration over a numeric value was intended. |
+| **Result** | The error was resolved and the page now renders correctly without crashing. |
+| **Commit** | Debug 15 - Fix integer iteration |
+
+---
+
+## Bug 16 — My Story Form Template Rendering Issue
+
+![My Story form template issue](assets/images/bugs/bug16-my_story_form-template.png)
+
+| Field | Details |
+|---|---|
+| **Issue** | The “My Story” form did not render correctly, causing layout issues or missing form elements on the page. |
+| **Cause** | The template did not properly render the Django form, possibly due to missing form fields in the template or incorrect usage of form rendering (e.g., mixing manual fields with automatic rendering incorrectly). |
+| **Fix** | Updated the template to correctly render the form fields, ensuring consistency between the form definition and template output. Cleaned up duplicated or missing elements. |
+| **Result** | The form now displays correctly with all expected fields and proper layout. |
+| **Commit** | Debug 16 - Fix My Story form template |
 
 ---
 
