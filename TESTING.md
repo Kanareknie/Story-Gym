@@ -1327,6 +1327,11 @@ The application is **fully functional, responsive, and provides a consistent use
 
 The following bugs were identified during final testing of the deployed application and responsive layouts.
 
+All mobile testing screenshots regarding bugs, can be found in the folder below:
+
+[Mobile testing screenshots](assets/images/testing-phone/)
+
+
 ### Bug - Password reset not working
 
 **Issue:** Database connection changed after updating DATABASE_URL
