@@ -40,15 +40,15 @@
         </div>
         <div class="randomize-cards-container">
           <div class="randomize-card-button">
-            <p>Wrote your story now!</p>
             <a href="{% url 'write_now' %}" class="sg-btn">Write now</a>
+            <p>Wrote your story now!</p>
           </div>
           <div class="randomize-card-button">
-            <p>Feel unclucky? Try again! - Remember, you cannot come back! </p>
             <form method="post">
               {% csrf_token %}
               <button class="sg-btn" type="submit" name="generate_words">Draw again</button>
             </form>
+            <p>Feel unclucky? Try again! - Remember, you cannot come back! </p>
           </div>
         </div>
       </div>
